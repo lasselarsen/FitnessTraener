@@ -10,4 +10,6 @@ public class Nikolaj
     private String hallej;
     private String halleluja;
 
+    private String wbcwehkcwk;
+
 }
