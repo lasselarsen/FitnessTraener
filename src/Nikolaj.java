@@ -6,5 +6,7 @@ public class Nikolaj
     String Christian;
 
     private String hejsa;
+    private String Hallu;
+    private String hallej;
 
 }
