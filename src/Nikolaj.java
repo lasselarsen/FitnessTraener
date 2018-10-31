@@ -11,6 +11,5 @@ public class Nikolaj
     private String halleluja;
 
     private String wbcwehkcwk;
-    private String heyson;
 
 }
