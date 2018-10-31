@@ -5,6 +5,5 @@ public class Nikolaj
     String lasse;
     String Christian;
 
-    String hej;
 
 }
