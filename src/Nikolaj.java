@@ -1,5 +1,16 @@
 public class Nikolaj
 {
+    private String nikolajNo;
 
+    String lasse;
+    String Christian;
+
+    private String hejsa;
+    private String Hallu;
+    private String hallej;
+    private String halleluja;
+
+    private String wbcwehkcwk;
+    private String hejfwqbijbacj;
 
 }
