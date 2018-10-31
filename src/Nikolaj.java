@@ -6,5 +6,6 @@ public class Nikolaj
     String Christian;
 
     private String hejsa;
+    private String Hallu;
 
 }
