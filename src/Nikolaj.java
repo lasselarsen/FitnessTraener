@@ -1,2 +1,5 @@
-public class Nikolaj {
+public class Nikolaj
+{
+    private String nikolajNo;
+
 }
