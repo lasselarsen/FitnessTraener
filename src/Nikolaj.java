@@ -8,5 +8,6 @@ public class Nikolaj
     private String hejsa;
     private String Hallu;
     private String hallej;
+    private String halleluja;
 
 }
