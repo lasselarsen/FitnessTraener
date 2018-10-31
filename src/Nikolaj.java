@@ -4,4 +4,6 @@ public class Nikolaj
 
     String lasse;
 
+    String hej;
+
 }
