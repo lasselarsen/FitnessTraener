@@ -7,7 +7,7 @@ public class Traener
     private int cpr;
     private String adresse;
     private int mobil;
-    protected String hold;
+    private String hold;
     private String udd;
     private int erfaring;
     private double timer;

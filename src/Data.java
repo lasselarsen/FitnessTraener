@@ -45,6 +45,23 @@ public class Data
         traenere.add(nadia);
 
 
+        Hold stramOp = new Hold("Stram op");
+        anette.addHold(stramOp);
+        christi.addHold(stramOp);
+
+        Hold hit = new Hold("H.I.T.");
+        henning.addHold(hit);
+        nikolaj.addHold(hit);
+
+        Hold spinning = new Hold("Spinning");
+        brian.addHold(spinning);
+        nadia.addHold(spinning);
+
+        Hold crossfit = new Hold("Crossfit");
+        susanne.addHold(crossfit);
+        lasse.addHold(crossfit);
+
+
 
     }
 

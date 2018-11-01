@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Hold
 {
-    protected String hold;
+    private String holdNavn;
     private ArrayList<Traener> traenere;
 
     //Her oprettes constructor
@@ -22,7 +22,10 @@ public class Hold
     public void setTraenere(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
     //Metoder
-
+    public void addHold()
+    {
+        ..
+    }
 
 
 }
