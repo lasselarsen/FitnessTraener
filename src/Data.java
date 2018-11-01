@@ -1,3 +1,5 @@
+//Lavet af Nikolaj og Nadia
+
 import java.util.ArrayList;
 
 public class Data
@@ -31,6 +33,17 @@ public class Data
                                       24812080, "Stram op", "Personlig Traener", 4, 38, 7777);
         Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 1808980896, "Limfjordsvej 43",
                                       61602630, "Spinning", "Tidl. cykelrytter", 2, 39.5, 9999);
+
+        // Tilføjer traenerne til Arrylisten
+        traenere.add(henning);
+        traenere.add(anette);
+        traenere.add(brian);
+        traenere.add(susanne);
+        traenere.add(lasse);
+        traenere.add(nikolaj);
+        traenere.add(christi);
+        traenere.add(nadia);
+
 
 
     }

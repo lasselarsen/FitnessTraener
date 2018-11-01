@@ -1,8 +1,10 @@
+//Lavet af Nikolaj og Nadia
+
 import java.util.ArrayList;
 
 public class Hold
 {
-    private String hold;
+    protected String hold;
     private ArrayList<Traener> traenere;
 
     //Her oprettes constructor
