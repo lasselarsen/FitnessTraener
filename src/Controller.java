@@ -41,6 +41,18 @@ public class Controller
         System.out.print("\n Intast din mail: ");
         String mail = scanner.nextLine();
 
+        System.out.print("\n Intast dit CPR-nummer: ");
+        int cpr = scanner.nextInt();
+
+        System.out.print("\n Intast din adresse: ");
+
+        System.out.print("\n Intast dit mobil nr: ");
+
+        System.out.print("\n Intast din uddannelse: ");
+
+        System.out.print("\n Intast din erfaring: ");
+
+        System.out.print("\n Intast de aftale timer: ");
     }
 
     public void login()
