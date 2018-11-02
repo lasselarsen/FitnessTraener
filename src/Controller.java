@@ -15,17 +15,21 @@ public class Controller
     public void run()
     {
         int valg;
-        System.out.println("----------- Velkommen til MotionCBS ----------- \n \n");
-        System.out.println("Tast 1 - Opret ny træner \n Tast 2 - Log ind");
+        System.out.println("-----------------------------------------------");
+        System.out.println("----------- Velkommen til MotionCBS -----------");
+        System.out.println("-----------------------------------------------\n \n");
+        System.out.println("Tast 1 - Opret træner \n Tast 2 - Log ind \n Tast 3 - administrator");
         valg = scanner.nextInt();
 
         do {
             switch (valg)
             {
                 case 1: addTraener();
-                    break;
+                        break;
                 case 2: login();
-                    break;
+                        break;
+                //case 3: administratorMenu();
+                        // break;
                 default:System.out.print("Ugyldigt valg, prøv igen ");
             }
         } while (valg != 1 || valg != 2);
