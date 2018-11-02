@@ -45,16 +45,22 @@ public class Controller
         int cpr = scanner.nextInt();
 
         System.out.print("\n Intast din adresse: ");
+        String adr = scanner.nextLine();
 
         System.out.print("\n Intast dit mobil nr: ");
+        int mobil = scanner.nextInt();
 
         System.out.print("\n Intast din uddannelse: ");
+        String udd = scanner.nextLine();
 
         System.out.print("\n Intast din erfaring: ");
+        String erfaring = scanner.nextLine();
 
         System.out.print("\n Intast de aftale tantal timer pr. måned: ");
+        double timer = scanner.nextDouble();
 
         System.out.print("\n Intast ny pinkode: ");
+        int pinkode = scanner.nextInt();
 
         System.out.print("\n Vælg nu dit hold \n Tast 1 - Stram op \n Tast 2 - H.I.T. \n Tast 3 - Spinning \n Tast 4 - Crossfit ");
     }
