@@ -19,14 +19,16 @@ public class Controller
         System.out.println("Tast 1 - Opret ny træner \n Tast 2 - Log ind");
         valg = scanner.nextInt();
 
-        switch (valg)
-        {
-            case 1: addTraener();
+        do {
+            switch (valg)
+            {
+                case 1: addTraener();
                     break;
-            case 2: login();
+                case 2: login();
                     break;
-            default:System.out.print("Ugyldigt valg, prøv igen ");
-        }
+                default:System.out.print("Ugyldigt valg, prøv igen ");
+            }
+        } while (valg != 1 || valg != 2);
 
     }
 
