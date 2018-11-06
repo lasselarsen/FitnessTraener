@@ -24,7 +24,8 @@ public class Controller
         System.out.println("Tast 1 - Opret træner \n Tast 2 - Log ind træner \n Tast 3 - Log ind administrator");
         valg = scanner.nextInt();
 
-        do {
+        do
+        {
             switch (valg)
             {
                 case 1: addTraener();
@@ -47,7 +48,7 @@ public class Controller
         System.out.print("\n Intast din mail: ");
         String mail = scanner.nextLine();
 
-        System.out.print("\n Intast dit CPR-nummer: ");
+        System.out.print("\n Intast dit CPR-nr: ");
         int cpr = scanner.nextInt();
 
         System.out.print("\n Intast din adresse: ");
@@ -62,7 +63,7 @@ public class Controller
         System.out.print("\n Intast din erfaring: ");
         String erfaring = scanner.nextLine();
 
-        System.out.print("\n Intast de aftale tantal timer pr. måned: ");
+        System.out.print("\n Intast de aftale antal timer pr. måned: ");
         double timer = scanner.nextDouble();
 
         System.out.print("\n Intast ny pinkode: ");
@@ -161,7 +162,32 @@ public class Controller
 
     private void AendreOplysninger()
     {
+        System.out.println("****************************************");
+        System.out.println("*                                      *");
+        System.out.println("*       AENDRE DINE OPLYSNINGER        *");
+        System.out.println("*                                      *");
+        System.out.println("****************************************\n\n");
 
+        System.out.println("Hvilke oplysninger oensker du at aendre?");
+        System.out.println("Tast 1 - Navn");
+        System.out.println("Tast 2 - Mail");
+        System.out.println("Tast 3 - CPR-nr");
+        System.out.println("Tast 4 - Adresse");
+        System.out.println("Tast 5 - Mobil nr");
+        System.out.println("Tast 6 - Uddannelse");
+        System.out.println("Tast 7 - Erfaring");
+        System.out.println("Tast 8 - Aftalte antal timer pr. måned");
+        System.out.println("Tast 9 - Pinkode");
+        System.out.println("Tast 10 - Hold");
+        int svar = scanner.nextInt();
+
+        do
+        {
+            switch (aendr)
+            {
+
+            }
+        }
     }
 
     private void visTraenere()
