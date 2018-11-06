@@ -8,6 +8,7 @@ public class Controller
     private Traener nuTraenere;
 
     AdmController adm = new AdmController();
+    Traener test = new Traener();
 
     public Controller()
     {
@@ -173,34 +174,34 @@ public class Controller
             switch (svar)
             {
                 case 1:
-                    hej
+                    test.setNavn();
                     break;
                 case 2:
-                    hej
+                    test.setMail();
                     break;
                 case 3:
-                    hej
+                    test.setCpr();
                     break;
                 case 4:
-                    hej
+                    test.setAdresse();
                     break;
                 case 5:
-                    hej
+                    test.setMobil();
                     break;
                 case 6:
-                    hej
+                    test.setUdd();
                     break;
                 case 7:
-                    hej
+                    test.setErfaring();
                     break;
                 case 8:
-                    hej
+                    test.setTimer();
                     break;
                 case 9:
-                    hej
+                    test.setPinkode();
                     break;
                 case 10:
-                    hej
+                    test.setHold();
                     break;
 
 
