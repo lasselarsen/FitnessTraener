@@ -84,11 +84,6 @@ public class Controller
 
         }*/
 
-
-
-
-
-
         System.out.print("Du er nu oprettet og vil blive godkendt hurtigst muligt");
 
     }
@@ -135,7 +130,7 @@ public class Controller
                                 System.out.println("Ugyldigt valg.");
                         }
                     }
-                while (nuTraenere != null); // execute while user is still logged in (the case until the user press 6 to log out). If user chooses to log out (currentStudent = null), jump out of the do-while loop.
+                while (nuTraenere != null);
             } else {
                 System.out.println("Forkerte oplysninger.. Prøv igen!");
             }
