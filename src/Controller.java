@@ -185,12 +185,10 @@ public class Controller
 
     private void printMenu() {
         System.out.println("\nDu har nu følgende valgmuligheder: \n");
-        System.out.println("1) Mine bøger");
-        System.out.println("2) Tilføj ny bog");
-        System.out.println("3) Slet en bog");
-        System.out.println("4) Sælg en bog");
-        System.out.println("5) Køb en bog");
-        System.out.println("6) Log ud");
+        System.out.println("1) Ændre dine oplysninger");
+        System.out.println("2) Vis trænere kategoriseret efter holdtype");
+        System.out.println("3) Log ud");
+
     }
 
     private void listOfBooks() {
