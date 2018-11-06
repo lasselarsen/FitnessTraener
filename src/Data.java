@@ -18,26 +18,24 @@ public class Data
     public void generateData()
     {
 
-        // Opretter en Array med hold
-        String[] hold=new String[]{"Stram op", "H.I.T.", "Spinning", "Crossfit"};
 
         // Opretter traenere
         Traener henning = new Traener("Henning Andersen", "h.a@gmail.com", 1112700697, "Stengade 13",
-                                      33334444, "Fysioterapeut", 12, 10, 1234, hold[0]);
+                                      33334444, "Fysioterapeut", 12, 10, 1234, "Stram op");
         Traener anette = new Traener( "Anette Simonsen", "a.s@gmail.com", 2110850686, "Stengade 15",
-                                      44443333, "Personlig Traener", 5, 12, 1111, hold[0]);
+                                      44443333, "Personlig Traener", 5, 12, 1111, "Stram op");
         Traener brian = new Traener(  "Brian Jensen", "b.j@gmail.com", 2108900687, "Husgade 15",
-                                      88888888, "Personlig Traener", 5, 20, 2222, hold[1]);
+                                      88888888, "Personlig Traener", 5, 20, 2222, "Crossfit");
         Traener susanne = new Traener("Susanne Nielsen", "s.n@gmail.com", 1706850896, "Murvej 5",
-                                      12345678, "Crossfit level one", 6, 32, 3333, hold[1]);
+                                      12345678, "Crossfit level one", 6, 32, 3333, "Crossfit");
         Traener lasse = new Traener(  "Lasse Larsen", "l.l@gmail.com", 1903970497, "Danshojvej 1",
-                                      22909816, "Crossfit level two", 2, 37, 4444, hold[2]);
+                                      22909816, "Crossfit level two", 2, 37, 4444, "Spinning");
         Traener nikolaj = new Traener("Nikolaj Olsen", "n.o@gmail.com", 1310970897, "Broendkaervej 15",
-                                      20463633, "Fysioterapeut", 3, 38, 8888, hold[2]);
+                                      20463633, "Fysioterapeut", 3, 38, 8888, "Spinning");
         Traener christi = new Traener("Christian Adrian", "c.a@gmail.com", 1208970887, "Hyldebjergallé 50",
-                                      24812080, "Personlig Traener", 4, 38, 7777, hold[3]);
+                                      24812080, "Personlig Traener", 4, 38, 7777, "HIT");
         Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 1808980896, "Limfjordsvej 43",
-                                      61602630, "Tidl. cykelrytter", 2, 39.5, 9999, hold[3]);
+                                      61602630, "Tidl. cykelrytter", 2, 39.5, 9999, "HIT");
 
         // Tilføjer traenerne til Arrylisten
         traenere.add(henning);

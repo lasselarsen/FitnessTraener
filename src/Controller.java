@@ -69,21 +69,8 @@ public class Controller
         System.out.print("\n Intast ny pinkode: ");
         int pinkode = scanner.nextInt();
 
-        System.out.print("\n Vælg nu dit hold \n Tast 1 - Stram op \n Tast 2 - H.I.T. \n Tast 3 - Spinning \n Tast 4 - Crossfit ");
-        int hold = scanner.nextInt();
-
-        /* switch (hold) {
-            case 1: hold[0];
-                    break;
-            case 2: hold[1];
-                    break;
-            case 3: hold[2];
-                    break;
-            case 4: hold[3];
-                    break;
-            default: system.out.print("Du har tastet forkert, prøv venligst igen");
-
-        }*/
+        System.out.print("\n Vælg nu dit hold \n Stram op \n HIT \n Spinning \n Crossfit ");
+        String hold = scanner.nextLine();
 
         System.out.print("Du er nu oprettet og vil blive godkendt hurtigst muligt");
 
