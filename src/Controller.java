@@ -159,16 +159,15 @@ public class Controller
 
     }
 
-    private void visTraenere()
-    {
-
-    }
-
     private void AendreOplysninger()
     {
 
     }
 
+    private void visTraenere()
+    {
+
+    }
 
     private void logOut() {
         nuTraenere = null; // nullifying the currentStudent object resets the login args / values of the currentStudent object.
