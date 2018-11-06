@@ -21,7 +21,7 @@ public class Controller
         System.out.println("-----------------------------------------------");
         System.out.println("----------- Velkommen til MotionCBS -----------");
         System.out.println("-----------------------------------------------\n \n");
-        System.out.println("Tast 1 - Opret træner \n Tast 2 - Log ind træner \n Tast 3 - Log ind administrator");
+        System.out.println("Tast 1 - Opret traener \n Tast 2 - Log ind traener \n Tast 3 - Log ind administrator");
         valg = scanner.nextInt();
 
         do
@@ -34,7 +34,7 @@ public class Controller
                         break;
                 case 3: adm();
                         break;
-                default:System.out.print("Ugyldigt valg, prøv igen ");
+                default:System.out.print("Ugyldigt valg, proev igen ");
             }
         } while (valg > 3 && valg < 1);
     }
@@ -63,7 +63,7 @@ public class Controller
         System.out.print("\n Intast din erfaring: ");
         String erfaring = scanner.nextLine();
 
-        System.out.print("\n Intast de aftale antal timer pr. måned: ");
+        System.out.print("\n Intast de aftale antal timer pr. maaned: ");
         double timer = scanner.nextDouble();
 
         System.out.print("\n Intast ny pinkode: ");
@@ -176,15 +176,47 @@ public class Controller
         System.out.println("Tast 5 - Mobil nr");
         System.out.println("Tast 6 - Uddannelse");
         System.out.println("Tast 7 - Erfaring");
-        System.out.println("Tast 8 - Aftalte antal timer pr. måned");
+        System.out.println("Tast 8 - Aftalte antal timer pr. maaned");
         System.out.println("Tast 9 - Pinkode");
         System.out.println("Tast 10 - Hold");
         int svar = scanner.nextInt();
 
         do
         {
-            switch (aendr)
+            switch (svar)
             {
+                case 1:
+                    hej
+                    break;
+                case 2:
+                    hej
+                    break;
+                case 3:
+                    hej
+                    break;
+                case 4:
+                    hej
+                    break;
+                case 5:
+                    hej
+                    break;
+                case 6:
+                    hej
+                    break;
+                case 7:
+                    hej
+                    break;
+                case 8:
+                    hej
+                    break;
+                case 9:
+                    hej
+                    break;
+                case 10:
+                    hej
+                    break;
+
+
 
             }
         }
