@@ -21,7 +21,7 @@ public class Controller
         System.out.println("-----------------------------------------------");
         System.out.println("----------- Velkommen til MotionCBS -----------");
         System.out.println("-----------------------------------------------\n \n");
-        System.out.println("Tast 1 - Opret træner \n Tast 2 - Log ind \n Tast 3 - administrator");
+        System.out.println("Tast 1 - Opret træner \n Tast 2 - Log ind træner \n Tast 3 - Log ind administrator");
         valg = scanner.nextInt();
 
         do {
