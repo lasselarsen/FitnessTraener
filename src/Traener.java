@@ -1,5 +1,9 @@
 // Lavet af Nadia og Nikolaj
 
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
+
+import java.util.ArrayList;
+
 public class Traener
 {
     private String navn;
@@ -7,25 +11,25 @@ public class Traener
     private int cpr;
     private String adresse;
     private int mobil;
-    protected String hold;
     private String udd;
     private int erfaring;
     private double timer;
     private int pinkode;
+    private String hold;
 
     //Her oprettes en constructor
-    public Traener(String navn, String mail, int cpr, String adresse, int mobil, String hold, String udd, int erfaring, double timer, int pinkode)
+    public Traener(String navn, String mail, int cpr, String adresse, int mobil, String udd, int erfaring, double timer, int pinkode, String hold)
     {
         this.navn = navn;
         this.mail = mail;
         this.cpr=cpr;
         this.adresse = adresse;
         this.mobil = mobil;
-        this.hold = hold;
         this.udd = udd;
         this.erfaring = erfaring;
         this.timer = timer;
         this.pinkode = pinkode;
+        this.hold = hold;
     }
 
     //Der oprettes get og set metoder
@@ -60,8 +64,6 @@ public class Traener
     public void setPinkode(int pinkode) {this.pinkode = pinkode;}
 
     //Metoder
-    public void addTraener()
-    {
-        ...
-    }
+
+
 }
