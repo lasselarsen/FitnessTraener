@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Data
 {
     private ArrayList<Traener> traenere;
+    private ArrayList<Adm> administratore;
 
     // Her oprettes en konstruktor
     public Data()
@@ -13,12 +14,14 @@ public class Data
         this.traenere = traenere;
     }
 
-    //Her oprettes eksisterende traenere i systemet og tildelt dem et hold
+    //Her oprettes eksisterende traenere i systemet og tildeles et hold
     public void generateData()
     {
 
+        // Opretter en Array med hold
         String[] hold=new String[]{"Stram op", "H.I.T.", "Spinning", "Crossfit"};
 
+        // Opretter traenere
         Traener henning = new Traener("Henning Andersen", "h.a@gmail.com", 1112700697, "Stengade 13",
                                       33334444, "Fysioterapeut", 12, 10, 1234, hold[0]);
         Traener anette = new Traener( "Anette Simonsen", "a.s@gmail.com", 2110850686, "Stengade 15",
@@ -45,6 +48,12 @@ public class Data
         traenere.add(nikolaj);
         traenere.add(christi);
         traenere.add(nadia);
+
+        // Opretter en administrator
+        Adm administrator = new Adm(1111, 2222, "administrator");
+
+        // Tilføj administrator til Arrylisten
+        administratore.add(administrator);
     }
 
 
@@ -60,6 +69,8 @@ public class Data
     public ArrayList<Traener> getTraenere() {return traenere;}
     public void setTraenere(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
+    public ArrayList<Adm> getAdministratore() {return administratore;}
+    public void setAdministratore(ArrayList<Adm> administratore) {this.administratore = administratore;}
 
     //Metoder
     public void addTraener(ArrayList<Traener> traenere) {this.traenere = traenere;}
