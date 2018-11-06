@@ -1,10 +1,13 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Controller
 {
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
+
+    AdmController adm = new AdmController();
 
     public Controller()
     {
@@ -28,11 +31,11 @@ public class Controller
                         break;
                 case 2: login();
                         break;
-                //case 3: administratorMenu();
-                        // break;
+                case 3: adm();
+                        break;
                 default:System.out.print("Ugyldigt valg, prøv igen ");
             }
-        } while (valg != 1 || valg != 2);
+        } while ((valg != 1) || (valg != 2));
 
     }
 

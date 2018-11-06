@@ -14,7 +14,7 @@ public class Data
     }
 
     //Her oprettes eksisterende traenere i systemet og tildelt dem et hold
-    private void generateData()
+    public void generateData()
     {
 
         String[] hold=new String[]{"Stram op", "H.I.T.", "Spinning", "Crossfit"};

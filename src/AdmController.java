@@ -2,7 +2,6 @@ public class AdmController
 {
 
 
-
-    // public void administratorMenu(){}
+    public void administratorMenu(){}
 
 }
