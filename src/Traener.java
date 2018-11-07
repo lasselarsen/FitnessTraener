@@ -15,10 +15,11 @@ public class Traener
     private int erfaring;
     private double timer;
     private int pinkode;
-    private String hold;
+    private ArrayList<Hold> holdene;
 
     //Her oprettes en constructor
-    public Traener(String navn, String mail, int cpr, String adresse, int mobil, String udd, int erfaring, double timer, int pinkode, String hold)
+    public Traener(String navn, String mail, int cpr, String adresse, int mobil,
+                   String udd, int erfaring, double timer, int pinkode)
     {
         this.navn = navn;
         this.mail = mail;
@@ -29,7 +30,7 @@ public class Traener
         this.erfaring = erfaring;
         this.timer = timer;
         this.pinkode = pinkode;
-        this.hold = hold;
+        this.holdene = new ArrayList<>();
     }
 
     //Der oprettes get og set metoder
@@ -48,9 +49,6 @@ public class Traener
     public int getMobil() {return mobil;}
     public void setMobil(int mobil) {this.mobil = mobil;}
 
-    public String getHold() {return hold;}
-    public void setHold(String hold) {this.hold = hold;}
-
     public String getUdd() {return udd;}
     public void setUdd(String udd) {this.udd = udd;}
 
@@ -63,7 +61,8 @@ public class Traener
     public int getPinkode() {return pinkode;}
     public void setPinkode(int pinkode) {this.pinkode = pinkode;}
 
-    //Metoder
+    public ArrayList<Hold> getHold () {return holdene;}
+    public void setHold(ArrayList<Hold> hold) {this.holdene = hold;}
 
-
+    public void addHold(Hold hold) {holdene.add(hold);}
 }

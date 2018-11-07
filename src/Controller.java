@@ -174,7 +174,7 @@ public class Controller
             switch (svar)
             {
                 case 1:
-                    test.setNavn();
+                    test.setNavn(String);
                     break;
                 case 2:
                     test.setMail();
