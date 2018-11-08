@@ -22,7 +22,7 @@ public class Controller
         System.out.println("-----------------------------------------------");
         System.out.println("----------- Velkommen til MotionCBS -----------");
         System.out.println("-----------------------------------------------\n \n");
-        System.out.println("Tast 1 - Opret traener \n Tast 2 - Log ind traener \n Tast 3 - Log ind administrator");
+        System.out.println("Tast 1 - Opret traener \n Tast 2 - Log ind traener \n Tast 3 - Log ind administrator \n Tast 4 - Afslut program" );
         valg = scanner.nextInt();
 
         do
@@ -35,10 +35,14 @@ public class Controller
                         break;
                 case 3: adm();
                         break;
+                case 4: afslut();
+                        break;
                 default:System.out.print("Ugyldigt valg, proev igen ");
             }
-        } while (valg > 3 && valg < 1);
+        } while (valg > 4 && valg < 1);
     }
+
+    private void adm() { }
 
 
     public void addTraener()
@@ -62,7 +66,7 @@ public class Controller
         String udd = scanner.nextLine();
 
         System.out.print("\n Intast din erfaring: ");
-        String erfaring = scanner.nextLine();
+        int erfaring = scanner.nextInt();
 
         System.out.print("\n Intast de aftale antal timer pr. maaned: ");
         double timer = scanner.nextDouble();
@@ -70,12 +74,91 @@ public class Controller
         System.out.print("\n Intast ny pinkode: ");
         int pinkode = scanner.nextInt();
 
-        System.out.print("\n Vælg nu dit hold \n Stram op \n HIT \n Spinning \n Crossfit ");
-        String hold = scanner.nextLine();
+        //printer holdmulighederne ud
+        int traenereErOprettet = 0;
 
-        System.out.print("Du er nu oprettet og vil blive godkendt hurtigst muligt");
+        do {
+            System.out.print("\n Valg det hold du skal vaere traener for: ");
+            int i = 0;
 
+            System.out.printf("\n %-10s %-40s %-30s %-20s\n", "Nr", "Navn", "Hold beskrivelse");
+            for (Hold hold : db.getHoldene()) {
+                System.out.printf("%-10s %-40s %-30s %-20s\n", i + 1, db.getHoldene().get(i).getHoldNavn(),
+                        db.getHoldene().get(i).getKortBeskrivelse());
+                i++;
+            }
+            System.out.print("\nIntast nummeret på det hold du skal vaere traener på: ");
+            int svaret = scanner.nextInt();
+
+                switch (svaret)
+                {
+                    case 1:
+                        opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    case 2:
+                        opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    case 3:
+                        opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    case 4:
+                        opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    default:
+                        System.out.print("Ugyldigt valg, prøv igen");
+                        traenereErOprettet = 0;
+                }
+            } while (traenereErOprettet == 0);
     }
+
+    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode)
+    {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
+        db.getTraenere().get(db.getTraenere().size()-1).addHold(db.getHoldene().get(0));
+
+        //Tilfoejer traenere til hold Arrylisten
+        db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size()-1));
+
+        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være traner hos os!");
+    }
+
+    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode)
+    {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
+        db.getTraenere().get(db.getTraenere().size()-1).addHold(db.getHoldene().get(1));
+
+        //Tilfoejer traenere til hold Arrylisten
+        db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size()-1));
+
+        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Stram op og vi er glade for, at du vil være traner hos os!");
+    }
+
+    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode)
+    {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
+        db.getTraenere().get(db.getTraenere().size()-1).addHold(db.getHoldene().get(2));
+
+        //Tilfoejer traenere til hold Arrylisten
+        db.getHoldene().get(2).addTraener(db.getTraenere().get(db.getTraenere().size()-1));
+
+        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!");
+    }
+
+    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode)
+    {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
+        db.getTraenere().get(db.getTraenere().size()-1).addHold(db.getHoldene().get(3));
+
+        //Tilfoejer traenere til hold Arrylisten
+        db.getHoldene().get(3).addTraener(db.getTraenere().get(db.getTraenere().size()-1));
+
+        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Crossfit og vi er glade for, at du vil være traner hos os!");
+    }
+
 
 
     public void login()
@@ -207,7 +290,7 @@ public class Controller
 
 
             }
-        }
+        } while ()
     }
 
     private void visTraenere()
@@ -216,9 +299,16 @@ public class Controller
     }
 
     private void logOut() {
-        nuTraenere = null; // nullifying the currentStudent object resets the login args / values of the currentStudent object.
-        System.out.println("\nDu er nu logget ud... Viderestiller til login.");
+        nuTraenere = null;
+        System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
+
+
+    private void afslut()
+    {
+
+    }
+
 
 }
 

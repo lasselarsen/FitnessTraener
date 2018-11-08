@@ -58,22 +58,34 @@ public class Data
         //Oprettelse af de 4 hold
         Hold stramOp = new Hold("Stram op","Dette hold er for dig, der elsker at loefte vaegte");
         Hold hit = new Hold("H.I.T.", "Dette hold er for dig, der elsker at have pulsen oppe");
+        Hold spinning = new Hold("Spinning", "Dette hold er for dig, der elsker at cykle");
+        Hold crossfit = new Hold("Crossfit", "Dette hold er for dig, der elsker motion ");
 
         //Hold bliver tilføjet Arrylisten
         holdene.add(stramOp);
         holdene.add(hit);
+        holdene.add(spinning);
+        holdene.add(crossfit);
 
         //Traenerne for tildelt et hold
         henning.addHold(stramOp);
         anette.addHold(stramOp);
         brian.addHold(hit);
         susanne.addHold(hit);
+        lasse.addHold(spinning);
+        nikolaj.addHold(spinning);
+        christi.addHold(crossfit);
+        nadia.addHold(crossfit);
 
         //Holdene for tildelt traenere
         stramOp.addTraener(henning);
         stramOp.addTraener(anette);
         hit.addTraener(brian);
         hit.addTraener(susanne);
+        spinning.addTraener(lasse);
+        spinning.addTraener(nikolaj);
+        crossfit.addTraener(christi);
+        crossfit.addTraener(nadia);
     }
 
 
