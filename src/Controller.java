@@ -8,7 +8,7 @@ public class Controller
     private Traener nuTraenere;
 
     AdmController adm = new AdmController();
-    Traener test = new Traener();
+     //Traener test = new Traener();
 
     public Controller()
     {
@@ -81,9 +81,9 @@ public class Controller
             System.out.print("\n Valg det hold du skal vaere traener for: ");
             int i = 0;
 
-            System.out.printf("\n %-10s %-40s %-30s %-20s\n", "Nr", "Navn", "Hold beskrivelse");
+            System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Hold beskrivelse");
             for (Hold hold : db.getHoldene()) {
-                System.out.printf("%-10s %-40s %-30s %-20s\n", i + 1, db.getHoldene().get(i).getHoldNavn(),
+                System.out.printf("%-10s %-40s %-30s\n", i + 1, db.getHoldene().get(i).getHoldNavn(),
                         db.getHoldene().get(i).getKortBeskrivelse());
                 i++;
             }
@@ -252,12 +252,12 @@ public class Controller
         System.out.println("Tast 10 - Hold");
         int svar = scanner.nextInt();
 
-        do
+        /* do
         {
             switch (svar)
             {
                 case 1:
-                    test.setNavn(String);
+                    test.setNavn();
                     break;
                 case 2:
                     test.setMail();
@@ -290,7 +290,7 @@ public class Controller
 
 
             }
-        } while ()
+        } while () */
     }
 
     private void visTraenere()
