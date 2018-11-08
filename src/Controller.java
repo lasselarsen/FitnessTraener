@@ -78,11 +78,12 @@ public class Controller
         int traenereErOprettet = 0;
 
         do {
-            System.out.print("\n Valg det hold du skal vaere traener for: ");
-            int i = 0;
+            System.out.print("\n Vaelg det hold du skal vaere traener paa: ");
 
-            System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Hold beskrivelse");
-            for (Hold hold : db.getHoldene()) {
+            int i = 0;
+            System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Beskrivelse");
+            for (Hold hold : db.getHoldene())
+            {
                 System.out.printf("%-10s %-40s %-30s\n", i + 1, db.getHoldene().get(i).getHoldNavn(),
                         db.getHoldene().get(i).getKortBeskrivelse());
                 i++;
@@ -109,7 +110,7 @@ public class Controller
                         traenereErOprettet = 1;
                         break;
                     default:
-                        System.out.print("Ugyldigt valg, prøv igen");
+                        System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
                         traenereErOprettet = 0;
                 }
             } while (traenereErOprettet == 0);
