@@ -47,10 +47,11 @@ public class Controller
 
     public void addTraener()
     {
-        System.out.print("\n Intast dit fulde navn: ");
+        System.out.println("\n Intast dit fulde navn: ");
         String navn = scanner.nextLine();
+        scanner.nextLine();
 
-        System.out.print("\n Intast din mail: ");
+        System.out.println("\n Intast din mail: ");
         String mail = scanner.nextLine();
 
         System.out.print("\n Intast dit CPR-nr: ");
@@ -58,14 +59,16 @@ public class Controller
 
         System.out.print("\n Intast din adresse: ");
         String adr = scanner.nextLine();
+        scanner.nextLine();
 
         System.out.print("\n Intast dit mobil nr: ");
         int mobil = scanner.nextInt();
 
         System.out.print("\n Intast din uddannelse: ");
         String udd = scanner.nextLine();
+        scanner.nextLine();
 
-        System.out.print("\n Intast din erfaring: ");
+        System.out.print("\n Intast din erfaring i år: ");
         int erfaring = scanner.nextInt();
 
         System.out.print("\n Intast de aftale antal timer pr. maaned: ");
