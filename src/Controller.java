@@ -248,6 +248,7 @@ public class Controller
         System.out.println("Tast 8 - Aftalte antal timer pr. maaned");
         System.out.println("Tast 9 - Pinkode");
         System.out.println("Tast 10 - Hold");
+        System.out.println("Tast 11 - Tilbage til menu");
         int svar = scanner.nextInt();
 
          do
@@ -304,6 +305,10 @@ public class Controller
                     ArrayList<Hold> svarHold = scanner.();
                     test.setHold(svarHold);
                     break;*/
+                case 11:
+                    printMenu();
+                default:
+                    System.out.println("Du har indtastet forkert, prøv igen.");
 
 
 
