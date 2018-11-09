@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdmController
@@ -9,7 +10,7 @@ public class AdmController
 
     public AdmController()
     {
-       this.db = db;
+       this.db = new Data();
        this.scanner = new Scanner(System.in);
     }
 
@@ -104,9 +105,21 @@ public class AdmController
 
     }
 
+    private void TraenerListe()
+    {
+        System.out.printf("%-10s %-40s %-30s %-20s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
+                "Nr.", "Navn:", "Mail:", "CPR:", "Adresse:", "Mobil:", "Uddannelse:",
+                "Erfaring:", "Timer:", "Pinkoder:", "Hold");
+        for (Traener traener: db.getTraenere())
+        {
+            System.out.println(traener);
+        }
+    }
+
+
     private void AendreOplysninger()
     {
-
+        TraenerListe();
     }
 
     private void GodkendTraener()

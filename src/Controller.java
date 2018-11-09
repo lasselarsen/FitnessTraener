@@ -12,7 +12,7 @@ public class Controller
 
     public Controller()
     {
-        this.db = db;
+        this.db = new Data();
         this.scanner= new Scanner(System.in);
     }
 
@@ -294,11 +294,11 @@ public class Controller
         } while () */
     }
 
-    private void visTraenere(ArrayList<Traener> ArrayList)
+    private void visTraenere()
     {
         int i = 1;
         System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold");
-        for (Traener traenere: ArrayList)
+        for (Traener traenere: db.getTraenere())
         {
              System.out.printf("%-10s %-40s %-30s\n", i, traenere.getNavn(), traenere.getHold());
              i++;
