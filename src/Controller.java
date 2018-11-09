@@ -39,7 +39,7 @@ public class Controller
                         break;
                 default:System.out.print("Ugyldigt valg, proev igen ");
             }
-        } while (valg > 4 && valg < 1);
+        } while (afslut());
     }
 
     private void adm() { }
@@ -313,7 +313,7 @@ public class Controller
 
 
             }
-        } while ()
+        } while (svar!=11);
     }
 
     private void visTraenere()
@@ -333,9 +333,10 @@ public class Controller
     }
 
 
-    private void afslut()
+    private boolean afslut()
     {
 
+        return false;
     }
 
 
