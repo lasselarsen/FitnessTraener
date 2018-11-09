@@ -8,7 +8,7 @@ public class Controller
     private Traener nuTraenere;
 
     AdmController adm = new AdmController();
-     //Traener test = new Traener();
+     Traener test = new Traener();
 
     public Controller()
     {
@@ -256,45 +256,65 @@ public class Controller
         System.out.println("Tast 10 - Hold");
         int svar = scanner.nextInt();
 
-        /* do
+         do
         {
             switch (svar)
             {
                 case 1:
-                    test.setNavn();
+                    System.out.println("Indtast dit nye navn: ");
+                    String svarNavn = scanner.nextLine();
+                    test.setNavn(svarNavn);
                     break;
                 case 2:
-                    test.setMail();
+                    System.out.println("Indtast din nye mail: ");
+                    String svarMail = scanner.nextLine();
+                    test.setMail(svarMail);
                     break;
                 case 3:
-                    test.setCpr();
+                    System.out.println("Indtast dit nye CPR: ");
+                    int svarCpr = scanner.nextInt();
+                    test.setCpr(svarCpr);
                     break;
                 case 4:
-                    test.setAdresse();
+                    System.out.println("Indtast din nye adresse: ");
+                    String svarAdr = scanner.nextLine();
+                    test.setAdresse(svarAdr);
                     break;
                 case 5:
-                    test.setMobil();
+                    System.out.println("Indtast dit nye mobilnummer: ");
+                    int svarMobil = scanner.nextInt();
+                    test.setMobil(svarMobil);
                     break;
                 case 6:
-                    test.setUdd();
+                    System.out.println("Indtast nye oplysninger om uddannelse: ");
+                    String svarUdd = scanner.nextLine();
+                    test.setUdd(svarUdd);
                     break;
                 case 7:
-                    test.setErfaring();
+                    System.out.println("Indtast ny erfaring i antal år: ");
+                    int svarErf = scanner.nextInt();
+                    test.setErfaring(svarErf);
                     break;
                 case 8:
-                    test.setTimer();
+                    System.out.println("Indtast nye oplysninger om antal timer: ");
+                    int svarTimer = scanner.nextInt();
+                    test.setTimer(svarTimer);
                     break;
                 case 9:
-                    test.setPinkode();
+                    System.out.println("Indtast ny pinkode: ");
+                    int svarPin = scanner.nextInt();
+                    test.setPinkode(svarPin);
                     break;
-                case 10:
-                    test.setHold();
-                    break;
+                /*case 10:
+                    System.out.println("Tast 1");
+                    ArrayList<Hold> svarHold = scanner.();
+                    test.setHold(svarHold);
+                    break;*/
 
 
 
             }
-        } while () */
+        } while ()
     }
 
     private void visTraenere()
