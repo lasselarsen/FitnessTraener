@@ -149,7 +149,13 @@ public class AdmController
 
     private void visTraenere()
     {
-
+        int i = 1;
+        System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold");
+        for (Traener traenere: db.getTraenere())
+        {
+            System.out.printf("%-10s %-40s %-30s\n", i, traenere.getNavn(), traenere.getHold());
+            i++;
+        }
     }
 
     private void Arbejdsfordeling()
