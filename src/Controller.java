@@ -85,12 +85,12 @@ public class Controller
 
             int i = 0;
             System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Beskrivelse");
-            for (Hold hold : db.getHoldene())
+            for (Hold holdene : db.getHoldene())
             {
-                System.out.printf("%-10s %-40s %-30s\n", i + 1, db.getHoldene().get(i).getHoldNavn(),
-                        db.getHoldene().get(i).getKortBeskrivelse());
+                System.out.printf("%-10s %-40s %-30s\n", i + 1, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
                 i++;
             }
+
             System.out.print("\nIntast nummeret på det hold du skal vaere traener på: ");
             int svaret = scanner.nextInt();
 
