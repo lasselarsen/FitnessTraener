@@ -129,7 +129,12 @@ public class AdmController
 
     private void SletTraener()
     {
-
+        TraenerListe();
+        System.out.println("\nIndtast nummeret på den traeer som skal slettes:");
+        int traenernr = scanner.nextInt();
+        Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
+        db.getTraenere().remove(traenerToDelete);
+        System.out.println("Bogen '" + traenerToDelete.getNavn() + "' er nu slettet fra din samling. Vender tilbage til hovedmenuen...");
     }
 
     private void bestemtTraener()
