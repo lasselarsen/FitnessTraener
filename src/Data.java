@@ -39,7 +39,7 @@ public class Data
         Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 1808980896, "Limfjordsvej 43",
                                       61602630, "Tidl. cykelrytter", 2, 39.5, 9999);
 
-        // Tilføjer traenerne til Arrylisten
+        // Tilføjer traenerne til Arraylisten
         traenere.add(henning);
         traenere.add(anette);
         traenere.add(brian);
@@ -52,7 +52,7 @@ public class Data
         // Opretter en administrator
         Adm administrator = new Adm(1111, 2222, "administrator");
 
-        // Tilføj administrator til Arrylisten
+        // Tilføj administrator til Arraylisten
         administratore.add(administrator);
 
         //Oprettelse af de 4 hold

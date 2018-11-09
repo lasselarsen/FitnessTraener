@@ -165,6 +165,13 @@ public class Controller
 
     public void login()
     {
+
+        //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
+        //Opret userApproved ved "if (userExists) statement
+        AdmController godkendtEllerNægtet = new AdmController();
+        godkendtEllerNægtet.GodkendTraener();
+
+
         System.out.println("---------------------------------------------------------------------");
         System.out.println("-------------------- VELKOMMEN TIL TRAENER LOGIN --------------------");
         System.out.println("---------------------------------------------------------------------\n \n");

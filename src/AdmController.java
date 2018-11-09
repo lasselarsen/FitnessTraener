@@ -94,7 +94,7 @@ public class AdmController
     private void printMenu()
     {
         System.out.println("\nDu har nu følgende valgmuligheder: \n");
-        System.out.println("1) Ændre dine oplysninger");
+        System.out.println("1) Ændr træner oplysninger");
         System.out.println("2) Godkend nye trænere");
         System.out.println("3) Slet trænere");
         System.out.println("4) Vis alle oplysninger om en bestemt træner");
@@ -120,17 +120,31 @@ public class AdmController
     private void AendreOplysninger()
     {
         TraenerListe();
+
     }
 
-    private void GodkendTraener()
+    public void GodkendTraener()
     {
+        TraenerListe();
+        System.out.print("\n Indtast nummeret på træneren");
+        int traenerNr = scanner.nextInt();
+        traenerNr = db.getTraenere // ???
 
-    }
+        System.out.println("Skal træneren godkendes? (svar med: y / n)");
+        char svar = scanner.next().charAt(0);
+        if (svar == 'y')
+            //Godkend træner ved "Login" i Controller class
+            //Opret godkendelsesMetode
+
+        else if (svar == 'n')
+            db.getTraenere().remove(db.getTraenere());
+        }
+
 
     private void SletTraener()
     {
         TraenerListe();
-        System.out.println("\nIndtast nummeret på den traeer som skal slettes:");
+        System.out.println("\nIndtast nummeret på den træner som skal slettes:");
         int traenernr = scanner.nextInt();
         Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
         db.getTraenere().remove(traenerToDelete);
@@ -139,6 +153,7 @@ public class AdmController
 
     private void bestemtTraener()
     {
+
 
     }
 
