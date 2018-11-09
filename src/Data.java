@@ -67,7 +67,7 @@ public class Data
         holdene.add(spinning);
         holdene.add(crossfit);
 
-        //Traenerne for tildelt et hold
+        //Traenerne faar tildelt et hold
         henning.addHold(stramOp);
         anette.addHold(stramOp);
         brian.addHold(hit);
@@ -77,7 +77,7 @@ public class Data
         christi.addHold(crossfit);
         nadia.addHold(crossfit);
 
-        //Holdene for tildelt traenere
+        //Holdene faar tildelt traenere
         stramOp.addTraener(henning);
         stramOp.addTraener(anette);
         hit.addTraener(brian);
