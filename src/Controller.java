@@ -19,9 +19,9 @@ public class Controller
     public void run()
     {
         int valg;
-        System.out.println("-----------------------------------------------");
-        System.out.println("----------- Velkommen til MotionCBS -----------");
-        System.out.println("-----------------------------------------------\n \n");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
+        System.out.println("---------------------------------------------------------------------\n \n");
         System.out.println("Tast 1 - Opret traener \n Tast 2 - Log ind traener \n Tast 3 - Log ind administrator \n Tast 4 - Afslut program" );
         valg = scanner.nextInt();
 
@@ -163,15 +163,11 @@ public class Controller
         System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Crossfit og vi er glade for, at du vil være traner hos os!");
     }
 
-
-
     public void login()
     {
-        System.out.println("****************************************");
-        System.out.println("*                                      *");
-        System.out.println("*     VELKOMMEN TIL TRAENER LOGIN      *");
-        System.out.println("*                                      *");
-        System.out.println("****************************************");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("-------------------- VELKOMMEN TIL TRAENER LOGIN --------------------");
+        System.out.println("---------------------------------------------------------------------\n \n");
 
         while (nuTraenere == null)
         {
@@ -237,11 +233,9 @@ public class Controller
 
     private void AendreOplysninger()
     {
-        System.out.println("****************************************");
-        System.out.println("*                                      *");
-        System.out.println("*       AENDRE DINE OPLYSNINGER        *");
-        System.out.println("*                                      *");
-        System.out.println("****************************************\n\n");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("---------------------- Aendre dine oplysninger  ---------------------");
+        System.out.println("---------------------------------------------------------------------\n \n");
 
         System.out.println("Hvilke oplysninger oensker du at aendre?");
         System.out.println("Tast 1 - Navn");
