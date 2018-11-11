@@ -126,16 +126,16 @@ public class AdmController
         TraenerListe();
         System.out.print("\n Indtast nummeret på træneren");
         int traenerNr = scanner.nextInt();
-        traenerNr = db.getTraenere // ???
+        traenerNr = db.getTraenere; // ???
 
         System.out.println("Skal træneren godkendes? (svar med: y / n)");
         char svar = scanner.next().charAt(0);
-        if (svar == 'y')
+        if (svar == 'y');
             //Godkend træner ved "Login" i Controller class
             //Opret godkendelsesMetode
 
-        else if (svar == 'n')
-            db.getTraenere().remove(db.getTraenere());
+            else if (svar == 'n')
+                db.getTraenere().remove(db.getTraenere());
         }
 
 
