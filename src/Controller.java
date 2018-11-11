@@ -85,8 +85,7 @@ public class Controller
 
             int i = 0;
             System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Beskrivelse");
-            for (Hold holdene : db.getHoldene())
-            {
+            for (Hold holdene : db.getHoldene()) {
                 System.out.printf("%-10s %-40s %-30s\n", i + 1, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
                 i++;
             }

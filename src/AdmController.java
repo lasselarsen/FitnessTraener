@@ -17,11 +17,9 @@ public class AdmController
 
     public void administratorMenu()
     {
-        System.out.println("****************************************");
-        System.out.println("*                                      *");
-        System.out.println("*    VELKOMMEN TIL ADMINISTRATIONEN    *");
-        System.out.println("*                                      *");
-        System.out.println("****************************************");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("------------------ Velkommen til administrator menu -----------------");
+        System.out.println("---------------------------------------------------------------------\n \n");
 
             while (nuAdm == null)
             {
@@ -148,7 +146,7 @@ public class AdmController
         int traenernr = scanner.nextInt();
         Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
         db.getTraenere().remove(traenerToDelete);
-        System.out.println("Bogen '" + traenerToDelete.getNavn() + "' er nu slettet fra din samling. Vender tilbage til hovedmenuen...");
+        System.out.println("Traeneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
     }
 
     private void bestemtTraener()
