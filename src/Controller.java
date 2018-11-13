@@ -8,7 +8,7 @@ public class Controller
     private Traener nuTraenere;
 
     AdmController adm = new AdmController();
-     Traener test = new Traener();
+    Traener nyTraener = new Traener();
 
     public Controller()
     {
@@ -264,52 +264,52 @@ public class Controller
                 case 1:
                     System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
-                    test.setNavn(svarNavn);
+                    nyTraener.setNavn(svarNavn);
                     break;
                 case 2:
                     System.out.println("Indtast din nye mail: ");
                     String svarMail = scanner.nextLine();
-                    test.setMail(svarMail);
+                    nyTraener.setMail(svarMail);
                     break;
                 case 3:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
-                    test.setCpr(svarCpr);
+                    nyTraener.setCpr(svarCpr);
                     break;
                 case 4:
                     System.out.println("Indtast din nye adresse: ");
                     String svarAdr = scanner.nextLine();
-                    test.setAdresse(svarAdr);
+                    nyTraener.setAdresse(svarAdr);
                     break;
                 case 5:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
-                    test.setMobil(svarMobil);
+                    nyTraener.setMobil(svarMobil);
                     break;
                 case 6:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     String svarUdd = scanner.nextLine();
-                    test.setUdd(svarUdd);
+                    nyTraener.setUdd(svarUdd);
                     break;
                 case 7:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
-                    test.setErfaring(svarErf);
+                    nyTraener.setErfaring(svarErf);
                     break;
                 case 8:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
-                    test.setTimer(svarTimer);
+                    nyTraener.setTimer(svarTimer);
                     break;
                 case 9:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
-                    test.setPinkode(svarPin);
+                    nyTraener.setPinkode(svarPin);
                     break;
                 /*case 10:
                     System.out.println("Tast 1");
                     ArrayList<Hold> svarHold = scanner.();
-                    test.setHold(svarHold);
+                    nyTraener.setHold(svarHold);
                     break;*/
                 case 11:
                     printMenu();
