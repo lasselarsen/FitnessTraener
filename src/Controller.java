@@ -343,7 +343,6 @@ public class Controller
 
     private boolean afslut()
     {
-
         return false;
     }
 
