@@ -1,6 +1,5 @@
 //Lavet af Christian og lasse
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdmController
@@ -116,6 +115,13 @@ public class AdmController
         }
     }
 
+    private void HoldListe(){
+        System.out.printf("%-10s %-40s %-40s", "Holdnavn: ", "Holdbeskrivelse: ");
+        for (Hold hold: db.getHoldene()){
+            System.out.println(hold);
+        }
+    }
+
 
     private void AendreOplysninger()
     {
@@ -123,22 +129,20 @@ public class AdmController
 
     }
 
-    public void GodkendTraener()
+    public boolean GodkendTraener()
     {
         TraenerListe();
         System.out.print("\n Indtast nummeret på træneren");
         int traenerNr = scanner.nextInt();
-        traenerNr = db.getTraenere; // ???
+        Traener traenertoApprove = db.getTraenere().get(--traenerNr);
 
-        System.out.println("Skal træneren godkendes? (svar med: y / n)");
+        System.out.println("Skal træneren godkendes? Svar med ( y / n)");
         char svar = scanner.next().charAt(0);
-        if (svar == 'y');
-            //Godkend træner ved "Login" i Controller class
-            //Opret godkendelsesMetode
 
-            else if (svar == 'n')
-                db.getTraenere().remove(db.getTraenere());
-        }
+        if (svar == 'y')
+            traenertoApprove.equals(true);
+        return true;
+    }
 
 
     private void SletTraener()
@@ -153,12 +157,20 @@ public class AdmController
 
     private void bestemtTraener()
     {
-
-
+        TraenerListe();
+        System.out.println("\n Indtast nummeret på træneren: ");
+        int trænerNr = scanner.nextInt();
+        Traener traenerInformation = db.getTraenere().get(--trænerNr);
+        System.out.println(traenerInformation);
     }
 
     private void BestemtHoldtype()
     {
+        HoldListe();
+        System.out.println("\n Indtast nummeret på holdet: ");
+        int holdnr = scanner.nextInt();
+        Hold holdInformation = db.getHoldene().get(--holdnr);
+        System.out.println(holdInformation);
 
     }
 
