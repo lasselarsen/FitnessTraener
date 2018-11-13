@@ -307,7 +307,7 @@ public class Controller
                     nyTraener.setPinkode(svarPin);
                     break;
                 /*case 10:
-                    System.out.println("Tast 1");
+                    System.out.println("Vælg dit nye hold");
                     ArrayList<Hold> svarHold = scanner.();
                     nyTraener.setHold(svarHold);
                     break;*/
