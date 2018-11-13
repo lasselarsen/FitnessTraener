@@ -170,7 +170,7 @@ public class Controller
         //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
         //Opret userApproved ved "if (userExists) statement
         AdmController godkendtEllerNægtet = new AdmController();
-        godkendtEllerNægtet.GodkendTraener();
+        boolean userApproved = godkendtEllerNægtet.GodkendTraener();
 
 
         System.out.println("---------------------------------------------------------------------");
@@ -186,7 +186,7 @@ public class Controller
             int pinkode = scanner.nextInt();
             scanner.nextLine();
 
-            if (userExists(cpr, pinkode))
+            if (userExists(cpr, pinkode) && userApproved)
             {
                 System.out.println("\nVelkommen tilbage, " + nuTraenere.getNavn() + "!");
                 do
