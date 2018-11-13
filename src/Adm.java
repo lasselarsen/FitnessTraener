@@ -1,3 +1,5 @@
+//Lavet af Lasse og Christian
+
 public class Adm
 {
     private int admID;

@@ -1,3 +1,5 @@
+// Lavet af Nikolaj og Nadia
+
 import java.util.ArrayList;
 public class Hold
 {
