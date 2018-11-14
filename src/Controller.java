@@ -85,10 +85,10 @@ public class Controller
         do {
             System.out.print("\n Vaelg det hold du skal vaere traener paa: ");
 
-            int i = 0;
+            int i = 1;
             System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Beskrivelse");
             for (Hold holdene : db.getHoldene()) {
-                System.out.printf("%-10s %-40s %-30s\n", i + 1, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
+                System.out.printf("%-10d %-40s %-30s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
                 i++;
             }
 
@@ -330,7 +330,7 @@ public class Controller
         System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold");
         for (Traener traenere: db.getTraenere())
         {
-             System.out.printf("%-10s %-40s %-30s\n", i, traenere.getNavn(), traenere.getHold());
+             System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getHold());
              i++;
         }
     }
