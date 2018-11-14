@@ -24,7 +24,7 @@ public class Controller
         System.out.println("---------------------------------------------------------------------");
         System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
         System.out.println("---------------------------------------------------------------------\n \n");
-        System.out.println("Tast 1 - Opret traener \n Tast 2 - Log ind traener \n Tast 3 - Log ind administrator \n Tast 4 - Afslut program" );
+        System.out.println("Tast 1 - Opret traener \nTast 2 - Log ind traener \nTast 3 - Log ind administrator \nTast 4 - Afslut program" );
         valg = scanner.nextInt();
 
         do
@@ -49,11 +49,11 @@ public class Controller
 
     public void addTraener()
     {
-        System.out.println("\n Intast dit fulde navn: ");
+        System.out.print("\n Intast dit fulde navn: ");
         String navn = scanner.nextLine();
         scanner.nextLine();
 
-        System.out.println("\n Intast din mail: ");
+        System.out.print("\n Intast din mail: ");
         String mail = scanner.nextLine();
 
         System.out.print("\n Intast dit CPR-nr: ");
