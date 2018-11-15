@@ -3,7 +3,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Controller {
+public class Controller
+{
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
@@ -11,12 +12,14 @@ public class Controller {
     AdmController adm = new AdmController();
     Traener nyTraener = new Traener();
 
-    public Controller() {
+    public Controller()
+    {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
     }
 
-    public void run() {
+    public void run()
+    {
         boolean keepRunning = true;
         do {
             int valg;
@@ -27,30 +30,34 @@ public class Controller {
             valg = scanner.nextInt();
 
 
-            switch (valg) {
-                case 1:
-                    addTraener();
-                    break;
-                case 2:
-                    login();
-                    break;
-                case 3:
-                    adm();
-                    break;
-                case 4:
-                    keepRunning = false;
-                    break;
-                default:
-                    System.out.print("Ugyldigt valg, prøv igen ");
-            }
-        } while (keepRunning = true);
+                switch (valg)
+                {
+                    case 1:
+                        addTraener();
+                        break;
+                    case 2:
+                        login();
+                        break;
+                    case 3:
+                        adm();
+                        break;
+                    case 4:
+                        keepRunning = false;
+                        break;
+                    default:
+                        System.out.print("Ugyldigt valg, prøv igen ");
+                }
+            } while (keepRunning = true);
     }
 
-    private void adm() {
+    private void adm()
+    {
+
     }
 
 
-    public void addTraener() {
+    public void addTraener()
+    {
         System.out.print("\n Indtast dit fulde navn: ");
         String navn = scanner.nextLine();
         scanner.nextLine();
@@ -99,28 +106,29 @@ public class Controller {
             System.out.print("\n\nIntast nummeret på det hold du skal være træner på: ");
             int svaret = scanner.nextInt();
 
-            switch (svaret) {
-                case 1:
-                    opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
-                    traenereErOprettet = 1;
-                    break;
-                case 2:
-                    opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
-                    traenereErOprettet = 1;
-                    break;
-                case 3:
-                    opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
-                    traenereErOprettet = 1;
-                    break;
-                case 4:
-                    opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
-                    traenereErOprettet = 1;
-                    break;
-                default:
-                    System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
-                    traenereErOprettet = 0;
-            }
-        } while (traenereErOprettet == 0);
+                switch (svaret)
+                {
+                    case 1:
+                        opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    case 2:
+                        opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    case 3:
+                        opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    case 4:
+                        opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                        traenereErOprettet = 1;
+                        break;
+                    default:
+                        System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
+                        traenereErOprettet = 0;
+                }
+            } while (traenereErOprettet == 0);
     }
 
     private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
@@ -215,10 +223,13 @@ public class Controller {
         }
     }
 
-    private boolean userExists(int cpr, int pinkode) {
+    private boolean userExists(int cpr, int pinkode)
+    {
 
-        for (Traener traener : db.getTraenere()) {
-            if (traener.getCpr() == cpr && traener.getPinkode() == pinkode) {
+        for (Traener traener : db.getTraenere())
+        {
+            if (traener.getCpr() == cpr && traener.getPinkode() == pinkode)
+            {
                 this.nuTraenere = traener;
                 return true;
             }
@@ -226,7 +237,8 @@ public class Controller {
         return false;
     }
 
-    private void printMenu() {
+    private void printMenu()
+    {
         System.out.println("\nDu har nu følgende valgmuligheder: \n");
         System.out.println("1) Ændre dine oplysninger");
         System.out.println("2) Vis trænere kategoriseret efter holdtype");
@@ -234,7 +246,8 @@ public class Controller {
 
     }
 
-    private void AendreOplysninger() {
+    private void AendreOplysninger()
+    {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("---------------------- Ændre dine oplysninger  ---------------------");
         System.out.println("---------------------------------------------------------------------\n \n");
@@ -254,7 +267,8 @@ public class Controller {
         int svar = scanner.nextInt();
 
         do {
-            switch (svar) {
+            switch (svar)
+            {
                 case 1:
                     System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
@@ -315,16 +329,19 @@ public class Controller {
         } while (svar != 11);
     }
 
-    private void visTraenere() {
+    private void visTraenere()
+    {
         int i = 1;
         System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold");
-        for (Traener traenere : db.getTraenere()) {
+        for (Traener traenere : db.getTraenere())
+        {
             System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getHold());
             i++;
         }
     }
 
-    private void logOut() {
+    private void logOut()
+    {
         nuTraenere = null;
         System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
