@@ -50,11 +50,6 @@ public class Controller
             } while (keepRunning = true);
     }
 
-    private void adm()
-    {
-
-    }
-
 
     public void addTraener()
     {
@@ -176,8 +171,6 @@ public class Controller
 
         //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
         //Opret userApproved ved "if (userExists) statement
-        AdmController godkendtEllerNægtet = new AdmController();
-        boolean userApproved = godkendtEllerNægtet.GodkendTraener();
 
 
         System.out.println("---------------------------------------------------------------------");
@@ -193,7 +186,7 @@ public class Controller
             int pinkode = scanner.nextInt();
             scanner.nextLine();
 
-            if (userExists(cpr, pinkode) && userApproved)
+            if (userExists(cpr, pinkode))
             {
                 System.out.println("\nVelkommen tilbage, " + nuTraenere.getNavn() + "!");
                 do {
