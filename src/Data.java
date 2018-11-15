@@ -13,7 +13,7 @@ public class Data
     public Data()
     {
 
-        this.traenere = traenere;
+        this.traenere = new ArrayList<>();
         this.administratore = new ArrayList<>();
         this.holdene = new ArrayList<>();
     }
