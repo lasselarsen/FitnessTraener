@@ -283,36 +283,20 @@ public class Controller
                         System.out.print("\n\nIndtast nummeret på det hold du skal være træner på: ");
                         int svarHold = scanner.nextInt();
 
-                        switch (svarHold)
-                        {
-                            case 1:
-                                nuTraenere.addHold(stramOp);
-                                stramOp.addTraener(nuTraenere);
-                                traenereErAendret = 1;
-                                break;
-                            case 2:
-                                nuTraenere.addHold(hit);
-                                hit.addTraener(nuTraenere);
-                                traenereErAendret = 1;
-                                break;
-                            case 3:
-                                nuTraenere.addHold(spinning);
-                                spinning.addTraener(nuTraenere);
-                                traenereErAendret = 1;
-                                break;
-                            case 4:
-                                nuTraenere.addHold(crossfit);
-                                crossfit.addTraener(nuTraenere);
-                                traenereErAendret = 1;
-                                break;
-                            default:
-                                System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
-                                traenereErAendret = 0;
-                        }
+
+                        // Fjern fra tidligere hold
+
+
+                        // Tilføj til nyt hold
+                        db.getHoldene().get(--svarHold).addTraener(nuTraenere);
+
+                        // Tilføj hold til træner
+                        nuTraenere.addHold(db.getHoldene().get(svarHold));
+
+
                     }
                     while (traenereErAendret == 0);
 
-                    nyTraener.setHold(svarHold);
                     break;
                 case 2:
                     System.out.println("Indtast dit nye navn: ");
