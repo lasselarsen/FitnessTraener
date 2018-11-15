@@ -19,7 +19,7 @@ public class Traener
 
     //Her oprettes en konstructor
     public Traener(String navn, String mail, int cpr, String adresse, int mobil,
-                   String udd, int erfaring, double timer, int pinkode)
+                   String udd, int erfaring, double timer, int pinkode, boolean isApproved)
     {
         this.navn = navn;
         this.mail = mail;

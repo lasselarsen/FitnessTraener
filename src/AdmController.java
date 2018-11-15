@@ -1,5 +1,7 @@
 //Lavet af Christian og lasse
 
+import sun.applet.Main;
+
 import java.util.Scanner;
 
 public class AdmController
@@ -8,6 +10,8 @@ public class AdmController
     private Data db;
     private Scanner scanner;
     private Adm nuAdm;
+
+
 
     public AdmController()
     {
@@ -119,11 +123,10 @@ public class AdmController
     private void godkendtTraenerListe()
     {
         int i = 1;
-        System.out.printf("%-10s %-40s %-30s\n", "Nr.", "Navn:", "CPR:");
+        System.out.printf("%-10s %-40s %-30s %-20s\n", "Nr.", "Navn:", "CPR:", "Status:");
         for (Traener traenere: db.getTraenere()) {
-            System.out.println(traenere.getIsApproved() + " ---- validering");
             if(traenere.getIsApproved() == false) {
-                System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getCpr());
+                System.out.printf("%-10s %-40s %-30s %-20s\n", i, traenere.getNavn(), traenere.getCpr(), traenere.getIsApproved());
                 i++;
             }
         }
@@ -145,10 +148,9 @@ public class AdmController
 
     }
 
-    public boolean GodkendTraener()
-    {
+    public void GodkendTraener() {
         godkendtTraenerListe();
-        System.out.print("\n Indtast nummeret på træneren");
+        System.out.println("\nIndtast nummeret på træneren: ");
         int traenerNr = scanner.nextInt();
         Traener traenertoApprove = db.getTraenere().get(--traenerNr);
 
@@ -156,13 +158,12 @@ public class AdmController
         char svar = scanner.next().charAt(0);
 
         if (svar == 'y') {
-            traenertoApprove.equals(true);
+            traenertoApprove.setIsApproved(true);
             System.out.println("Træneren blev godkendt!");
-        } else if (svar == 'n'){
-            traenertoApprove.equals(false);
+        }
+        else if (svar == 'n'){
             System.out.println("Træneren blev ikke godkendt!");
         }
-        return true;
     }
 
 
@@ -179,11 +180,24 @@ public class AdmController
     private void bestemtTraener()
     {
         TraenerListe();
-        System.out.println("\n Indtast nummeret på træneren for at tilgå trænerens informationer: ");
+        System.out.println("\nIndtast nummeret på træneren for at tilgå trænerens informationer: ");
         int trænerNr = scanner.nextInt();
 
         Traener traenerInformation = db.getTraenere().get(--trænerNr);
-        System.out.println(traenerInformation);
+        System.out.println("Navn:           \t" + traenerInformation.getNavn());
+        System.out.println("Mail:           \t" + traenerInformation.getMail());
+        System.out.println("CPR:            \t" + traenerInformation.getCpr());
+        System.out.println("Adresse:        \t" + traenerInformation.getAdresse());
+        System.out.println("Mobil:          \t" + traenerInformation.getMobil());
+        System.out.println("Uddannelse:     \t" + traenerInformation.getUdd());
+        System.out.println("Erfaring:       \t" + traenerInformation.getErfaring());
+        System.out.println("Timer:          \t" + traenerInformation.getTimer());
+        System.out.println("Pinkode:        \t" +  traenerInformation.getPinkode());
+        System.out.println("Godkendt?:      \t" + traenerInformation.getIsApproved());
+
+
+
+
     }
 
     private void BestemtHoldtype()
