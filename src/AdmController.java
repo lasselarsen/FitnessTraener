@@ -141,8 +141,13 @@ public class AdmController
 
         if (svar == 'y')
             traenertoApprove.equals(true);
+            System.out.println("Træneren blev godkendt!");
+        else if (svar == 'n'){
+            traenertoApprove.equals(false);
+            System.out.println("Træneren blev ikke godkendt!");
+        }
         return true;
-    }
+            }
 
 
     private void SletTraener()
