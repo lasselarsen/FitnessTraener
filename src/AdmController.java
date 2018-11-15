@@ -106,12 +106,12 @@ public class AdmController
 
     private void TraenerListe()
     {
-        System.out.printf("%-10s %-40s %-30s %-20s %-30s %-30s %-30s %-30s %-30s %-30s %-30s\n",
-                "Nr.", "Navn:", "Mail:", "CPR:", "Adresse:", "Mobil:", "Uddannelse:",
-                "Erfaring:", "Timer:", "Pinkoder:", "Hold");
-        for (Traener traener: db.getTraenere())
+        int i = 1;
+        System.out.printf("%-10s %-40s %-30s\n", "Nr.", "Navn:", "CPR:");
+        for (Traener traenere: db.getTraenere())
         {
-            System.out.println(traener);
+            System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getCpr());
+            i++;
         }
     }
 
