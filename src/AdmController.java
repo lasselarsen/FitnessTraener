@@ -11,8 +11,8 @@ public class AdmController
 
     public AdmController()
     {
-       this.db = new Data();
-       this.scanner = new Scanner(System.in);
+        this.db = new Data();
+        this.scanner = new Scanner(System.in);
     }
 
 
@@ -22,60 +22,60 @@ public class AdmController
         System.out.println("------------------ Velkommen til administrator menu -----------------");
         System.out.println("---------------------------------------------------------------------\n \n");
 
-            while (nuAdm == null)
+        while (nuAdm == null)
+        {
+            System.out.print("\nIndtast dit ADMID: ");
+            int admID = scanner.nextInt();
+
+            System.out.print("Indtast adgangskode: ");
+            int pinkode = scanner.nextInt();
+            scanner.nextLine();
+
+            if (userExists(admID, pinkode))
             {
-                System.out.print("\nIndtast dit ADMID: ");
-                int admID = scanner.nextInt();
-
-                System.out.print("Indtast adgangskode: ");
-                int pinkode = scanner.nextInt();
-                scanner.nextLine();
-
-                if (userExists(admID, pinkode))
+                System.out.println("\nVelkommen tilbage, " + nuAdm.getAdmnavn() + "!");
+                do
                 {
-                    System.out.println("\nVelkommen tilbage, " + nuAdm.getAdmnavn() + "!");
-                    do
-                    {
-                        printMenu();
-                        int choice = scanner.nextInt();
-                        scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
+                    printMenu();
+                    int choice = scanner.nextInt();
+                    scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
 
-                        switch (choice)
-                        {
-                            case 1:
-                                AendreOplysninger();
-                                break;
-                            case 2:
-                                GodkendTraener();
-                                break;
-                            case 3:
-                                SletTraener();
-                                break;
-                            case 4:
-                                bestemtTraener();
-                                break;
-                            case 5:
-                                BestemtHoldtype();
-                                break;
-                            case 6:
-                                visTraenere();
-                                break;
-                            case 7:
-                                Arbejdsfordeling();
-                                break;
-                            case 8:
-                                logOut();
-                                break;
-                            default:
-                                System.out.println("Ugyldigt valg.");
-                        }
+                    switch (choice)
+                    {
+                        case 1:
+                            AendreOplysninger();
+                            break;
+                        case 2:
+                            GodkendTraener();
+                            break;
+                        case 3:
+                            SletTraener();
+                            break;
+                        case 4:
+                            bestemtTraener();
+                            break;
+                        case 5:
+                            BestemtHoldtype();
+                            break;
+                        case 6:
+                            visTraenere();
+                            break;
+                        case 7:
+                            Arbejdsfordeling();
+                            break;
+                        case 8:
+                            logOut();
+                            break;
+                        default:
+                            System.out.println("Ugyldigt valg.");
                     }
-                    while (nuAdm != null);
-                } else {
-                    System.out.println("Forkerte oplysninger.. Prøv igen!");
                 }
+                while (nuAdm != null);
+            } else {
+                System.out.println("Forkerte oplysninger.. Prøv igen!");
             }
         }
+    }
 
     private boolean userExists(int admID, int pinkode) {
 
@@ -109,11 +109,27 @@ public class AdmController
         int i = 1;
         System.out.printf("%-10s %-40s %-30s\n", "Nr.", "Navn:", "CPR:");
         for (Traener traenere: db.getTraenere())
+
         {
             System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getCpr());
             i++;
         }
     }
+
+    private void godkendtTraenerListe()
+    {
+        int i = 1;
+        System.out.printf("%-10s %-40s %-30s\n", "Nr.", "Navn:", "CPR:");
+        for (Traener traenere: db.getTraenere()) {
+            System.out.println(traenere.getIsApproved() + " ---- validering");
+            if(traenere.getIsApproved() == false) {
+                System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getCpr());
+                i++;
+            }
+        }
+    }
+
+
 
     private void HoldListe(){
         System.out.printf("%-10s %-40s %-40s", "Holdnavn: ", "Holdbeskrivelse: ");
@@ -131,7 +147,7 @@ public class AdmController
 
     public boolean GodkendTraener()
     {
-        TraenerListe();
+        godkendtTraenerListe();
         System.out.print("\n Indtast nummeret på træneren");
         int traenerNr = scanner.nextInt();
         Traener traenertoApprove = db.getTraenere().get(--traenerNr);
@@ -139,15 +155,15 @@ public class AdmController
         System.out.println("Skal træneren godkendes? Svar med ( y / n)");
         char svar = scanner.next().charAt(0);
 
-        if (svar == 'y')
+        if (svar == 'y') {
             traenertoApprove.equals(true);
             System.out.println("Træneren blev godkendt!");
-        else if (svar == 'n'){
+        } else if (svar == 'n'){
             traenertoApprove.equals(false);
             System.out.println("Træneren blev ikke godkendt!");
         }
         return true;
-            }
+    }
 
 
     private void SletTraener()
@@ -193,6 +209,10 @@ public class AdmController
 
     private void Arbejdsfordeling()
     {
+        // Oprette ny arraylist
+        //Finde ud af sortere
+        //For each loop printer ny arraylist
+
 
     }
 

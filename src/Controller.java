@@ -39,7 +39,7 @@ public class Controller
                         login();
                         break;
                     case 3:
-                        adm();
+                        adm.administratorMenu();
                         break;
                     case 4:
                         keepRunning = false;

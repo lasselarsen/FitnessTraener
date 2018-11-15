@@ -15,6 +15,7 @@ public class Traener
     private double timer;
     private int pinkode;
     private ArrayList<Hold> holdene;
+    private boolean isApproved;
 
     //Her oprettes en constructor
     public Traener(String navn, String mail, int cpr, String adresse, int mobil,
@@ -30,7 +31,10 @@ public class Traener
         this.timer = timer;
         this.pinkode = pinkode;
         this.holdene = new ArrayList<>();
+        this.isApproved = isApproved;
     }
+
+    public Traener(){}
 
     //Der oprettes get og set metoder
     public String getNavn() {return navn;}
@@ -64,4 +68,12 @@ public class Traener
     public void setHold(ArrayList<Hold> hold) {this.holdene = hold;}
 
     public void addHold(Hold hold) {holdene.add(hold);}
+
+    public boolean getIsApproved() {
+        return isApproved;
+    }
+
+    public void setIsApproved(boolean isApproved) {
+        this.isApproved = isApproved;
+    }
 }
