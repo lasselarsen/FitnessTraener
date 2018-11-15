@@ -12,6 +12,7 @@ public class Controller
     AdmController adm = new AdmController();
     Traener nyTraener = new Traener();
 
+    // Her oprettes en konstructor
     public Controller()
     {
         this.db = new Data();
@@ -83,7 +84,7 @@ public class Controller
         System.out.print("\nIndtast pinkode: ");
         int pinkode = scanner.nextInt();
 
-        //printer holdmulighederne ud
+        // printer holdmulighederne ud
         int traenereErOprettet = 0;
 
         do {
@@ -126,6 +127,7 @@ public class Controller
             } while (traenereErOprettet == 0);
     }
 
+    // Her oprettes de 4 forskellige hold
     private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
@@ -166,10 +168,11 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!");
     }
 
+    // Her oprettes traener login
     public void login()
     {
 
-        //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
+        //Henvisning til "AdmController class" hvor brugeren "TRÆNER" enten er godkendt eller nægtet adgang
         //Opret userApproved ved "if (userExists) statement
 
 
