@@ -62,7 +62,7 @@ public class Data
         Hold stramOp = new Hold("Stram op","Dette hold er for dig, der elsker at løfte vægte");
         Hold hit = new Hold("H.I.T.", "Dette hold er for dig, der elsker at have pulsen oppe");
         Hold spinning = new Hold("Spinning", "Dette hold er for dig, der elsker at cykle");
-        Hold crossfit = new Hold("Crossfit", "Dette hold er for dig, der elsker motion ");
+        Hold crossfit = new Hold("Crossfit", "Dette hold er for dig, der elsker motion");
 
         //Hold bliver tilføjet Arrylisten
         holdene.add(stramOp);
@@ -71,24 +71,24 @@ public class Data
         holdene.add(crossfit);
 
         //Traenerne faar tildelt et hold
-        henning.addHold(stramOp);
-        anette.addHold(stramOp);
-        brian.addHold(hit);
-        susanne.addHold(hit);
-        lasse.addHold(spinning);
-        nikolaj.addHold(spinning);
-        christi.addHold(crossfit);
-        nadia.addHold(crossfit);
+        henning.addHold(hit);
+        anette.addHold(spinning);
+        brian.addHold(stramOp);
+        susanne.addHold(crossfit);
+        lasse.addHold(crossfit);
+        nikolaj.addHold(hit);
+        christi.addHold(stramOp);
+        nadia.addHold(spinning);
 
         //Holdene faar tildelt traenere
-        stramOp.addTraener(henning);
-        stramOp.addTraener(anette);
-        hit.addTraener(brian);
-        hit.addTraener(susanne);
-        spinning.addTraener(lasse);
-        spinning.addTraener(nikolaj);
-        crossfit.addTraener(christi);
-        crossfit.addTraener(nadia);
+        hit.addTraener(henning);
+        spinning.addTraener(anette);
+        stramOp.addTraener(brian);
+        crossfit.addTraener(susanne);
+        crossfit.addTraener(lasse);
+        hit.addTraener(nikolaj);
+        stramOp.addTraener(christi);
+        spinning.addTraener(nadia);
     }
 
 
