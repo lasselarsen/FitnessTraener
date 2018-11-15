@@ -280,11 +280,13 @@ public class Controller
                             i++;
                         }
 
-                        System.out.print("\n\nIndtast nummeret på det hold du skal være træner på: ");
+                        System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
                         int svarHold = scanner.nextInt();
 
 
                         // Fjern fra tidligere hold
+                        db.getHoldene().remove()
+
 
 
                         // Tilføj til nyt hold
@@ -292,6 +294,8 @@ public class Controller
 
                         // Tilføj hold til træner
                         nuTraenere.addHold(db.getHoldene().get(svarHold));
+
+                        System.out.print("Holdet er nu ændret");
 
 
                     }
