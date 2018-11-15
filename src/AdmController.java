@@ -158,8 +158,9 @@ public class AdmController
     private void bestemtTraener()
     {
         TraenerListe();
-        System.out.println("\n Indtast nummeret på træneren: ");
+        System.out.println("\n Indtast nummeret på træneren for at tilgå trænerens informationer: ");
         int trænerNr = scanner.nextInt();
+
         Traener traenerInformation = db.getTraenere().get(--trænerNr);
         System.out.println(traenerInformation);
     }
