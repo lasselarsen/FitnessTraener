@@ -18,7 +18,6 @@ public class Data
         generateData();
     }
 
-    //Her oprettes eksisterende traenere i systemet og tildeles et hold
     public void generateData()
     {
         // Opretter traenere
@@ -70,7 +69,7 @@ public class Data
         holdene.add(spinning);
         holdene.add(crossfit);
 
-        //Traenerne faar tildelt et hold
+        //Traenerne får tildelt et hold
         henning.addHold(hit);
         anette.addHold(spinning);
         brian.addHold(stramOp);
@@ -80,7 +79,7 @@ public class Data
         christi.addHold(stramOp);
         nadia.addHold(spinning);
 
-        //Holdene faar tildelt traenere
+        //Holdene får tildelt traenere
         hit.addTraener(henning);
         spinning.addTraener(anette);
         stramOp.addTraener(brian);
@@ -92,7 +91,7 @@ public class Data
     }
 
 
-    // Set og get metode
+    // Set og get metoder
     public ArrayList<Traener> getTraenere() {return traenere;}
     public void setTraenere(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
