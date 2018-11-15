@@ -163,7 +163,8 @@ public class Controller {
         System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!");
     }
 
-    public void login() {
+    public void login()
+    {
 
         //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
         //Opret userApproved ved "if (userExists) statement
@@ -175,7 +176,8 @@ public class Controller {
         System.out.println("-------------------- VELKOMMEN TIL TRÆNER LOGIN --------------------");
         System.out.println("---------------------------------------------------------------------\n \n");
 
-        while (nuTraenere == null) {
+        while (nuTraenere == null)
+        {
             System.out.print("\nIndtast dit CPR NR: ");
             int cpr = scanner.nextInt();
 
@@ -183,27 +185,29 @@ public class Controller {
             int pinkode = scanner.nextInt();
             scanner.nextLine();
 
-            if (userExists(cpr, pinkode) && userApproved) {
+            if (userExists(cpr, pinkode) && userApproved)
+            {
                 System.out.println("\nVelkommen tilbage, " + nuTraenere.getNavn() + "!");
                 do {
                     printMenu();
                     int choice = scanner.nextInt();
                     scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
 
-                    switch (choice) {
-                        case 1:
-                            AendreOplysninger();
-                            break;
-                        case 2:
-                            visTraenere();
-                            break;
-                        case 3:
-                            logOut();
-                            break;
-                        default:
-                            System.out.println("Ugyldigt valg.");
+                        switch (choice)
+                        {
+                            case 1:
+                                AendreOplysninger();
+                                break;
+                            case 2:
+                                visTraenere();
+                                break;
+                            case 3:
+                                logOut();
+                                break;
+                            default:
+                                System.out.println("Ugyldigt valg.");
+                        }
                     }
-                }
                 while (nuTraenere != null);
             } else {
                 System.out.println("Forkerte oplysninger.. Prøv igen!");
