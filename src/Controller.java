@@ -249,16 +249,16 @@ public class Controller
         System.out.println("---------------------------------------------------------------------\n \n");
 
         System.out.println("Hvilke oplysninger ønsker du at ændre?");
-        System.out.println("Tast 1 - Navn");
-        System.out.println("Tast 2 - Mail");
-        System.out.println("Tast 3 - CPR-nr");
-        System.out.println("Tast 4 - Adresse");
-        System.out.println("Tast 5 - Mobil nr");
-        System.out.println("Tast 6 - Uddannelse");
-        System.out.println("Tast 7 - Erfaring");
-        System.out.println("Tast 8 - Aftalte antal timer pr. måned");
-        System.out.println("Tast 9 - Pinkode");
-        System.out.println("Tast 10 - Hold");
+        System.out.println("Tast 1 - Hold");
+        System.out.println("Tast 2 - Navn");
+        System.out.println("Tast 3 - Mail");
+        System.out.println("Tast 4 - CPR-nr");
+        System.out.println("Tast 5 - Adresse");
+        System.out.println("Tast 6 - Mobil nr");
+        System.out.println("Tast 7 - Uddannelse");
+        System.out.println("Tast 8 - Erfaring");
+        System.out.println("Tast 9 - Aftalte antal timer pr. måned");
+        System.out.println("Tast 10 - Pinkode");
         System.out.println("Tast 11 - Tilbage til menu");
         int svar = scanner.nextInt();
 
@@ -266,55 +266,99 @@ public class Controller
             switch (svar)
             {
                 case 1:
+                    int traenereErAendret = 0;
+                    do
+                    {
+                        System.out.print("\nVælg dit nye hold:\" \n");
+
+                        int i = 1;
+                        System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
+
+                        for (Hold holdene : db.getHoldene())
+                        {
+                            System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
+                            i++;
+                        }
+
+                        System.out.print("\n\nIndtast nummeret på det hold du skal være træner på: ");
+                        int svarHold = scanner.nextInt();
+
+                        switch (svarHold)
+                        {
+                            case 1:
+                                nuTraenere.addHold(stramOp);
+                                stramOp.addTraener(nuTraenere);
+                                traenereErAendret = 1;
+                                break;
+                            case 2:
+                                nuTraenere.addHold(hit);
+                                hit.addTraener(nuTraenere);
+                                traenereErAendret = 1;
+                                break;
+                            case 3:
+                                nuTraenere.addHold(spinning);
+                                spinning.addTraener(nuTraenere);
+                                traenereErAendret = 1;
+                                break;
+                            case 4:
+                                nuTraenere.addHold(crossfit);
+                                crossfit.addTraener(nuTraenere);
+                                traenereErAendret = 1;
+                                break;
+                            default:
+                                System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
+                                traenereErAendret = 0;
+                        }
+                    }
+                    while (traenereErAendret == 0);
+
+                    nyTraener.setHold(svarHold);
+                    break;
+                case 2:
                     System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
                     nyTraener.setNavn(svarNavn);
                     break;
-                case 2:
+                case 3:
                     System.out.println("Indtast din nye mail: ");
                     String svarMail = scanner.nextLine();
                     nyTraener.setMail(svarMail);
                     break;
-                case 3:
+                case 4:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
                     nyTraener.setCpr(svarCpr);
                     break;
-                case 4:
+                case 5:
                     System.out.println("Indtast din nye adresse: ");
                     String svarAdr = scanner.nextLine();
                     nyTraener.setAdresse(svarAdr);
                     break;
-                case 5:
+                case 6:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
                     nyTraener.setMobil(svarMobil);
                     break;
-                case 6:
+                case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     String svarUdd = scanner.nextLine();
                     nyTraener.setUdd(svarUdd);
                     break;
-                case 7:
+                case 8:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
                     nyTraener.setErfaring(svarErf);
                     break;
-                case 8:
+                case 9:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
                     nyTraener.setTimer(svarTimer);
                     break;
-                case 9:
+                case 10:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
                     nyTraener.setPinkode(svarPin);
                     break;
-                /*case 10:
-                    System.out.println("Vælg dit nye hold");
-                    ArrayList<Hold> svarHold = scanner.();
-                    nyTraener.setHold(svarHold);
-                    break;*/
                 case 11:
                     printMenu();
                 default:
@@ -341,4 +385,5 @@ public class Controller
         nuTraenere = null;
         System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
+
 }
