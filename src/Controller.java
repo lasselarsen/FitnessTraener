@@ -23,7 +23,7 @@ public class Controller {
             System.out.println("---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
-            System.out.println(" Tast 1 - Opret traener \n Tast 2 - Log ind traener \n Tast 3 - Log ind administrator \n Tast 4 - Afslut program");
+            System.out.println("Tast 1 - Opret traener \nTast 2 - Log ind traener \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
             valg = scanner.nextInt();
 
 
@@ -41,7 +41,7 @@ public class Controller {
                     keepRunning = false;
                     break;
                 default:
-                    System.out.print("Ugyldigt valg, proev igen ");
+                    System.out.print("Ugyldigt valg, prøv igen ");
             }
         } while (keepRunning = true);
     }
@@ -85,17 +85,18 @@ public class Controller {
         int traenereErOprettet = 0;
 
         do {
-            System.out.print("\nVælg det hold du skal vaere traener på: ");
+            System.out.print("\nVælg det hold du skal vaere traener på: \n");
 
             int i = 1;
             System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
 
-            for (Hold holdene : db.getHoldene()) {
+            for (Hold holdene : db.getHoldene())
+            {
                 System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
                 i++;
             }
 
-            System.out.print("\n \n \n Intast nummeret på det hold du skal vaere traener på: ");
+            System.out.print("\n\nIntast nummeret på det hold du skal være træner på: ");
             int svaret = scanner.nextInt();
 
             switch (svaret) {
@@ -129,7 +130,7 @@ public class Controller {
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os!");
+        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os!");
     }
 
     private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
@@ -139,7 +140,7 @@ public class Controller {
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!");
+        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!");
     }
 
     private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
@@ -149,7 +150,7 @@ public class Controller {
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(2).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!");
+        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!");
     }
 
     private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
@@ -159,7 +160,7 @@ public class Controller {
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(3).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "\n Du er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!");
+        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!");
     }
 
     public void login() {
