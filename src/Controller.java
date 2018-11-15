@@ -58,34 +58,34 @@ public class Controller
 
     public void addTraener()
     {
-        System.out.print("\n Indtast dit fulde navn: ");
+        System.out.print("\nIndtast dit fulde navn: ");
         String navn = scanner.nextLine();
         scanner.nextLine();
 
-        System.out.print("\n Indtast din mail: ");
+        System.out.print("\nIndtast din mail: ");
         String mail = scanner.nextLine();
 
-        System.out.print("\n Indtast dit CPR-nr: ");
+        System.out.print("\nIndtast dit CPR-nr: ");
         int cpr = scanner.nextInt();
 
-        System.out.print("\n Indtast din adresse: ");
+        System.out.print("\nIndtast din adresse: ");
         String adr = scanner.nextLine();
         scanner.nextLine();
 
-        System.out.print("\n Indtast dit mobil nr: ");
+        System.out.print("\nIndtast dit mobil nr: ");
         int mobil = scanner.nextInt();
 
-        System.out.print("\n Indtast din uddannelse: ");
+        System.out.print("\nIndtast din uddannelse: ");
         String udd = scanner.nextLine();
         scanner.nextLine();
 
-        System.out.print("\n Indtast din erfaring i hele år: ");
+        System.out.print("\nIndtast din erfaring i hele år: ");
         int erfaring = scanner.nextInt();
 
-        System.out.print("\n Indtast de aftale antal timer pr. måned: ");
+        System.out.print("\nIndtast de aftale antal timer pr. måned: ");
         double timer = scanner.nextDouble();
 
-        System.out.print("\n Indtast pinkode: ");
+        System.out.print("\nIndtast pinkode: ");
         int pinkode = scanner.nextInt();
 
         //printer holdmulighederne ud
