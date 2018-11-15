@@ -70,7 +70,7 @@ public class Controller
         String udd = scanner.nextLine();
         scanner.nextLine();
 
-        System.out.print("\n Indtast din erfaring i år: ");
+        System.out.print("\n Indtast din erfaring i hele år: ");
         int erfaring = scanner.nextInt();
 
         System.out.print("\n Indtast de aftale antal timer pr. måned: ");
@@ -87,7 +87,8 @@ public class Controller
 
             int i = 1;
             System.out.printf("\n %-10s %-40s %-30s\n", "Nr", "Navn", "Beskrivelse");
-            for (Hold holdene : db.getHoldene()) {
+            for (Hold holdene : db.getHoldene())
+            {
                 System.out.printf("%-10d %-40s %-30s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
                 i++;
             }
