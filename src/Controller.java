@@ -47,7 +47,7 @@ public class Controller
                 default:
                     System.out.print("Ugyldigt valg, prøv igen ");
             }
-        } while (keepRunning == true);
+        } while (keepRunning = true);
     }
 
 
@@ -83,9 +83,7 @@ public class Controller
         System.out.print("\nIndtast pinkode: ");
         int pinkode = scanner.nextInt();
 
-        boolean isApproved = false;
-
-        //printer holdmulighederne ud
+        // printer holdmulighederne ud
         int traenereErOprettet = 0;
 
         do {
@@ -106,19 +104,19 @@ public class Controller
             switch (svaret)
             {
                 case 1:
-                    opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
+                    opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
                     traenereErOprettet = 1;
                     break;
                 case 2:
-                    opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
+                    opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
                     traenereErOprettet = 1;
                     break;
                 case 3:
-                    opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
+                    opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
                     traenereErOprettet = 1;
                     break;
                 case 4:
-                    opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
+                    opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
                     traenereErOprettet = 1;
                     break;
                 default:
@@ -128,44 +126,45 @@ public class Controller
         } while (traenereErOprettet == 0);
     }
 
-    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
-        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
+    // Her oprettes de 4 forskellige hold
+    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os!");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os!");
     }
 
-    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
-        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
+    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!");
     }
 
-    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
-        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
+    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(2));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(2).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!");
     }
 
-    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
-        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
+    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode) {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(3));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(3).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("Stort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!");
     }
 
     public void login()
