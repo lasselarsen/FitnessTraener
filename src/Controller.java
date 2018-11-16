@@ -11,6 +11,7 @@ public class Controller
 
     AdmController adm = new AdmController();
     Traener nyTraener = new Traener();
+    Hold hold1 = new Hold();
 
     public Controller()
     {
@@ -382,7 +383,7 @@ public class Controller
         System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold", "mobilnummer");
         for (Traener traenere : db.getTraenere())
         {
-            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getNavn(), traenere.getMobil());
+            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), holdene.getNavn(), traenere.getMobil());
             i++;
         }
     }
