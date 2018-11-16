@@ -42,9 +42,8 @@ public class Data
                 20463633, "Fysioterapeut", 3, 38, 8888, true);
         Traener christi = new Traener("Christian Adrian", "c.a@gmail.com", 1208970913, "Hyldebjergallé 50",
                 24812080, "Personlig Træner", 4, 38, 7777, true);
-        Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 2, "Limfjordsvej 43",
+        Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 1808980896, "Limfjordsvej 43",
                 61602630, "Tidl. cykelrytter", 2, 39.5, 9999, true);
-        Traener malthe = new Traener("1", "2", 1, "1", 1, "1", 1, 1, 1, true);
 
         // Tilføjer traenerne til Arraylisten
         traenere.add(henning);
@@ -55,7 +54,6 @@ public class Data
         traenere.add(nikolaj);
         traenere.add(christi);
         traenere.add(nadia);
-        traenere.add(malthe);
 
         // Opretter en administrator
         Adm administrator = new Adm(1111, 2222, "administrator");
@@ -115,7 +113,7 @@ public class Data
     public void setAdministratore(ArrayList<Adm> administratore) {this.administratore = administratore;}
 
     public ArrayList<Hold> getHoldene() {return holdene;}
-    public void setHoldene (ArrayList<Hold> holdene) {this.holdene = holdene;}
+    public void setHoldene(ArrayList<Hold> holdene) {this.holdene = holdene;}
 
     //Metoder
     public void addTraener(ArrayList<Traener> traenere) {this.traenere = traenere;}
