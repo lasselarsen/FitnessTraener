@@ -9,6 +9,8 @@ public class AdmController {
     private Scanner scanner;
     private Adm nuAdm;
 
+    Traener nyAdmTraener = new Traener();
+
 
     public AdmController() {
         this.db = new Data();
@@ -58,6 +60,7 @@ public class AdmController {
                         Arbejdsfordeling();
                         break;
                     case 8:
+
                         logOut();
                         break;
                     default:
@@ -129,7 +132,92 @@ public class AdmController {
     private void AendreOplysninger() {
         TraenerListe();
 
+        System.out.println("Indtast nummeret på træneren: ");
+        int traenerNr = scanner.nextInt();
+        Traener traenerToEdit = db.getTraenere().get(--traenerNr);
+
+        System.out.println(traenerToEdit.getNavn());
+
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("---------------------- Ændre træner oplysninger  ---------------------");
+        System.out.println("---------------------------------------------------------------------\n \n");
+
+        System.out.println("Hvilke oplysninger ønsker du at ændre?");
+        System.out.println("Tast 1 - Navn");
+        System.out.println("Tast 2 - Mail");
+        System.out.println("Tast 3 - CPR-nr");
+        System.out.println("Tast 4 - Adresse");
+        System.out.println("Tast 5 - Mobil nr");
+        System.out.println("Tast 6 - Uddannelse");
+        System.out.println("Tast 7 - Erfaring");
+        System.out.println("Tast 8 - Aftalte antal timer pr. måned");
+        System.out.println("Tast 9 - Pinkode");
+        System.out.println("Tast 10 - Hold");
+        System.out.println("Tast 11 - Tilbage til menu");
+        int svar = scanner.nextInt();
+
+        do {
+            switch (svar) {
+                case 1:
+                    System.out.println("Indtast nyt navn: ");
+                    String svarNavn = scanner.nextLine();
+                    nyAdmTraener.setNavn(svarNavn);
+                    break;
+                case 2:
+                    System.out.println("Indtast din nye mail: ");
+                    String svarMail = scanner.nextLine();
+                    nyAdmTraener.setMail(svarMail);
+                    break;
+                case 3:
+                    System.out.println("Indtast dit nye CPR: ");
+                    int svarCpr = scanner.nextInt();
+                    nyAdmTraener.setCpr(svarCpr);
+                    break;
+                case 4:
+                    System.out.println("Indtast din nye adresse: ");
+                    String svarAdr = scanner.nextLine();
+                    nyAdmTraener.setAdresse(svarAdr);
+                    break;
+                case 5:
+                    System.out.println("Indtast dit nye mobilnummer: ");
+                    int svarMobil = scanner.nextInt();
+                    nyAdmTraener.setMobil(svarMobil);
+                    break;
+                case 6:
+                    System.out.println("Indtast nye oplysninger om uddannelse: ");
+                    String svarUdd = scanner.nextLine();
+                    nyAdmTraener.setUdd(svarUdd);
+                    break;
+                case 7:
+                    System.out.println("Indtast ny erfaring i antal år: ");
+                    int svarErf = scanner.nextInt();
+                    nyAdmTraener.setErfaring(svarErf);
+                    break;
+                case 8:
+                    System.out.println("Indtast nye oplysninger om antal timer: ");
+                    int svarTimer = scanner.nextInt();
+                    nyAdmTraener.setTimer(svarTimer);
+                    break;
+                case 9:
+                    System.out.println("Indtast ny pinkode: ");
+                    int svarPin = scanner.nextInt();
+                    nyAdmTraener.setPinkode(svarPin);
+                    break;
+                /*case 10:
+                    System.out.println("Vælg dit nye hold");
+                    ArrayList<Hold> svarHold = scanner.();
+                    nyTraener.setHold(svarHold);
+                    break;*/
+                case 11:
+                    printMenu();
+                default:
+                    System.out.println("Du har indtastet forkert, prøv igen.");
+
+
+            }
+        } while (svar != 11);
     }
+
 
     public void GodkendTraener() {
         godkendtTraenerListe();
@@ -179,11 +267,7 @@ public class AdmController {
         HoldListe();
         System.out.println("\n Indtast nummeret på holdet: ");
         int holdnr = scanner.nextInt();
-        Hold trænerEfterHold = db.getHoldene().get(--holdnr);
-
-        // måske en if efter for?
-        for (Traener holdetsTrænere : db.getTraenere()) {
-        }
+        Hold traenerEfterHold = db.getHoldene().get(--holdnr);
 
     }
 
@@ -193,7 +277,7 @@ public class AdmController {
     }
 
     private void Arbejdsfordeling() {
-        for(Traener traener: sortByHours()) {
+        for (Traener traener : sortByHours()) {
             System.out.println(traener.getTimer() + "\t" + traener.getNavn());
         }
     }
@@ -202,13 +286,13 @@ public class AdmController {
 
         ArrayList<Traener> sortedList = new ArrayList<>();
 
-        for(Traener traener : db.getTraenere()) {
+        for (Traener traener : db.getTraenere()) {
             if (sortedList.size() == 0) {
                 sortedList.add(traener);
             } else {
                 int index = -1;
-                for(Traener sortedTrainer: sortedList) {
-                    if(sortedTrainer.getTimer() < traener.getTimer() && index == -1) {
+                for (Traener sortedTrainer : sortedList) {
+                    if (sortedTrainer.getTimer() < traener.getTimer() && index == -1) {
                         index = sortedList.indexOf(sortedTrainer);
                     }
                 }
