@@ -1,13 +1,13 @@
 // Lavet af Nikolaj og Nadia
 
 import java.util.ArrayList;
+
 public class Hold
 {
     private String holdNavn;
     private String kortBeskrivelse;
     private ArrayList<Traener> traenere;
 
-    // Her oprettes en konstruktor
     public  Hold(String holdNavn, String kortBeskrivelse)
     {
         this.holdNavn = holdNavn;
@@ -15,7 +15,6 @@ public class Hold
         this.traenere = new ArrayList<>();
     }
 
-    // Her oprettes get og set metoder
     public String getHoldNavn() {return holdNavn;}
     public void setHoldNavn(String holdNavn) {this.holdNavn = holdNavn;}
 
@@ -25,6 +24,5 @@ public class Hold
     public ArrayList<Traener> getTraenere() {return traenere;}
     public void setTraenere(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
-    // Andre metoder
     public void addTraener(Traener traener) {traenere.add(traener);}
 }

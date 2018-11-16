@@ -1,5 +1,6 @@
 //Lavet af Nikolaj og Nadia
 
+
 import java.util.ArrayList;
 
 public class Data
@@ -7,6 +8,7 @@ public class Data
     private ArrayList<Traener> traenere;
     private ArrayList<Adm> administratore;
     private ArrayList<Hold> holdene;
+    private ArrayList<Double> timerne;
 
     // Her oprettes en konstruktor
     public Data()
@@ -15,6 +17,7 @@ public class Data
         this.traenere = new ArrayList<>();
         this.administratore = new ArrayList<>();
         this.holdene = new ArrayList<>();
+        this.timerne = new ArrayList<>();
         generateData();
     }
 
@@ -24,6 +27,9 @@ public class Data
         // Opretter traenere
         Traener henning = new Traener("Henning Andersen", "h.a@gmail.com", 1112700697, "Stengade 13",
                 33334444, "Fysioterapeut", 12, 10, 1234, false);
+
+        henning.setIsApproved(false);
+
         Traener anette = new Traener( "Anette Simonsen", "a.s@gmail.com", 2110850686, "Stengade 15",
                 44443333, "Personlig Træner", 5, 12, 1111, false);
         Traener brian = new Traener(  "Brian Jensen", "b.j@gmail.com", 2108900687, "Husgade 15",
@@ -86,6 +92,16 @@ public class Data
         spinning.addTraener(nikolaj);
         crossfit.addTraener(christi);
         crossfit.addTraener(nadia);
+
+        //Trænere faar tildelt arbejdsfordeling
+        timerne.add(henning.getTimer());
+        timerne.add(anette.getTimer());
+        timerne.add(brian.getTimer());
+        timerne.add(susanne.getTimer());
+        timerne.add(lasse.getTimer());
+        timerne.add(nikolaj.getTimer());
+        timerne.add(christi.getTimer());
+        timerne.add(nadia.getTimer());
     }
 
 
@@ -101,6 +117,13 @@ public class Data
 
     //Metoder
     public void addTraener(ArrayList<Traener> traenere) {this.traenere = traenere;}
+
+    public ArrayList<Double> getTimerne() {
+        return timerne;
+    }
+    public void setTimerne(ArrayList<Double> timerne) {
+        this.timerne = timerne;
+    }
 
 }
 

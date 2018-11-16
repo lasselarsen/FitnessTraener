@@ -2,91 +2,85 @@
 
 import sun.applet.Main;
 
+import javax.transaction.TransactionRequiredException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Scanner;
 
-public class AdmController
-{
+public class AdmController {
 
     private Data db;
     private Scanner scanner;
     private Adm nuAdm;
 
 
-
-    public AdmController()
-    {
+    public AdmController() {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
     }
 
 
-    public void administratorMenu()
-    {
+    public void administratorMenu() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("------------------ Velkommen til administrator menu -----------------");
         System.out.println("---------------------------------------------------------------------\n \n");
 
-        while (nuAdm == null)
-        {
-            System.out.print("\nIndtast dit ADMID: ");
-            int admID = scanner.nextInt();
+        System.out.print("\nIndtast dit ADMID: ");
+        int admID = scanner.nextInt();
 
-            System.out.print("Indtast adgangskode: ");
-            int pinkode = scanner.nextInt();
-            scanner.nextLine();
+        System.out.print("Indtast adgangskode: ");
+        int pinkode = scanner.nextInt();
+        scanner.nextLine();
 
-            if (userExists(admID, pinkode))
-            {
-                System.out.println("\nVelkommen tilbage, " + nuAdm.getAdmnavn() + "!");
-                do
-                {
-                    printMenu();
-                    int choice = scanner.nextInt();
-                    scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
+        if (userExists(admID, pinkode)) {
+            System.out.println("\nVelkommen tilbage, " + nuAdm.getAdmnavn() + "!");
+            do {
+                printMenu();
+                int choice = scanner.nextInt();
+                scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
 
-                    switch (choice)
-                    {
-                        case 1:
-                            AendreOplysninger();
-                            break;
-                        case 2:
-                            GodkendTraener();
-                            break;
-                        case 3:
-                            SletTraener();
-                            break;
-                        case 4:
-                            bestemtTraener();
-                            break;
-                        case 5:
-                            BestemtHoldtype();
-                            break;
-                        case 6:
-                            visTraenere();
-                            break;
-                        case 7:
-                            Arbejdsfordeling();
-                            break;
-                        case 8:
-                            logOut();
-                            break;
-                        default:
-                            System.out.println("Ugyldigt valg.");
-                    }
+                switch (choice) {
+                    case 1:
+                        AendreOplysninger();
+                        break;
+                    case 2:
+                        GodkendTraener();
+                        break;
+                    case 3:
+                        SletTraener();
+                        break;
+                    case 4:
+                        bestemtTraener();
+                        break;
+                    case 5:
+                        BestemtHoldtype();
+                        break;
+                    case 6:
+                        visTraenere();
+                        break;
+                    case 7:
+                        Arbejdsfordeling();
+                        break;
+                    case 8:
+
+                        logOut();
+                        break;
+                    default:
+                        System.out.println("Ugyldigt valg.");
                 }
-                while (nuAdm != null);
-            } else {
-                System.out.println("Forkerte oplysninger.. Prøv igen!");
             }
+            while (nuAdm != null);
+        } else {
+            System.out.println("Forkerte oplysninger.. Prøv igen!");
         }
+
     }
 
     private boolean userExists(int admID, int pinkode) {
 
-        for (Adm adm : db.getAdministratore())
-        {
-            if (adm.getAdmID() == admID && adm.getAdmKode() == pinkode)
-            {
+        for (Adm adm : db.getAdministratore()) {
+            if (adm.getAdmID() == admID && adm.getAdmKode() == pinkode) {
                 this.nuAdm = adm;
                 return true;
             }
@@ -94,8 +88,7 @@ public class AdmController
         return false;
     }
 
-    private void printMenu()
-    {
+    private void printMenu() {
         System.out.println("\nDu har nu følgende valgmuligheder: \n");
         System.out.println("1) Ændr træner oplysninger");
         System.out.println("2) Godkend nye trænere");
@@ -108,24 +101,20 @@ public class AdmController
 
     }
 
-    private void TraenerListe()
-    {
+    private void TraenerListe() {
         int i = 1;
         System.out.printf("%-10s %-40s %-30s\n", "Nr.", "Navn:", "CPR:");
-        for (Traener traenere: db.getTraenere())
-
-        {
+        for (Traener traenere : db.getTraenere()) {
             System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getCpr());
             i++;
         }
     }
 
-    private void godkendtTraenerListe()
-    {
+    private void godkendtTraenerListe() {
         int i = 1;
         System.out.printf("%-10s %-40s %-30s %-20s\n", "Nr.", "Navn:", "CPR:", "Status:");
-        for (Traener traenere: db.getTraenere()) {
-            if(traenere.getIsApproved() == false) {
+        for (Traener traenere : db.getTraenere()) {
+            if (traenere.getIsApproved() == false) {
                 System.out.printf("%-10s %-40s %-30s %-20s\n", i, traenere.getNavn(), traenere.getCpr(), traenere.getIsApproved());
                 i++;
             }
@@ -133,17 +122,17 @@ public class AdmController
     }
 
 
-
-    private void HoldListe(){
-        System.out.printf("%-10s %-40s %-40s", "Holdnavn: ", "Holdbeskrivelse: ");
-        for (Hold hold: db.getHoldene()){
-            System.out.println(hold);
+    private void HoldListe() {
+        int i = 1;
+        System.out.printf("%-10s %-40s \n", "Nr. ", "Hold: ");
+        for (Hold holdene : db.getHoldene()) {
+            System.out.printf("%-10d %-40s \n", i, holdene.getHoldNavn());
+            i++;
         }
     }
 
 
-    private void AendreOplysninger()
-    {
+    private void AendreOplysninger() {
         TraenerListe();
 
     }
@@ -160,15 +149,12 @@ public class AdmController
         if (svar == 'y') {
             traenertoApprove.setIsApproved(true);
             System.out.println("Træneren blev godkendt!");
-        }
-        else if (svar == 'n'){
+        } else if (svar == 'n') {
             System.out.println("Træneren blev ikke godkendt!");
         }
     }
 
-
-    private void SletTraener()
-    {
+    private void SletTraener() {
         TraenerListe();
         System.out.println("\nIndtast nummeret på den træner som skal slettes:");
         int traenernr = scanner.nextInt();
@@ -177,8 +163,7 @@ public class AdmController
         System.out.println("Traeneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
     }
 
-    private void bestemtTraener()
-    {
+    private void bestemtTraener() {
         TraenerListe();
         System.out.println("\nIndtast nummeret på træneren for at tilgå trænerens informationer: ");
         int trænerNr = scanner.nextInt();
@@ -192,48 +177,60 @@ public class AdmController
         System.out.println("Uddannelse:     \t" + traenerInformation.getUdd());
         System.out.println("Erfaring:       \t" + traenerInformation.getErfaring());
         System.out.println("Timer:          \t" + traenerInformation.getTimer());
-        System.out.println("Pinkode:        \t" +  traenerInformation.getPinkode());
+        System.out.println("Pinkode:        \t" + traenerInformation.getPinkode());
         System.out.println("Godkendt?:      \t" + traenerInformation.getIsApproved());
-
-
-
-
     }
 
-    private void BestemtHoldtype()
-    {
+    private void BestemtHoldtype() {
         HoldListe();
         System.out.println("\n Indtast nummeret på holdet: ");
         int holdnr = scanner.nextInt();
-        Hold holdInformation = db.getHoldene().get(--holdnr);
-        System.out.println(holdInformation);
+        Hold trænerEfterHold = db.getHoldene().get(--holdnr);
 
-    }
-
-    private void visTraenere()
-    {
-        int i = 1;
-        System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold");
-        for (Traener traenere: db.getTraenere())
-        {
-            System.out.printf("%-10s %-40s %-30s\n", i, traenere.getNavn(), traenere.getHold());
-            i++;
+        // måske en if efter for?
+        for (Traener holdetsTrænere : db.getTraenere()) {
         }
+
     }
 
-    private void Arbejdsfordeling()
-    {
+    private void visTraenere() {
+        HoldListe();
+
+    }
+
+    private void Arbejdsfordeling() {
         // Oprette ny arraylist
         //Finde ud af sortere
         //For each loop printer ny arraylist
 
+        ArrayList<Double> traenereEfterTimer = db.getTimerne();
 
+        Collections.sort(traenereEfterTimer);
+
+        HashSet<Traener> hashSet1 = new HashSet<>();
+
+        System.out.println("Arbejdsfordelingen: ");
+        for (double taeller : traenereEfterTimer) {
+            for (Traener traener : db.getTraenere()) {
+                if (traener.getTimer() == taeller) {
+                    hashSet1.add(traener);
+
+
+                }
+            }
+        }
+
+        for (Traener traener2 : hashSet1) {
+            System.out.println("Navn: " + traener2.getNavn() + "     \t     Timer: " + traener2.getTimer());
+
+
+        }
     }
 
-    private void logOut()
-    {
+    private void logOut() {
         nuAdm = null; // nullifying the currentStudent object resets the login args / values of the currentStudent object.
         System.out.println("\nDu er nu logget ud... Viderestiller til login.");
     }
+
 
 }

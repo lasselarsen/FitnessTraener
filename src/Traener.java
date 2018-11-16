@@ -17,7 +17,7 @@ public class Traener
     private ArrayList<Hold> holdene;
     private boolean isApproved;
 
-    //Her oprettes en konstructor
+    //Her oprettes en constructor
     public Traener(String navn, String mail, int cpr, String adresse, int mobil,
                    String udd, int erfaring, double timer, int pinkode, boolean isApproved)
     {
@@ -64,10 +64,9 @@ public class Traener
     public int getPinkode() {return pinkode;}
     public void setPinkode(int pinkode) {this.pinkode = pinkode;}
 
-    public ArrayList<Hold> getHold () {return holdene;}
-    public void setHold(ArrayList<Hold> hold) {this.holdene = hold;}
+    public ArrayList<Hold> getHoldene () {return holdene;}
+    public void setHoldene(ArrayList<Hold> holdene) {this.holdene = holdene;}
 
-    // Andre metoder
     public void addHold(Hold hold) {holdene.add(hold);}
 
     public boolean getIsApproved() {
