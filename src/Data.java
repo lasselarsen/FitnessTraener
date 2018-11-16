@@ -8,7 +8,6 @@ public class Data
     private ArrayList<Traener> traenere;
     private ArrayList<Adm> administratore;
     private ArrayList<Hold> holdene;
-    private ArrayList<Double> timerne;
 
     // Her oprettes en konstruktor
     public Data()
@@ -17,7 +16,6 @@ public class Data
         this.traenere = new ArrayList<>();
         this.administratore = new ArrayList<>();
         this.holdene = new ArrayList<>();
-        this.timerne = new ArrayList<>();
         generateData();
     }
 
@@ -93,15 +91,6 @@ public class Data
         crossfit.addTraener(christi);
         crossfit.addTraener(nadia);
 
-        //Trænere faar tildelt arbejdsfordeling
-        timerne.add(henning.getTimer());
-        timerne.add(anette.getTimer());
-        timerne.add(brian.getTimer());
-        timerne.add(susanne.getTimer());
-        timerne.add(lasse.getTimer());
-        timerne.add(nikolaj.getTimer());
-        timerne.add(christi.getTimer());
-        timerne.add(nadia.getTimer());
     }
 
 
@@ -118,12 +107,6 @@ public class Data
     //Metoder
     public void addTraener(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
-    public ArrayList<Double> getTimerne() {
-        return timerne;
-    }
-    public void setTimerne(ArrayList<Double> timerne) {
-        this.timerne = timerne;
-    }
 
 }
 
