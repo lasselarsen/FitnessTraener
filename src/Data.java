@@ -40,8 +40,8 @@ public class Data
                 20463633, "Fysioterapeut", 3, 38, 8888, true);
         Traener christi = new Traener("Christian Adrian", "c.a@gmail.com", 1208970913, "Hyldebjergallé 50",
                 24812080, "Personlig Træner", 4, 38, 7777, true);
-        Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 1808980896, "Limfjordsvej 43",
-                61602630, "Tidl. cykelrytter", 2, 39.5, 9999, true);
+        Traener nadia = new Traener(  "Nadia Nielsen", "n.n@gmail.com", 2, "Limfjordsvej 43",
+                61602630, "Tidl. cykelrytter", 2, 39.5, 2, true);
 
         // Tilføjer traenerne til Arraylisten
         traenere.add(henning);
@@ -103,6 +103,7 @@ public class Data
 
     public ArrayList<Hold> getHoldene() {return holdene;}
     public void setHoldene(ArrayList<Hold> holdene) {this.holdene = holdene;}
+
 
     //Metoder
     public void addTraener(ArrayList<Traener> traenere) {this.traenere = traenere;}

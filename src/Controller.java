@@ -9,9 +9,9 @@ public class Controller
     private Scanner scanner;
     private Traener nuTraenere;
 
-    AdmController adm = new AdmController();
     Traener nyTraener = new Traener();
-    Hold hold1 = new Hold();
+    AdmController adm = new AdmController();
+    Data hold1 = new Data();
 
     public Controller()
     {
@@ -247,7 +247,7 @@ public class Controller
         boolean keepChanging = true;
         int svar = -1;
         do {
-            System.out.println("---------------------------------------------------------------------");
+            System.out.println("\n---------------------------------------------------------------------");
             System.out.println("---------------------- Ændre dine oplysninger  ---------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
 
@@ -383,7 +383,7 @@ public class Controller
         System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold", "mobilnummer");
         for (Traener traenere : db.getTraenere())
         {
-            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), holdene.getNavn(), traenere.getMobil());
+            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getHoldene().get(0).getHoldNavn(), traenere.getMobil());
             i++;
         }
     }
