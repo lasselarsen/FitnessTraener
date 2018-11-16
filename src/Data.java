@@ -25,9 +25,6 @@ public class Data
         // Opretter traenere
         Traener henning = new Traener("Henning Andersen", "h.a@gmail.com", 1112700697, "Stengade 13",
                 33334444, "Fysioterapeut", 12, 10, 1234, false);
-
-        henning.setIsApproved(false);
-
         Traener anette = new Traener( "Anette Simonsen", "a.s@gmail.com", 2110850686, "Stengade 15",
                 44443333, "Personlig Træner", 5, 12, 1111, false);
         Traener brian = new Traener(  "Brian Jensen", "b.j@gmail.com", 2108900687, "Husgade 15",
