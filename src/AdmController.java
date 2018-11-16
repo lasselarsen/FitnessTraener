@@ -1,11 +1,6 @@
 //Lavet af Christian og lasse
 
-import sun.applet.Main;
-
-import javax.transaction.TransactionRequiredException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class AdmController {
@@ -199,32 +194,29 @@ public class AdmController {
     }
 
     private void Arbejdsfordeling() {
-        // Oprette ny arraylist
-        //Finde ud af sortere
-        //For each loop printer ny arraylist
+        for(Traener traener: sortByHours()) {
+            System.out.println(traener.getTimer() + "\t" + traener.getNavn());
+        }
+    }
 
-        ArrayList<Double> traenereEfterTimer = db.getTimerne();
+    private ArrayList<Traener> sortByHours() {
 
-        Collections.sort(traenereEfterTimer);
+        ArrayList<Traener> sortedList = new ArrayList<>();
 
-        HashSet<Traener> hashSet1 = new HashSet<>();
-
-        System.out.println("Arbejdsfordelingen: ");
-        for (double taeller : traenereEfterTimer) {
-            for (Traener traener : db.getTraenere()) {
-                if (traener.getTimer() == taeller) {
-                    hashSet1.add(traener);
-
-
+        for(Traener traener : db.getTraenere()) {
+            if (sortedList.size() == 0) {
+                sortedList.add(traener);
+            } else {
+                int index = -1;
+                for(Traener sortedTrainer: sortedList) {
+                    if(sortedTrainer.getTimer() < traener.getTimer() && index == -1) {
+                        index = sortedList.indexOf(sortedTrainer);
+                    }
                 }
+                sortedList.add(index, traener);
             }
         }
-
-        for (Traener traener2 : hashSet1) {
-            System.out.println("Navn: " + traener2.getNavn() + "     \t     Timer: " + traener2.getTimer());
-
-
-        }
+        return sortedList;
     }
 
     private void logOut() {
