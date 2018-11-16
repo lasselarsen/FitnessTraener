@@ -9,14 +9,14 @@ public class Controller
     private Scanner scanner;
     private Traener nuTraenere;
 
-    Traener nyTraener = new Traener();
     AdmController adm = new AdmController();
-    Data hold1 = new Data();
+
 
     public Controller()
     {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
+        this.nuTraenere = new Traener();
     }
 
     public void run()
@@ -276,50 +276,50 @@ public class Controller
                 case 2:
                     System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
-                    nyTraener.setNavn(svarNavn);
+                    nuTraenere.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
                     String svarMail = scanner.nextLine();
-                    nyTraener.setMail(svarMail);
+                    nuTraenere.setMail(svarMail);
                     break;
                 case 4:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
-                    nyTraener.setCpr(svarCpr);
+                    nuTraenere.setCpr(svarCpr);
                     break;
                 case 5:
                     System.out.println("Indtast din nye adresse: ");
                     String svarAdr = scanner.nextLine();
-                    nyTraener.setAdresse(svarAdr);
+                    nuTraenere.setAdresse(svarAdr);
                     break;
                 case 6:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
-                    nyTraener.setMobil(svarMobil);
+                    nuTraenere.setMobil(svarMobil);
                     break;
                 case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     String svarUdd = scanner.nextLine();
-                    nyTraener.setUdd(svarUdd);
+                    nuTraenere.setUdd(svarUdd);
                     break;
                 case 8:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
-                    nyTraener.setErfaring(svarErf);
+                    nuTraenere.setErfaring(svarErf);
                     break;
                 case 9:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
-                    nyTraener.setTimer(svarTimer);
+                    nuTraenere.setTimer(svarTimer);
                     break;
                 case 10:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
-                    nyTraener.setPinkode(svarPin);
+                    nuTraenere.setPinkode(svarPin);
                     break;
                 case 11:
-                    System.out.println("Du har tastet 11");
+                    System.out.println("Retunerer til træner menu");
                     keepChanging = false;
                     break;
                 default:
@@ -393,4 +393,5 @@ public class Controller
         nuTraenere = null;
         System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
+
 }

@@ -70,11 +70,6 @@ public class Traener
 
     public void addHold(Hold hold) {holdene.add(hold);}
 
-    public boolean getIsApproved() {
-        return isApproved;
-    }
-
-    public void setIsApproved(boolean isApproved) {
-        this.isApproved = isApproved;
-    }
+    public boolean getIsApproved() {return isApproved;}
+    public void setIsApproved(boolean isApproved) {this.isApproved = isApproved;}
 }

@@ -8,13 +8,13 @@ public class AdmController {
     private Data db;
     private Scanner scanner;
     private Adm nuAdm;
-
-    Traener nyAdmTraener = new Traener();
+    private Traener nyAdmTraener;
 
 
     public AdmController() {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
+        this.nyAdmTraener = new Traener();
     }
 
 
