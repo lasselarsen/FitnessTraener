@@ -245,86 +245,86 @@ public class Controller
         boolean keepChanging = true;
         int svar = -1;
         do {
-        System.out.println("---------------------------------------------------------------------");
-        System.out.println("---------------------- Ændre dine oplysninger  ---------------------");
-        System.out.println("---------------------------------------------------------------------\n \n");
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println("---------------------- Ændre dine oplysninger  ---------------------");
+            System.out.println("---------------------------------------------------------------------\n \n");
 
-        System.out.println("Hvilke oplysninger ønsker du at ændre?");
-        System.out.println("Tast 1 - Hold");
-        System.out.println("Tast 2 - Navn");
-        System.out.println("Tast 3 - Mail");
-        System.out.println("Tast 4 - CPR-nr");
-        System.out.println("Tast 5 - Adresse");
-        System.out.println("Tast 6 - Mobil nr");
-        System.out.println("Tast 7 - Uddannelse");
-        System.out.println("Tast 8 - Erfaring");
-        System.out.println("Tast 9 - Aftalte antal timer pr. måned");
-        System.out.println("Tast 10 - Pinkode");
-        System.out.println("Tast 11 - Tilbage til menu");
+            System.out.println("Hvilke oplysninger ønsker du at ændre?");
+            System.out.println("Tast 1 - Hold");
+            System.out.println("Tast 2 - Navn");
+            System.out.println("Tast 3 - Mail");
+            System.out.println("Tast 4 - CPR-nr");
+            System.out.println("Tast 5 - Adresse");
+            System.out.println("Tast 6 - Mobil nr");
+            System.out.println("Tast 7 - Uddannelse");
+            System.out.println("Tast 8 - Erfaring");
+            System.out.println("Tast 9 - Aftalte antal timer pr. måned");
+            System.out.println("Tast 10 - Pinkode");
+            System.out.println("Tast 11 - Tilbage til menu");
 
 
 
-        svar = scanner.nextInt();
+            svar = scanner.nextInt();
 
-        switch (svar) {
+            switch (svar) {
 
-            case 1:
-                ændreHold();
-                break;
-            case 2:
-                System.out.println("Indtast dit nye navn: ");
-                String svarNavn = scanner.nextLine();
-                nyTraener.setNavn(svarNavn);
-                break;
-            case 3:
-                System.out.println("Indtast din nye mail: ");
-                String svarMail = scanner.nextLine();
-                nyTraener.setMail(svarMail);
-                break;
-            case 4:
-                System.out.println("Indtast dit nye CPR: ");
-                int svarCpr = scanner.nextInt();
-                nyTraener.setCpr(svarCpr);
-                break;
-            case 5:
-                System.out.println("Indtast din nye adresse: ");
-                String svarAdr = scanner.nextLine();
-                nyTraener.setAdresse(svarAdr);
-                break;
-            case 6:
-                System.out.println("Indtast dit nye mobilnummer: ");
-                int svarMobil = scanner.nextInt();
-                nyTraener.setMobil(svarMobil);
-                break;
-            case 7:
-                System.out.println("Indtast nye oplysninger om uddannelse: ");
-                String svarUdd = scanner.nextLine();
-                nyTraener.setUdd(svarUdd);
-                break;
-            case 8:
-                System.out.println("Indtast ny erfaring i antal år: ");
-                int svarErf = scanner.nextInt();
-                nyTraener.setErfaring(svarErf);
-                break;
-            case 9:
-                System.out.println("Indtast nye oplysninger om antal timer: ");
-                int svarTimer = scanner.nextInt();
-                nyTraener.setTimer(svarTimer);
-                break;
-            case 10:
-                System.out.println("Indtast ny pinkode: ");
-                int svarPin = scanner.nextInt();
-                nyTraener.setPinkode(svarPin);
-                break;
-            case 11:
-                System.out.println("Du har tastet 11");
-                keepChanging = false;
-                break;
-            default:
-                System.out.println("Du har indtastet forkert, prøv igen.");
-                break;
-        }
-        scanner.nextLine();
+                case 1:
+                    ændreHold();
+                    break;
+                case 2:
+                    System.out.println("Indtast dit nye navn: ");
+                    String svarNavn = scanner.nextLine();
+                    nyTraener.setNavn(svarNavn);
+                    break;
+                case 3:
+                    System.out.println("Indtast din nye mail: ");
+                    String svarMail = scanner.nextLine();
+                    nyTraener.setMail(svarMail);
+                    break;
+                case 4:
+                    System.out.println("Indtast dit nye CPR: ");
+                    int svarCpr = scanner.nextInt();
+                    nyTraener.setCpr(svarCpr);
+                    break;
+                case 5:
+                    System.out.println("Indtast din nye adresse: ");
+                    String svarAdr = scanner.nextLine();
+                    nyTraener.setAdresse(svarAdr);
+                    break;
+                case 6:
+                    System.out.println("Indtast dit nye mobilnummer: ");
+                    int svarMobil = scanner.nextInt();
+                    nyTraener.setMobil(svarMobil);
+                    break;
+                case 7:
+                    System.out.println("Indtast nye oplysninger om uddannelse: ");
+                    String svarUdd = scanner.nextLine();
+                    nyTraener.setUdd(svarUdd);
+                    break;
+                case 8:
+                    System.out.println("Indtast ny erfaring i antal år: ");
+                    int svarErf = scanner.nextInt();
+                    nyTraener.setErfaring(svarErf);
+                    break;
+                case 9:
+                    System.out.println("Indtast nye oplysninger om antal timer: ");
+                    int svarTimer = scanner.nextInt();
+                    nyTraener.setTimer(svarTimer);
+                    break;
+                case 10:
+                    System.out.println("Indtast ny pinkode: ");
+                    int svarPin = scanner.nextInt();
+                    nyTraener.setPinkode(svarPin);
+                    break;
+                case 11:
+                    System.out.println("Du har tastet 11");
+                    keepChanging = false;
+                    break;
+                default:
+                    System.out.println("Du har indtastet forkert, prøv igen.");
+                    break;
+            }
+            scanner.nextLine();
         } while (svar != 11);
     }
 
@@ -337,22 +337,22 @@ public class Controller
 
 
 
-            System.out.print("\nVælg dit nye hold:\" \n");
+        System.out.print("\nVælg dit nye hold:\" \n");
 
-            int i = 1;
-            System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
+        int i = 1;
+        System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
 
-            for (Hold holdene : db.getHoldene()) {
-                System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
-                i++;
-            }
-
-
-            System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
-            int svarHold = scanner.nextInt();
+        for (Hold holdene : db.getHoldene()) {
+            System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
+            i++;
+        }
 
 
-            //Fjern fra tidligere hold
+        System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
+        int svarHold = scanner.nextInt();
+
+
+        //Fjern fra tidligere hold
 
 
             /*int index = db.getHoldene().indexOf(nuTraenere.getHold());
@@ -364,14 +364,14 @@ public class Controller
             db.getTraenere().remove(db.getHoldene());*/
 
 
-            // Tilføj til nyt hold
-            db.getHoldene().get(--svarHold).addTraener(nuTraenere);
+        // Tilføj til nyt hold
+        db.getHoldene().get(--svarHold).addTraener(nuTraenere);
 
-            // Tilføj hold til træner
-            nuTraenere.addHold(db.getHoldene().get(svarHold));
+        // Tilføj hold til træner
+        nuTraenere.addHold(db.getHoldene().get(svarHold));
 
-            System.out.print("Holdet er nu ændret");
-            //ændrehold = 1;
+        System.out.print("Holdet er nu ændret");
+        //ændrehold = 1;
 
     }
 
