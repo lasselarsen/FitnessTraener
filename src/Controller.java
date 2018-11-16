@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Controller
 {
-    private String dataaaa;
+
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
