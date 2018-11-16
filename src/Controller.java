@@ -104,19 +104,19 @@ public class Controller
             switch (svaret)
             {
                 case 1:
-                    opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                    opretStramOp(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
                     traenereErOprettet = 1;
                     break;
                 case 2:
-                    opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                    opretHit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
                     traenereErOprettet = 1;
                     break;
                 case 3:
-                    opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                    opretSpinning(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
                     traenereErOprettet = 1;
                     break;
                 case 4:
-                    opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode);
+                    opretCrossfit(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved);
                     traenereErOprettet = 1;
                     break;
                 default:

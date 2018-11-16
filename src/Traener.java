@@ -67,14 +67,11 @@ public class Traener
     public ArrayList<Hold> getHoldene () {return holdene;}
     public void setHoldene (ArrayList<Hold> holdene) {this.holdene = holdene;}
 
+    public boolean getIsApproved() {return isApproved;}
+    public void setIsApproved(boolean isApproved) {this.isApproved = isApproved;}
+
     // Andre metoder
     public void addHold(Hold hold) {holdene.add(hold);}
 
-    public boolean getIsApproved() {
-        return isApproved;
-    }
 
-    public void setIsApproved(boolean isApproved) {
-        this.isApproved = isApproved;
-    }
 }
