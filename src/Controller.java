@@ -83,6 +83,8 @@ public class Controller
         System.out.print("\nIndtast pinkode: ");
         int pinkode = scanner.nextInt();
 
+        boolean isApproved = false;
+
         // printer holdmulighederne ud
         int traenereErOprettet = 0;
 
