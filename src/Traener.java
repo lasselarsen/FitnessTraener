@@ -34,6 +34,7 @@ public class Traener
         this.isApproved = isApproved;
     }
 
+
     public Traener(){}
 
     //Der oprettes get og set metoder

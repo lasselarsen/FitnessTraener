@@ -180,8 +180,7 @@ public class Controller
         System.out.println("-------------------- VELKOMMEN TIL TRÆNER LOGIN --------------------");
         System.out.println("---------------------------------------------------------------------\n \n");
 
-        while (nuTraenere == null)
-        {
+
             System.out.print("\nIndtast dit CPR NR: ");
             int cpr = scanner.nextInt();
 
@@ -216,7 +215,7 @@ public class Controller
             } else {
                 System.out.println("Forkerte oplysninger eller du er ikke blevet godkendt!");
             }
-        }
+
     }
 
     private boolean userExists(int cpr, int pinkode)
