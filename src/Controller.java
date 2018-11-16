@@ -191,7 +191,8 @@ public class Controller
             if (userExists(cpr, pinkode) && nuTraenere.getIsApproved())
             {
                 System.out.println("\nVelkommen tilbage, " + nuTraenere.getNavn() + "!");
-                do {
+                do
+                {
                     printMenu();
                     int choice = scanner.nextInt();
                     scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
@@ -210,8 +211,7 @@ public class Controller
                         default:
                             System.out.println("Ugyldigt valg.");
                     }
-                }
-                while (nuTraenere != null);
+                } while (nuTraenere != null);
             } else {
                 System.out.println("Forkerte oplysninger eller du er ikke blevet godkendt!");
             }
@@ -382,7 +382,7 @@ public class Controller
         System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold", "mobilnummer");
         for (Traener traenere : db.getTraenere())
         {
-            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getHoldene(), traenere.getMobil());
+            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getNavn(), traenere.getMobil());
             i++;
         }
     }

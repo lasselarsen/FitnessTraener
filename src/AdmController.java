@@ -58,7 +58,6 @@ public class AdmController {
                         Arbejdsfordeling();
                         break;
                     case 8:
-
                         logOut();
                         break;
                     default:
