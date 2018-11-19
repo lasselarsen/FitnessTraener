@@ -276,7 +276,7 @@ public class Controller
                 case 2:
                     System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
-                    nuTraenere.setNavn(svarNavn)
+                    nuTraenere.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
