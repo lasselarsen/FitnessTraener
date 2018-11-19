@@ -8,7 +8,6 @@ public class Hold
     private String kortBeskrivelse;
     private ArrayList<Traener> traenere;
 
-    public Hold(){}
 
     public  Hold(String holdNavn, String kortBeskrivelse)
     {

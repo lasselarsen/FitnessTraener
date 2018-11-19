@@ -12,6 +12,7 @@ public class Controller
     AdmController adm = new AdmController();
 
 
+
     public Controller()
     {
         this.db = new Data();
@@ -333,12 +334,6 @@ public class Controller
 
     private void ændreHold() {
 
-
-        /*int index = db.getHoldene().indexOf(nuTraenere.getHoldene());
-        db.getHoldene().get(index).getTraenere().remove(nuTraenere);*/
-
-
-
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
@@ -354,26 +349,11 @@ public class Controller
         int svarHold = scanner.nextInt();
 
 
-        //Fjern fra tidligere hold
-
-
-            /*int index = db.getHoldene().indexOf(nuTraenere.getHold());
-            db.getHoldene().get(index).getTraenere().remove(nuTraenere);
-
-            nuTraenere.getHold().remove(svarHold);
-
-            db.getHoldene().remove(nuTraenere);
-            db.getTraenere().remove(db.getHoldene());*/
-
-
-        // Tilføj til nyt hold
-        db.getHoldene().get(--svarHold).addTraener(nuTraenere);
-
-        // Tilføj hold til træner
-        nuTraenere.addHold(db.getHoldene().get(svarHold));
+        //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
+        nuTraenere.getHoldene().set(0, db.getHoldene().get(--svarHold));
 
         System.out.print("Holdet er nu ændret");
-        //ændrehold = 1;
+
 
     }
 
