@@ -33,7 +33,7 @@ public class Data
                 12345678, "Crossfit level one", 6, 32, 3333, false);
         Traener lasse = new Traener(  "Lasse Larsen", "l.l@gmail.com", 1903970497, "Danshøjvej 1",
                 22909816, "Crossfit level two", 2, 37, 4444, true);
-        Traener nikolaj = new Traener("Nikolaj Olsen", "n.o@gmail.com", 1310970897, "Brøndkaervej 15",
+        Traener nikolaj = new Traener("Nikolaj Olsen", "n.o@gmail.com", 1310970897, "Brøndkærvej 15",
                 20463633, "Fysioterapeut", 3, 38, 8888, true);
         Traener christi = new Traener("Christian Adrian", "c.a@gmail.com", 1208970913, "Hyldebjergallé 50",
                 24812080, "Personlig Træner", 4, 38, 7777, true);
