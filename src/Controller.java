@@ -23,7 +23,8 @@ public class Controller
     public void run()
     {
         boolean keepRunning = true;
-        do {
+        do
+        {
             int valg;
             System.out.println("---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
@@ -90,7 +91,8 @@ public class Controller
         // printer holdmulighederne ud
         int traenereErOprettet = 0;
 
-        do {
+        do
+        {
             System.out.print("\nVælg det hold du skal vaere traener på: \n");
 
             int i = 1;
@@ -132,7 +134,8 @@ public class Controller
     }
 
     // Her oprettes de 4 forskellige hold
-    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
@@ -142,7 +145,8 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
 
@@ -152,7 +156,8 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(2));
 
@@ -162,7 +167,8 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(3));
 
@@ -214,9 +220,10 @@ public class Controller
                             System.out.println("Ugyldigt valg.");
                     }
                 } while (nuTraenere != null);
-            } else {
+            } else
+              {
                 System.out.println("Forkerte oplysninger eller du er ikke blevet godkendt!");
-            }
+              }
 
     }
 
