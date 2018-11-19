@@ -332,14 +332,15 @@ public class Controller
     }
 
 
-    private void ændreHold() {
-
+    private void ændreHold()
+    {
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
         System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
 
-        for (Hold holdene : db.getHoldene()) {
+        for (Hold holdene : db.getHoldene())
+        {
             System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
             i++;
         }
@@ -353,8 +354,6 @@ public class Controller
         nuTraenere.getHoldene().set(0, db.getHoldene().get(--svarHold));
 
         System.out.print("Holdet er nu ændret");
-
-
     }
 
     private void visTraenere()
