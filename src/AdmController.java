@@ -265,9 +265,10 @@ public class AdmController {
 
     private void BestemtHoldtype() {
         HoldListe();
-        System.out.println("\n Indtast nummeret på holdet: ");
+        System.out.println("\nIndtast nummeret på holdet: ");
         int holdnr = scanner.nextInt();
         Hold traenerEfterHold = db.getHoldene().get(--holdnr);
+        System.out.print(traenerEfterHold.getTraenere());
 
     }
 
