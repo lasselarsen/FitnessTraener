@@ -1,4 +1,6 @@
 //Lavet af Nikolaj og Nadia
+//Vi skal have lavet en arrayliste for den træner som er logget ind. Herefter kan vi ændre oplysninger
+
 
 import java.util.Scanner;
 
@@ -58,7 +60,6 @@ public class Controller
     {
         System.out.print("\nIndtast dit fulde navn: ");
         String navn = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.print("\nIndtast din mail: ");
         String mail = scanner.nextLine();
@@ -284,7 +285,7 @@ public class Controller
                 case 2:
                     System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
-                    nuTraenere.setNavn(svarNavn);
+                    //db.getTraenere().get().setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
