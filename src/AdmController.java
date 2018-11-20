@@ -60,7 +60,6 @@ public class AdmController {
                         Arbejdsfordeling();
                         break;
                     case 8:
-
                         logOut();
                         break;
                     default:
@@ -282,7 +281,7 @@ public class AdmController {
             System.out.println("Pinkode:        \t" + traenerEfterHold.getTraenere().get(i).getPinkode());
             System.out.println("Godkendt?:      \t" + traenerEfterHold.getTraenere().get(i).getIsApproved());
             i++;
-        } while (i<2);
+        } while (i < traenerEfterHold.getTraenere().size());
     }
 
     private void visTraenere() {
