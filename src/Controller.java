@@ -1,12 +1,11 @@
 //Lavet af Nikolaj og Nadia
 //Vi skal have lavet en arrayliste for den træner som er logget ind. Herefter kan vi ændre oplysninger
 
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller
 {
-
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
@@ -259,6 +258,18 @@ public class Controller
             System.out.println("\n---------------------------------------------------------------------");
             System.out.println("---------------------- Ændre dine oplysninger  ---------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
+
+            /*{
+                int i = 1;
+                System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold", "mobilnummer");
+                for (Traener traenere : db.getTraenere())
+                {
+                    System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn().get().nuTraenere, traenere.getMail(nuTraenere).get(0).getHoldNavn(), traenere.getMobil());
+                    i++;
+                }
+            }*/
+
+
 
             System.out.println("Hvilke oplysninger ønsker du at ændre?");
             System.out.println("Tast 1 - Hold");

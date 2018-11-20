@@ -268,7 +268,7 @@ public class AdmController {
         System.out.println("\nIndtast nummeret på holdet: ");
         int holdnr = scanner.nextInt();
         Hold traenerEfterHold = db.getHoldene().get(--holdnr);
-        System.out.print(traenerEfterHold.getTraenere());
+        System.out.print(traenerEfterHold.getTraenere().get(0).getNavn());
 
     }
 
