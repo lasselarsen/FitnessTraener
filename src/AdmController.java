@@ -54,7 +54,7 @@ public class AdmController {
                         BestemtHoldtype();
                         break;
                     case 6:
-                        visTraenere();
+                        visTraenereEfterHold();
                         break;
                     case 7:
                         Arbejdsfordeling();
@@ -284,8 +284,27 @@ public class AdmController {
         } while (i < traenerEfterHold.getTraenere().size());
     }
 
-    private void visTraenere() {
-        HoldListe();
+    private void visTraenereEfterHold() {
+        ArrayList<Hold> hold = db.getHoldene();
+        int i = 0;
+        int j;
+
+        do
+        {
+            Hold holdene = db.getHoldene().get(i);
+            System.out.println("Hold: " + holdene.getHoldNavn());
+            j = 0;
+
+            do {
+
+                System.out.println(holdene.getTraenere().get(j).getNavn());
+                j++;
+            } while (j < holdene.getTraenere().size());
+
+            i++;
+        } while (i < hold.size());
+
+
 
     }
 
