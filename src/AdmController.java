@@ -268,8 +268,21 @@ public class AdmController {
         System.out.println("\nIndtast nummeret på holdet: ");
         int holdnr = scanner.nextInt();
         Hold traenerEfterHold = db.getHoldene().get(--holdnr);
-        System.out.print(traenerEfterHold.getTraenere().get(0).getNavn());
-
+        int i = 0;
+        do
+        {
+            System.out.println("Navn:           \t" + traenerEfterHold.getTraenere().get(i).getNavn());
+            System.out.println("Mail:           \t" + traenerEfterHold.getTraenere().get(i).getMail());
+            System.out.println("CPR:            \t" + traenerEfterHold.getTraenere().get(i).getCpr());
+            System.out.println("Adresse:        \t" + traenerEfterHold.getTraenere().get(i).getAdresse());
+            System.out.println("Mobil:          \t" + traenerEfterHold.getTraenere().get(i).getMobil());
+            System.out.println("Uddannelse:     \t" + traenerEfterHold.getTraenere().get(i).getUdd());
+            System.out.println("Erfaring:       \t" + traenerEfterHold.getTraenere().get(i).getErfaring());
+            System.out.println("Timer:          \t" + traenerEfterHold.getTraenere().get(i).getTimer());
+            System.out.println("Pinkode:        \t" + traenerEfterHold.getTraenere().get(i).getPinkode());
+            System.out.println("Godkendt?:      \t" + traenerEfterHold.getTraenere().get(i).getIsApproved());
+            i++;
+        } while (i<2);
     }
 
     private void visTraenere() {
