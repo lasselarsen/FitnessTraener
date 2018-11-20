@@ -279,7 +279,7 @@ public class AdmController {
             System.out.println("Erfaring:       \t" + traenerEfterHold.getTraenere().get(i).getErfaring());
             System.out.println("Timer:          \t" + traenerEfterHold.getTraenere().get(i).getTimer());
             System.out.println("Pinkode:        \t" + traenerEfterHold.getTraenere().get(i).getPinkode());
-            System.out.println("Godkendt?:      \t" + traenerEfterHold.getTraenere().get(i).getIsApproved());
+            System.out.println("Godkendt?:      \t" + traenerEfterHold.getTraenere().get(i).getIsApproved() + "\n\n");
             i++;
         } while (i < traenerEfterHold.getTraenere().size());
     }

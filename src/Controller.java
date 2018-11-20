@@ -9,6 +9,7 @@ public class Controller
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
+    private Hold hold;
 
     AdmController adm = new AdmController();
 
@@ -16,6 +17,7 @@ public class Controller
 
     public Controller()
     {
+        this.hold = new Hold();
         this.db = new Data();
         this.scanner = new Scanner(System.in);
         this.nuTraenere = new Traener();
@@ -27,7 +29,7 @@ public class Controller
         do
         {
             int valg;
-            System.out.println("---------------------------------------------------------------------");
+            System.out.println("\n\n---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
             System.out.println("Tast 1 - Opret traener \nTast 2 - Log ind traener \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
@@ -46,7 +48,7 @@ public class Controller
                     adm.administratorMenu();
                     break;
                 case 4:
-                    keepRunning = false;
+                    System.exit(4);
                     break;
                 default:
                     System.out.print("Ugyldigt valg, prøv igen ");
@@ -268,6 +270,15 @@ public class Controller
                     i++;
                 }
             }*/
+            //int i = 1;
+            //System.out.printf("%-10d %-40s %-30s %-30d\n", i, db.getTraenere().get(0).getNavn(nuTraenere));
+
+
+                /*int holdnr = scanner.nextInt();
+                Hold traenerEfterHold = db.getHoldene().get(--holdnr);
+                System.out.print(traenerEfterHold.getTraenere().get(0).getNavn());*/
+
+
 
 
 
@@ -371,6 +382,7 @@ public class Controller
 
         //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
         nuTraenere.getHoldene().set(0, db.getHoldene().get(--svarHold));
+
 
         System.out.print("Holdet er nu ændret");
     }
