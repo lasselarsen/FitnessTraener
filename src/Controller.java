@@ -129,11 +129,17 @@ public class Controller
                     break;
                 default:
                     System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
-                   // traenereErOprettet = 0;
+                    traenereErOprettet = 0;
                     break;
             }
         } while (traenereErOprettet == 0);
+
+        /*try
+        {
+            if (mobil.)*/
+
     }
+
 
     // Her oprettes de 4 forskellige hold
     private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
