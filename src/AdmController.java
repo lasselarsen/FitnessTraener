@@ -286,27 +286,27 @@ public class AdmController {
 
     private void visTraenereEfterHold() {
         ArrayList<Hold> hold = db.getHoldene();
+        System.out.print("Hold:" + "\t \t \t \t Trænere:");
+
         int i = 0;
         int j;
 
         do
         {
             Hold holdene = db.getHoldene().get(i);
-            System.out.println("Hold: " + holdene.getHoldNavn());
+            System.out.print("\n"+holdene.getHoldNavn());
             j = 0;
 
             do {
-
-                System.out.println(holdene.getTraenere().get(j).getNavn());
+                System.out.printf("\t \t \t "+holdene.getTraenere().get(j).getNavn() + "\n" + "\t \t");
                 j++;
             } while (j < holdene.getTraenere().size());
 
             i++;
         } while (i < hold.size());
 
-
-
     }
+
 
     private void Arbejdsfordeling() {
         for (Traener traener : sortByHours()) {
