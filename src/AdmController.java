@@ -160,7 +160,7 @@ public class AdmController {
                 case 1:
                     System.out.println("Indtast nyt navn: ");
                     String svarNavn = scanner.nextLine();
-                    nyAdmTraener.setNavn(svarNavn);
+                    traenerToEdit.setNavn(svarNavn);
                     break;
                 case 2:
                     System.out.println("Indtast din nye mail: ");
@@ -239,7 +239,7 @@ public class AdmController {
         TraenerListe();
         System.out.println("\nIndtast nummeret på den træner som skal slettes:");
         int traenernr = scanner.nextInt();
-        Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
+        Traener traenerToDelete = db.getTraenere().get(--traenernr);
         db.getTraenere().remove(traenerToDelete);
         System.out.println("Traeneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
     }
