@@ -74,8 +74,21 @@ public class Controller
         String udd = scanner.nextLine();
         scanner.nextLine();
 
-        System.out.print("\nIndtast din erfaring i hele år: ");
-        int erfaring = scanner.nextInt();
+        int erfaring = -1;
+        boolean format1;
+        do {
+            try
+            {
+                System.out.print("\nIndtast din erfaring i hele år: ");
+                erfaring = scanner.nextInt();
+                format1 = true;
+            } catch (Exception error)
+            {
+                System.out.printf("System fejlmeddelselse %s \n", error);
+                System.out.println("Der er sket en fejl i indtastningen");
+                format1 = false;
+            }
+        } while (!format1);
 
         System.out.print("\nIndtast de aftale antal timer pr. måned: ");
         double timer = scanner.nextDouble();
