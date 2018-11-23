@@ -8,13 +8,11 @@ public class AdmController {
     private Data db;
     private Scanner scanner;
     private Adm nuAdm;
-    private Traener nyAdmTraener;
-
+    Traener traenerToEdit = new Traener();
 
     public AdmController() {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
-        this.nyAdmTraener = new Traener();
     }
 
 
@@ -133,74 +131,77 @@ public class AdmController {
 
         System.out.println("Indtast nummeret på træneren: ");
         int traenerNr = scanner.nextInt();
-        Traener traenerToEdit = db.getTraenere().get(--traenerNr);
-
-        System.out.println(traenerToEdit.getNavn());
-
-        System.out.println("---------------------------------------------------------------------");
-        System.out.println("---------------------- Ændre træner oplysninger  ---------------------");
-        System.out.println("---------------------------------------------------------------------\n \n");
-
-        System.out.println("Hvilke oplysninger ønsker du at ændre?");
-        System.out.println("Tast 1 - Navn");
-        System.out.println("Tast 2 - Mail");
-        System.out.println("Tast 3 - CPR-nr");
-        System.out.println("Tast 4 - Adresse");
-        System.out.println("Tast 5 - Mobil nr");
-        System.out.println("Tast 6 - Uddannelse");
-        System.out.println("Tast 7 - Erfaring");
-        System.out.println("Tast 8 - Aftalte antal timer pr. måned");
-        System.out.println("Tast 9 - Pinkode");
-        System.out.println("Tast 10 - Hold");
-        System.out.println("Tast 11 - Tilbage til menu");
-        int svar = scanner.nextInt();
+        traenerToEdit = db.getTraenere().get(--traenerNr);
+        int svar;
 
         do {
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println("---------------------- Ændre træner oplysninger  ---------------------");
+            System.out.println("---------------------------------------------------------------------\n \n");
+
+            System.out.println("Hvilke oplysninger ønsker du at ændre?");
+            System.out.println("Tast 1 - Navn");
+            System.out.println("Tast 2 - Mail");
+            System.out.println("Tast 3 - CPR-nr");
+            System.out.println("Tast 4 - Adresse");
+            System.out.println("Tast 5 - Mobil nr");
+            System.out.println("Tast 6 - Uddannelse");
+            System.out.println("Tast 7 - Erfaring");
+            System.out.println("Tast 8 - Aftalte antal timer pr. måned");
+            System.out.println("Tast 9 - Pinkode");
+            System.out.println("Tast 10 - Hold");
+            System.out.println("Tast 11 - Tilbage til menu");
+            svar = scanner.nextInt();
+
             switch (svar) {
                 case 1:
                     System.out.println("Indtast nyt navn: ");
+                    scanner.nextLine();
                     String svarNavn = scanner.nextLine();
                     traenerToEdit.setNavn(svarNavn);
                     break;
                 case 2:
                     System.out.println("Indtast din nye mail: ");
+                    scanner.nextLine();
                     String svarMail = scanner.nextLine();
-                    nyAdmTraener.setMail(svarMail);
+                    traenerToEdit.setMail(svarMail);
                     break;
                 case 3:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
-                    nyAdmTraener.setCpr(svarCpr);
+                    traenerToEdit.setCpr(svarCpr);
                     break;
                 case 4:
                     System.out.println("Indtast din nye adresse: ");
+                    scanner.nextLine();
                     String svarAdr = scanner.nextLine();
-                    nyAdmTraener.setAdresse(svarAdr);
+                    traenerToEdit.setAdresse(svarAdr);
                     break;
                 case 5:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
-                    nyAdmTraener.setMobil(svarMobil);
+                    traenerToEdit.setMobil(svarMobil);
                     break;
                 case 6:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
+                    scanner.nextLine();
                     String svarUdd = scanner.nextLine();
-                    nyAdmTraener.setUdd(svarUdd);
+                    traenerToEdit.setUdd(svarUdd);
                     break;
                 case 7:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
-                    nyAdmTraener.setErfaring(svarErf);
+                    traenerToEdit.setErfaring(svarErf);
                     break;
                 case 8:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
-                    nyAdmTraener.setTimer(svarTimer);
+                    traenerToEdit.setTimer(svarTimer);
                     break;
                 case 9:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
-                    nyAdmTraener.setPinkode(svarPin);
+                    traenerToEdit.setPinkode(svarPin);
                     break;
                 /*case 10:
                     System.out.println("Vælg dit nye hold");
@@ -213,7 +214,7 @@ public class AdmController {
                     System.out.println("Du har indtastet forkert, prøv igen.");
 
 
-            }
+            } scanner.nextLine();
         } while (svar != 11);
     }
 
@@ -239,7 +240,7 @@ public class AdmController {
         TraenerListe();
         System.out.println("\nIndtast nummeret på den træner som skal slettes:");
         int traenernr = scanner.nextInt();
-        Traener traenerToDelete = db.getTraenere().get(--traenernr);
+        Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
         db.getTraenere().remove(traenerToDelete);
         System.out.println("Traeneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
     }
