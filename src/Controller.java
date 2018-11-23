@@ -197,12 +197,15 @@ public class Controller
         System.out.println("---------------------------------------------------------------------\n \n");
 
         int cpr = -1;
-        try {
-            System.out.print("\nIndtast dit CPR NR: ");
-            cpr = scanner.nextInt();
-        } catch(Exception error) {
-            System.out.println("You made an error");
-        }
+
+        do {
+            try {
+                System.out.print("\nIndtast dit CPR NR: ");
+                cpr = scanner.nextInt();
+            } catch (Exception error) {
+                System.out.println("Der er sket en fejl i indtastningen");
+            }
+        } while ()
 
         System.out.print("Indtast adgangskode: ");
         int pinkode = scanner.nextInt();
@@ -270,27 +273,6 @@ public class Controller
             System.out.println("---------------------- Ændre dine oplysninger  ---------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
 
-            /*{
-                int i = 1;
-                System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold", "mobilnummer");
-                for (Traener traenere : db.getTraenere())
-                {
-                    System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn().get().nuTraenere, traenere.getMail(nuTraenere).get(0).getHoldNavn(), traenere.getMobil());
-                    i++;
-                }
-            }*/
-            //int i = 1;
-            //System.out.printf("%-10d %-40s %-30s %-30d\n", i, db.getTraenere().get(0).getNavn(nuTraenere));
-
-
-                /*int holdnr = scanner.nextInt();
-                Hold traenerEfterHold = db.getHoldene().get(--holdnr);
-                System.out.print(traenerEfterHold.getTraenere().get(0).getNavn());*/
-
-
-
-
-
             System.out.println("Hvilke oplysninger ønsker du at ændre?");
             System.out.println("Tast 1 - Hold");
             System.out.println("Tast 2 - Navn");
@@ -314,12 +296,14 @@ public class Controller
                     ændreHold();
                     break;
                 case 2:
-                    System.out.println("Indtast dit nye navn: ");
+                    System.out.println("Indtast nyt navn: ");
+                    scanner.nextLine();
                     String svarNavn = scanner.nextLine();
-                    //db.getTraenere().get().setNavn(svarNavn);
+                    nuTraenere.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
+                    scanner.nextLine();
                     String svarMail = scanner.nextLine();
                     nuTraenere.setMail(svarMail);
                     break;
@@ -330,6 +314,7 @@ public class Controller
                     break;
                 case 5:
                     System.out.println("Indtast din nye adresse: ");
+                    scanner.nextLine();
                     String svarAdr = scanner.nextLine();
                     nuTraenere.setAdresse(svarAdr);
                     break;
@@ -340,6 +325,7 @@ public class Controller
                     break;
                 case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
+                    scanner.nextLine();
                     String svarUdd = scanner.nextLine();
                     nuTraenere.setUdd(svarUdd);
                     break;
