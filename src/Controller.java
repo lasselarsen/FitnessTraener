@@ -197,7 +197,6 @@ public class Controller
 
     public void login()
     {
-
         //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
         //Opret userApproved ved "if (userExists) statement
 
@@ -303,8 +302,6 @@ public class Controller
             System.out.println("Tast 10 - Pinkode");
             System.out.println("Tast 11 - Tilbage til træner menuen");
 
-
-
             svar = scanner.nextInt();
 
             switch (svar) {
@@ -376,9 +373,6 @@ public class Controller
 
     private void ændreHold() {
 
-
-
-
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
@@ -389,10 +383,6 @@ public class Controller
             i++;
         }
 
-
-
-
-
         System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
         int svarHold = scanner.nextInt();
 
@@ -402,10 +392,6 @@ public class Controller
 
 
         System.out.print("Holdet er nu ændret");
-
-
-        //ændrehold = 1;*/
-
     }
 
     private void visTraenere()
