@@ -208,7 +208,7 @@ public class Controller
         boolean format;
         do
         {
-            try
+            try // inspiration fra: https://stackoverflow.com/questions/34077958/do-while-loop-with-try-catch
             {
                 System.out.print("\nIndtast dit CPR NR: ");
                 cpr = scanner.nextInt();

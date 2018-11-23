@@ -12,7 +12,6 @@ public class Data
     // Her oprettes en konstruktor
     public Data()
     {
-
         this.traenere = new ArrayList<>();
         this.administratore = new ArrayList<>();
         this.holdene = new ArrayList<>();
