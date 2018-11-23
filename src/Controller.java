@@ -152,8 +152,8 @@ public class Controller
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi " +
-                "er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi" +
+                " er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
     private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
@@ -165,8 +165,8 @@ public class Controller
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi " +
-                "er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og " +
+                "vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
     private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
