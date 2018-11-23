@@ -8,10 +8,11 @@ public class Controller
 {
     private Data db;
     private Scanner scanner;
-    private Traener nuTraenere;
+    // private Traener nuTraenere;
     private Hold hold;
 
     AdmController adm = new AdmController();
+    Traener nuTraenere = new Traener();
 
 
 
@@ -205,6 +206,7 @@ public class Controller
                 System.out.print("\nIndtast dit CPR NR: ");
                 cpr = scanner.nextInt();
                 format = true;
+
             } catch (Exception error)
             {
                 System.out.println("Der er sket en fejl i indtastningen");
@@ -306,6 +308,13 @@ public class Controller
                     String svarNavn = scanner.nextLine();
                     nuTraenere.setNavn(svarNavn);
                     break;
+
+               /* System.out.println("Indtast nyt navn: ");
+                scanner.nextLine();
+                String svarNavn = scanner.nextLine();
+                traenerToEdit.setNavn(svarNavn);
+                break; */
+
                 case 3:
                     System.out.println("Indtast din nye mail: ");
                     scanner.nextLine();
