@@ -58,7 +58,7 @@ public class Data
 
         //Oprettelse af de 4 hold
         Hold stramOp = new Hold("Stram op","Dette hold er for dig, der elsker at løfte vægte");
-        Hold hit = new Hold("H.I.T.", "Dette hold er for dig, der elsker at have pulsen oppe");
+        Hold hit = new Hold("H.I.T.    ", "Dette hold er for dig, der elsker at have pulsen oppe");
         Hold spinning = new Hold("Spinning", "Dette hold er for dig, der elsker at cykle");
         Hold crossfit = new Hold("Crossfit", "Dette hold er for dig, der elsker motion ");
 
