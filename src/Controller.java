@@ -130,44 +130,56 @@ public class Controller
     }
 
     // Her oprettes de 4 forskellige hold
-    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
+                          double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi " +
+                "er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
+                              double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi " +
+                "er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
+                               double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(2));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(2).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og " +
+                "vi er glade for, at du vil være traner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
+    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
+                               double timer, int pinkode, boolean isApproved)
+    {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(3));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(3).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og " +
+                "vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
     public void login()
@@ -291,14 +303,12 @@ public class Controller
                     System.out.println("Indtast dit nye navn: ");
                     scanner.nextLine();
                     String svarNavn = scanner.nextLine();
-                    scanner.nextLine();
                     nyTraener.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
                     scanner.nextLine();
                     String svarMail = scanner.nextLine();
-                    scanner.nextLine();
                     nyTraener.setMail(svarMail);
                     break;
                 case 4:
@@ -310,7 +320,6 @@ public class Controller
                     System.out.println("Indtast din nye adresse: ");
                     scanner.nextLine();
                     String svarAdr = scanner.nextLine();
-                    scanner.nextLine();
                     nyTraener.setAdresse(svarAdr);
                     break;
                 case 6:
@@ -322,7 +331,6 @@ public class Controller
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     scanner.nextLine();
                     String svarUdd = scanner.nextLine();
-                    scanner.nextLine();
                     nyTraener.setUdd(svarUdd);
                     break;
                 case 8:
