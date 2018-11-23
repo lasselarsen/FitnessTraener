@@ -197,15 +197,20 @@ public class Controller
         System.out.println("---------------------------------------------------------------------\n \n");
 
         int cpr = -1;
-
-        do {
-            try {
+        boolean format;
+        do
+        {
+            try
+            {
                 System.out.print("\nIndtast dit CPR NR: ");
                 cpr = scanner.nextInt();
-            } catch (Exception error) {
+                format = true;
+            } catch (Exception error)
+            {
                 System.out.println("Der er sket en fejl i indtastningen");
+                format = false;
             }
-        } while ()
+        } while (!format);
 
         System.out.print("Indtast adgangskode: ");
         int pinkode = scanner.nextInt();
