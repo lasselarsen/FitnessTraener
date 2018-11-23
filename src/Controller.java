@@ -380,30 +380,27 @@ public class Controller
         }
 
 
+
+
+
         System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
         int svarHold = scanner.nextInt();
 
 
-        //Fjern fra tidligere hold
+        //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
+        nuTraenere.getHoldene().set(0, db.getHoldene().get(--svarHold));
 
 
-            /*int index = db.getHoldene().indexOf(nuTraenere.getHold());
-            db.getHoldene().get(index).getTraenere().remove(nuTraenere);
+        System.out.print("Holdet er nu ændret");
 
-            nuTraenere.getHold().remove(svarHold);
-
-            db.getHoldene().remove(nuTraenere);
-            db.getTraenere().remove(db.getHoldene());*/
-
-
-        // Tilføj til nyt hold
+        /*// Tilføj til nyt hold
         db.getHoldene().get(--svarHold).addTraener(nuTraenere);
 
         // Tilføj hold til træner
         nuTraenere.addHold(db.getHoldene().get(svarHold));
 
         System.out.print("Holdet er nu ændret");
-        //ændrehold = 1;
+        //ændrehold = 1;*/
 
     }
 
