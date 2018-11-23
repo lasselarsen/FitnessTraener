@@ -289,12 +289,16 @@ public class Controller
                     break;
                 case 2:
                     System.out.println("Indtast dit nye navn: ");
+                    scanner.nextLine();
                     String svarNavn = scanner.nextLine();
+                    scanner.nextLine();
                     nyTraener.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
+                    scanner.nextLine();
                     String svarMail = scanner.nextLine();
+                    scanner.nextLine();
                     nyTraener.setMail(svarMail);
                     break;
                 case 4:
@@ -304,7 +308,9 @@ public class Controller
                     break;
                 case 5:
                     System.out.println("Indtast din nye adresse: ");
+                    scanner.nextLine();
                     String svarAdr = scanner.nextLine();
+                    scanner.nextLine();
                     nyTraener.setAdresse(svarAdr);
                     break;
                 case 6:
@@ -314,7 +320,9 @@ public class Controller
                     break;
                 case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
+                    scanner.nextLine();
                     String svarUdd = scanner.nextLine();
+                    scanner.nextLine();
                     nyTraener.setUdd(svarUdd);
                     break;
                 case 8:
