@@ -1,36 +1,29 @@
 //Lavet af Nikolaj og Nadia
-//Vi skal have lavet en arrayliste for den træner som er logget ind. Herefter kan vi ændre oplysninger
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller
 {
+
     private Data db;
     private Scanner scanner;
-    // private Traener nuTraenere;
-    private Hold hold;
+    private Traener nuTraenere;
 
+    Traener nyTraener = new Traener();
     AdmController adm = new AdmController();
-    Traener nuTraenere = new Traener();
-
-
 
     public Controller()
     {
-        this.hold = new Hold();
         this.db = new Data();
         this.scanner = new Scanner(System.in);
-        this.nuTraenere = new Traener();
     }
 
     public void run()
     {
         boolean keepRunning = true;
-        do
-        {
+        do {
             int valg;
-            System.out.println("\n\n---------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
             System.out.println("Tast 1 - Opret traener \nTast 2 - Log ind traener \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
@@ -49,7 +42,7 @@ public class Controller
                     adm.administratorMenu();
                     break;
                 case 4:
-                    System.exit(4);
+                    keepRunning = false;
                     break;
                 default:
                     System.out.print("Ugyldigt valg, prøv igen ");
@@ -62,6 +55,7 @@ public class Controller
     {
         System.out.print("\nIndtast dit fulde navn: ");
         String navn = scanner.nextLine();
+        scanner.nextLine();
 
         System.out.print("\nIndtast din mail: ");
         String mail = scanner.nextLine();
@@ -94,8 +88,7 @@ public class Controller
         // printer holdmulighederne ud
         int traenereErOprettet = 0;
 
-        do
-        {
+        do {
             System.out.print("\nVælg det hold du skal vaere traener på: \n");
 
             int i = 1;
@@ -130,21 +123,14 @@ public class Controller
                     break;
                 default:
                     System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
-                    traenereErOprettet = 0;
+                    // traenereErOprettet = 0;
                     break;
             }
         } while (traenereErOprettet == 0);
-
-        /*try
-        {
-            if (mobil.)*/
-
     }
 
-
     // Her oprettes de 4 forskellige hold
-    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
-    {
+    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
@@ -154,8 +140,7 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
-    {
+    private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
 
@@ -165,8 +150,7 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
-    {
+    private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(2));
 
@@ -176,8 +160,7 @@ public class Controller
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og vi er glade for, at du vil være traner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
-    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved)
-    {
+    private void opretCrossfit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring, double timer, int pinkode, boolean isApproved) {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(3));
 
@@ -206,13 +189,15 @@ public class Controller
                 System.out.print("\nIndtast dit CPR NR: ");
                 cpr = scanner.nextInt();
                 format = true;
-
             } catch (Exception error)
             {
+                scanner.nextLine();
+                System.out.printf("System fejlmeddelselse %s \n", error);
                 System.out.println("Der er sket en fejl i indtastningen");
                 format = false;
             }
-        } while (!format);
+        }
+        while (!format);
 
         System.out.print("Indtast adgangskode: ");
         int pinkode = scanner.nextInt();
@@ -291,7 +276,7 @@ public class Controller
             System.out.println("Tast 8 - Erfaring");
             System.out.println("Tast 9 - Aftalte antal timer pr. måned");
             System.out.println("Tast 10 - Pinkode");
-            System.out.println("Tast 11 - Tilbage til menu");
+            System.out.println("Tast 11 - Tilbage til træner menuen");
 
 
 
@@ -303,63 +288,52 @@ public class Controller
                     ændreHold();
                     break;
                 case 2:
-                    System.out.println("Indtast nyt navn: ");
-                    scanner.nextLine();
+                    System.out.println("Indtast dit nye navn: ");
                     String svarNavn = scanner.nextLine();
-                    nuTraenere.setNavn(svarNavn);
+                    nyTraener.setNavn(svarNavn);
                     break;
-
-               /* System.out.println("Indtast nyt navn: ");
-                scanner.nextLine();
-                String svarNavn = scanner.nextLine();
-                traenerToEdit.setNavn(svarNavn);
-                break; */
-
                 case 3:
                     System.out.println("Indtast din nye mail: ");
-                    scanner.nextLine();
                     String svarMail = scanner.nextLine();
-                    nuTraenere.setMail(svarMail);
+                    nyTraener.setMail(svarMail);
                     break;
                 case 4:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
-                    nuTraenere.setCpr(svarCpr);
+                    nyTraener.setCpr(svarCpr);
                     break;
                 case 5:
                     System.out.println("Indtast din nye adresse: ");
-                    scanner.nextLine();
                     String svarAdr = scanner.nextLine();
-                    nuTraenere.setAdresse(svarAdr);
+                    nyTraener.setAdresse(svarAdr);
                     break;
                 case 6:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
-                    nuTraenere.setMobil(svarMobil);
+                    nyTraener.setMobil(svarMobil);
                     break;
                 case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
-                    scanner.nextLine();
                     String svarUdd = scanner.nextLine();
-                    nuTraenere.setUdd(svarUdd);
+                    nyTraener.setUdd(svarUdd);
                     break;
                 case 8:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
-                    nuTraenere.setErfaring(svarErf);
+                    nyTraener.setErfaring(svarErf);
                     break;
                 case 9:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
-                    nuTraenere.setTimer(svarTimer);
+                    nyTraener.setTimer(svarTimer);
                     break;
                 case 10:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
-                    nuTraenere.setPinkode(svarPin);
+                    nyTraener.setPinkode(svarPin);
                     break;
                 case 11:
-                    System.out.println("Retunerer til træner menu");
+                    System.out.println("Du har tastet 11");
                     keepChanging = false;
                     break;
                 default:
@@ -371,15 +345,20 @@ public class Controller
     }
 
 
-    private void ændreHold()
-    {
+    private void ændreHold() {
+
+
+        /*int index = db.getHoldene().indexOf(nuTraenere.getHoldene());
+        db.getHoldene().get(index).getTraenere().remove(nuTraenere);*/
+
+
+
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
         System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
 
-        for (Hold holdene : db.getHoldene())
-        {
+        for (Hold holdene : db.getHoldene()) {
             System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
             i++;
         }
@@ -389,11 +368,27 @@ public class Controller
         int svarHold = scanner.nextInt();
 
 
-        //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
-        nuTraenere.getHoldene().set(0, db.getHoldene().get(--svarHold));
+        //Fjern fra tidligere hold
 
+
+            /*int index = db.getHoldene().indexOf(nuTraenere.getHold());
+            db.getHoldene().get(index).getTraenere().remove(nuTraenere);
+
+            nuTraenere.getHold().remove(svarHold);
+
+            db.getHoldene().remove(nuTraenere);
+            db.getTraenere().remove(db.getHoldene());*/
+
+
+        // Tilføj til nyt hold
+        db.getHoldene().get(--svarHold).addTraener(nuTraenere);
+
+        // Tilføj hold til træner
+        nuTraenere.addHold(db.getHoldene().get(svarHold));
 
         System.out.print("Holdet er nu ændret");
+        //ændrehold = 1;
+
     }
 
     private void visTraenere()
@@ -412,5 +407,4 @@ public class Controller
         nuTraenere = null;
         System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
-
 }
