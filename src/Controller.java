@@ -394,7 +394,7 @@ public class Controller
     private void visTraenere()
     {
         int i = 1;
-        System.out.printf("%-10s %-40s %-30s \n", "Nr.", "Navn", "Hold", "mobilnummer");
+        System.out.printf("%-10s %-40s %-30s %-30s\n", "Nr.", "Navn", "Hold", "mobilnummer");
         for (Traener traenere : db.getTraenere())
         {
             System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getHoldene().get(0).getHoldNavn(), traenere.getMobil());
