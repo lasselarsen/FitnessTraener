@@ -364,9 +364,6 @@ public class Controller
     private void ændreHold() {
 
 
-        /*int index = db.getHoldene().indexOf(nuTraenere.getHoldene());
-        db.getHoldene().get(index).getTraenere().remove(nuTraenere);*/
-
 
 
         System.out.print("\nVælg dit nye hold:\" \n");
@@ -393,13 +390,7 @@ public class Controller
 
         System.out.print("Holdet er nu ændret");
 
-        /*// Tilføj til nyt hold
-        db.getHoldene().get(--svarHold).addTraener(nuTraenere);
 
-        // Tilføj hold til træner
-        nuTraenere.addHold(db.getHoldene().get(svarHold));
-
-        System.out.print("Holdet er nu ændret");
         //ændrehold = 1;*/
 
     }
