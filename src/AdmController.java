@@ -104,7 +104,7 @@ public class AdmController {
         }
     }
 
-    private void godkendtTraenerListe() {
+    private void ikkegodkendtTraenerListe() {
         int i = 1;
         System.out.printf("%-10s %-40s %-30s %-20s\n", "Nr.", "Navn:", "CPR:", "Status:");
         for (Traener traenere : db.getTraenere()) {
@@ -220,7 +220,7 @@ public class AdmController {
 
 
     public void GodkendTraener() {
-        godkendtTraenerListe();
+        ikkegodkendtTraenerListe();
         System.out.println("\nIndtast nummeret på træneren: ");
         int traenerNr = scanner.nextInt();
         Traener traenertoApprove = db.getTraenere().get(--traenerNr);
