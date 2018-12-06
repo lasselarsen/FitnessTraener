@@ -290,6 +290,7 @@ public class AdmController {
         int trænerNr = scanner.nextInt();
 
         Traener traenerInformation = db.getTraenere().get(--trænerNr);
+        System.out.println("Hold:           \t" + traenerInformation.getHoldene().get(0).getHoldNavn());
         System.out.println("Navn:           \t" + traenerInformation.getNavn());
         System.out.println("Mail:           \t" + traenerInformation.getMail());
         System.out.println("CPR:            \t" + traenerInformation.getCpr());

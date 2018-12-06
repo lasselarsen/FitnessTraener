@@ -9,14 +9,14 @@ public class Hold
     private ArrayList<Traener> traenere;
 
 
-    public  Hold(String holdNavn, String kortBeskrivelse)
+    public Hold(String holdNavn, String kortBeskrivelse)
     {
         this.holdNavn = holdNavn;
         this.kortBeskrivelse = kortBeskrivelse;
         this.traenere = new ArrayList<>();
     }
 
-    Hold() {}
+    public Hold() {}
 
     public String getHoldNavn() {return holdNavn;}
     public void setHoldNavn(String holdNavn) {this.holdNavn = holdNavn;}
