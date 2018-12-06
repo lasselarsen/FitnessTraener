@@ -8,31 +8,28 @@ public class Controller
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
-    //private Traener traenerToEdit;
-
 
     AdmController adm;
-    //Traener traenerToEdit;
 
     public Controller()
     {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
         adm = new AdmController(db);
-        //traenerToEdit = new Traener();
     }
 
     public void run()
     {
-        boolean keepRunning = true;
-        do {
+        int keepRunning = 1;
+        do
+        {
+            //Her er hovedmenuen oprettet
             int valg;
-            System.out.println("---------------------------------------------------------------------");
+            System.out.println("\n\n---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
             System.out.println("Tast 1 - Opret træner \nTast 2 - Log ind træner \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
             valg = scanner.nextInt();
-
 
             switch (valg)
             {
@@ -46,12 +43,12 @@ public class Controller
                     adm.administratorMenu();
                     break;
                 case 4:
-                    System.exit(0);
+                    keepRunning = 0;
                     break;
                 default:
                     System.out.print("Ugyldigt valg, prøv igen ");
             }
-        } while (keepRunning = true);
+        } while (keepRunning == 1);
     }
 
 
