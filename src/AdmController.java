@@ -3,20 +3,26 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdmController {
-
+//Vi opretter vores attributter, samt objekt "traenerToEdit" som sætter vores angivne oplysninger senere i AdmMenu'en.
+public class AdmController 
+{
     private Data db;
     private Scanner scanner;
     private Adm nuAdm;
-    Traener traenerToEdit = new Traener();
-
-    public AdmController(Data data) {
+    Traener traenerAendre = new Traener();
+    
+    //Vores attributter laver vi til objekt metoder, ved at sætte "this." på.
+    public AdmController(Data data)
+    {
         this.db = data;
         this.scanner = new Scanner(System.in);
     }
 
 
-    public void administratorMenu() {
+    //Den første fremviste menu, som scanner AdmID'et og adgangskoden. 
+    //Hvorefter den henføre til "printMenu" som er en switch-case mmetode med otte valgmuligheder
+    public void administratorMenu() 
+    {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("------------------ Velkommen til administrator menu -----------------");
         System.out.println("---------------------------------------------------------------------\n \n");
@@ -28,14 +34,16 @@ public class AdmController {
         int pinkode = scanner.nextInt();
         scanner.nextLine();
 
-        if (userExists(admID, pinkode)) {
+        if (userExists(admID, pinkode))
+        {
             System.out.println("\nVelkommen tilbage, " + nuAdm.getAdmnavn() + "!");
-            do {
+            do 
+                {
                 printMenu();
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
-
-                switch (choice) {
+                scanner.nextLine(); // fejl i Scanner Objekt.
+                switch (choice) 
+                {
                     case 1:
                         AendreOplysninger();
                         break;
@@ -58,22 +66,25 @@ public class AdmController {
                         Arbejdsfordeling();
                         break;
                     case 8:
-                        logOut();
+                        logUd();
                         break;
                     default:
                         System.out.println("Ugyldigt valg.");
                 }
             }
             while (nuAdm != null);
-        } else {
+        } else 
+            {
             System.out.println("Forkerte oplysninger.. Prøv igen!");
         }
 
     }
 
-    private boolean userExists(int admID, int pinkode) {
-
-        for (Adm adm : db.getAdministratore()) {
+    //Her tjekkes det om brugeren eksistere, at der er blevet oprettet et admId og pinkode for administratoren
+    private boolean userExists(int admID, int pinkode) 
+    {
+        for (Adm adm : db.getAdministratore()) 
+        {
             if (adm.getAdmID() == admID && adm.getAdmKode() == pinkode) {
                 this.nuAdm = adm;
                 return true;
@@ -82,7 +93,9 @@ public class AdmController {
         return false;
     }
 
-    private void printMenu() {
+    //En menu som printer administratorens muligheder, henvist fra "printMenu" metoden.
+    private void printMenu() 
+    {
         System.out.println("\nDu har nu følgende valgmuligheder: \n");
         System.out.println("1) Ændr træner oplysninger");
         System.out.println("2) Godkend nye trænere");
@@ -92,49 +105,58 @@ public class AdmController {
         System.out.println("6) Vis trænere kategoriseret efter holdtype");
         System.out.println("7) Vis statistik over arbejdsfordelingen på trænerne");
         System.out.println("8) Log ud");
-
     }
 
-    private void TraenerListe() {
+    //En liste over trænerene printes.
+    private void TraenerListe() 
+    {
         int i = 1;
         System.out.printf("%-10s %-40s %-30s\n", "Nr.", "Navn:", "CPR:");
-        for (Traener traenere : db.getTraenere()) {
+        for (Traener traenere : db.getTraenere()) 
+        {
             System.out.printf("%-10d %-40s %-30s\n", i, traenere.getNavn(), traenere.getCpr());
             i++;
         }
     }
 
-    private void ikkegodkendtTraenerListe() {
-
+    //En liste over ikke godkendte trænere. Dermed de som har værdien boolean false.
+    private void ikkegodkendtTraenerListe() 
+    {
         System.out.printf("%-10s %-40s %-30s %-20s\n", "Nr.", "Navn:", "CPR:", "Status:");
-        for (Traener traenere : db.getTraenere()) {
-            if (traenere.getIsApproved() == false) {
-                System.out.printf("%-10s %-40s %-30s %-20s\n", db.getTraenere().indexOf(traenere), traenere.getNavn(), traenere.getCpr(), traenere.getIsApproved());
-
+        for (Traener traenere : db.getTraenere()) 
+        {
+            if (traenere.getIsApproved() == false) 
+            {
+                System.out.printf("%-10s %-40s %-30s %-20s\n", db.getTraenere().indexOf(traenere), traenere.getNavn(),
+                        traenere.getCpr(), traenere.getIsApproved());
             }
         }
     }
-
-
-    private void HoldListe() {
+    
+    //En liste over holdene printes.
+    private void HoldListe() 
+    {
         int i = 1;
         System.out.printf("%-10s %-40s \n", "Nr. ", "Hold: ");
-        for (Hold holdene : db.getHoldene()) {
+        for (Hold holdene : db.getHoldene()) 
+        {
             System.out.printf("%-10d %-40s \n", i, holdene.getHoldNavn());
             i++;
         }
     }
-
-
-    private void AendreOplysninger() {
+    
+    //Her får du administratoren muligheden for at ændre alle oplysningerne på en bestemt træner, valgt ud fra 
+    // "TraenerListe" metoden.
+    private void AendreOplysninger() 
+    {
         TraenerListe();
-
         System.out.println("Indtast nummeret på træneren: ");
         int traenerNr = scanner.nextInt();
-        traenerToEdit = db.getTraenere().get(--traenerNr);
+        traenerAendre = db.getTraenere().get(--traenerNr);
         int svar;
 
-        do {
+        do 
+            {
             System.out.println("---------------------------------------------------------------------");
             System.out.println("---------------------- Ændre træner oplysninger  ---------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
@@ -153,58 +175,59 @@ public class AdmController {
             System.out.println("Tast 11 - Tilbage til menu");
             svar = scanner.nextInt();
 
-            switch (svar) {
+            switch (svar) 
+            {
                 case 1:
-                    admÆndreHold();
+                    admAendreHold();
                     break;
                 case 2:
                     System.out.println("Indtast nyt navn: ");
                     scanner.nextLine();
                     String svarNavn = scanner.nextLine();
-                    traenerToEdit.setNavn(svarNavn);
+                    traenerAendre.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
                     scanner.nextLine();
                     String svarMail = scanner.nextLine();
-                    traenerToEdit.setMail(svarMail);
+                    traenerAendre.setMail(svarMail);
                     break;
                 case 4:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
-                    traenerToEdit.setCpr(svarCpr);
+                    traenerAendre.setCpr(svarCpr);
                     break;
                 case 5:
                     System.out.println("Indtast din nye adresse: ");
                     scanner.nextLine();
                     String svarAdr = scanner.nextLine();
-                    traenerToEdit.setAdresse(svarAdr);
+                    traenerAendre.setAdresse(svarAdr);
                     break;
                 case 6:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
-                    traenerToEdit.setMobil(svarMobil);
+                    traenerAendre.setMobil(svarMobil);
                     break;
                 case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     scanner.nextLine();
                     String svarUdd = scanner.nextLine();
-                    traenerToEdit.setUdd(svarUdd);
+                    traenerAendre.setUdd(svarUdd);
                     break;
                 case 8:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
-                    traenerToEdit.setErfaring(svarErf);
+                    traenerAendre.setErfaring(svarErf);
                     break;
                 case 9:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
-                    traenerToEdit.setTimer(svarTimer);
+                    traenerAendre.setTimer(svarTimer);
                     break;
                 case 10:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
-                    traenerToEdit.setPinkode(svarPin);
+                    traenerAendre.setPinkode(svarPin);
                     break;
                 case 11:
                     printMenu();
@@ -216,9 +239,9 @@ public class AdmController {
         } while (svar != 11);
     }
 
-    private void admÆndreHold()
+    //Administratorens funktion til at ændre holdtypen på en bestemt træner.
+    private void admAendreHold()
     {
-
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
@@ -229,19 +252,16 @@ public class AdmController {
             System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
             i++;
         }
-
-        System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
+        System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på:  ");
         int svarHold = scanner.nextInt()-1;
-        Hold holdDerFjernesFraBruger = traenerToEdit.getHoldene().get(0);
+        Hold holdDerFjernesFraBruger = traenerAendre.getHoldene().get(0);
 
         //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
+        traenerAendre.getHoldene().set(0, db.getHoldene().get(svarHold));
 
-        traenerToEdit.getHoldene().set(0, db.getHoldene().get(svarHold));
-
-        db.getHoldene().get(svarHold).addTraener(traenerToEdit);
+        db.getHoldene().get(svarHold).addTraener(traenerAendre);
 
         Hold holdAtFjernesFra = null;
-
 
         //VÆR OPMÆRKSOM PÅ HVIS 2 HOLD HAR SAMME NAVN
         for (Hold hold: db.getHoldene())
@@ -252,13 +272,15 @@ public class AdmController {
             }
         }
 
-        holdAtFjernesFra.removeTraener(traenerToEdit);
+        holdAtFjernesFra.removeTraener(traenerAendre);
 
         System.out.print("Holdet er nu ændret");
     }
 
-
-    public void GodkendTraener() {
+    //En metode som printer en liste over ikke-godkendte trænere (trænere som har boolean værdien "false".
+    //Derefter giver den mulighed for at godkende ved at indtaste index-nummeret på træneren.
+    public void GodkendTraener()
+    {
         ikkegodkendtTraenerListe();
         System.out.println("\nIndtast nummeret på træneren som skal godkendes: ");
         int traenerNr = scanner.nextInt();
@@ -267,16 +289,21 @@ public class AdmController {
         System.out.println(traenertoApprove.getNavn() + " blev godkendt!");
     }
 
-    private void SletTraener() {
+    //En metode som printer trænerlisten og derefter giver muligheden for at slette træneren fra databasen.
+    private void SletTraener()
+    {
         TraenerListe();
         System.out.println("\nIndtast nummeret på den træner som skal slettes:");
         int traenernr = scanner.nextInt();
-        Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
-        db.getTraenere().remove(traenerToDelete);
-        System.out.println("Træneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
+        Traener traenerSletning = db.getTraenere().get(--traenernr);
+        db.getTraenere().remove(traenerSletning);
+        System.out.println("Træneren '" + traenerSletning.getNavn() + "' er nu slettet fra systemet. "
+                + "Vender tilbage til hovedmenuen...");
     }
 
-    private void bestemtTraener() {
+    //En metode som printer alle oplysninger om én bestemt træner, valgt ud fra trænerlisten.
+    private void bestemtTraener()
+    {
         TraenerListe();
         System.out.println("\nIndtast nummeret på træneren for at tilgå trænerens informationer: ");
         int trænerNr = scanner.nextInt();
@@ -295,7 +322,9 @@ public class AdmController {
         System.out.println("Godkendt?:      \t" + traenerInformation.getIsApproved());
     }
 
-    private void BestemtHoldtype() {
+    //Ud fra metoden Holdliste, printes holdene, derefter printes oplysningerne om trænerne på det valgte hold
+    private void BestemtHoldtype()
+    {
         HoldListe();
         System.out.println("\nIndtast nummeret på holdet: ");
         int holdnr = scanner.nextInt();
@@ -317,6 +346,7 @@ public class AdmController {
         } while (i < traenerEfterHold.getTraenere().size());
     }
 
+    //Trænerne printes under det hold de er på.
     private void visTraenereEfterHold() {
         ArrayList<Hold> hold = db.getHoldene();
         System.out.print("Hold:" + "\t \t \t \t Trænere:");
@@ -340,35 +370,44 @@ public class AdmController {
 
     }
 
-
-    private void Arbejdsfordeling() {
-        for (Traener traener : sortByHours()) {
+    //Metoden "sorterTimer" køres og trænerne printes efter der arbejdestimer
+    private void Arbejdsfordeling()
+    {
+        for (Traener traener : sorterTimer())
+        {
             System.out.println(traener.getTimer() + "\t" + traener.getNavn());
         }
     }
 
-    private ArrayList<Traener> sortByHours() {
+    private ArrayList<Traener> sorterTimer()
+    {
+        ArrayList<Traener> sorteretListe = new ArrayList<>();
 
-        ArrayList<Traener> sortedList = new ArrayList<>();
-
-        for (Traener traener : db.getTraenere()) {
-            if (sortedList.size() == 0) {
-                sortedList.add(traener);
-            } else {
+        for (Traener traener : db.getTraenere())
+        {
+            if (sorteretListe.size() == 0)
+            {
+                sorteretListe.add(traener);
+            } else
+                {
                 int index = -1;
-                for (Traener sortedTrainer : sortedList) {
-                    if (sortedTrainer.getTimer() < traener.getTimer() && index == -1) {
-                        index = sortedList.indexOf(sortedTrainer);
+                for (Traener sorteretTraener : sorteretListe)
+                {
+                    if (sorteretTraener.getTimer() < traener.getTimer() && index == -1)
+                    {
+                        index = sorteretListe.indexOf(sorteretTraener);
                     }
                 }
-                sortedList.add(index, traener);
+                sorteretListe.add(index, traener);
             }
         }
-        return sortedList;
+        return sorteretListe;
     }
 
-    private void logOut() {
-        nuAdm = null; // nullifying the currentStudent object resets the login args / values of the currentStudent object.
+    //printMenu stoppes og man bliver sendt tilbage til start menuen.
+    private void logUd()
+    {
+        nuAdm = null;
         System.out.println("\nDu er nu logget ud... Viderestiller til login.");
     }
 

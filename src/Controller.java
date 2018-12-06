@@ -28,7 +28,8 @@ public class Controller
             System.out.println("\n\n---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
-            System.out.println("Tast 1 - Opret træner \nTast 2 - Log ind træner \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
+            System.out.println("Tast 1 - Opret træner \nTast 2 - Log ind træner \nTast 3 - Log ind administrator " +
+                               "\nTast 4 - Afslut program");
             valg = scanner.nextInt();
 
             switch (valg)
@@ -77,7 +78,8 @@ public class Controller
 
         int erfaring = -1;
         boolean format1;
-        do //Her har vi oprettet try-catch for erfaring i år: https://stackoverflow.com/questions/34077958/do-while-loop-with-try-catch
+        do //Her har vi oprettet try-catch for erfaring i år:
+           // https://stackoverflow.com/questions/34077958/do-while-loop-with-try-catch
         {
             try
             {
@@ -418,7 +420,8 @@ public class Controller
         System.out.printf("%-10s %-40s %-30s %-30s\n", "Nr.", "Navn", "Hold", "mobilnummer");
         for (Traener traenere : db.getTraenere())
         {
-            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getHoldene().get(0).getHoldNavn(), traenere.getMobil());
+            System.out.printf("%-10d %-40s %-30s %-30d\n", i, traenere.getNavn(), traenere.getHoldene().
+                              get(0).getHoldNavn(), traenere.getMobil());
             i++;
         }
     }
@@ -429,3 +432,8 @@ public class Controller
         System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
 }
+
+
+
+
+
