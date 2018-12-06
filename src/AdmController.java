@@ -140,74 +140,72 @@ public class AdmController {
             System.out.println("---------------------------------------------------------------------\n \n");
 
             System.out.println("Hvilke oplysninger ønsker du at ændre?");
-            System.out.println("Tast 1 - Navn");
-            System.out.println("Tast 2 - Mail");
-            System.out.println("Tast 3 - CPR-nr");
-            System.out.println("Tast 4 - Adresse");
-            System.out.println("Tast 5 - Mobil nr");
-            System.out.println("Tast 6 - Uddannelse");
-            System.out.println("Tast 7 - Erfaring");
-            System.out.println("Tast 8 - Aftalte antal timer pr. måned");
-            System.out.println("Tast 9 - Pinkode");
-            System.out.println("Tast 10 - Hold");
+            System.out.println("Tast 1 - Hold");
+            System.out.println("Tast 2 - Navn");
+            System.out.println("Tast 3 - Mail");
+            System.out.println("Tast 4 - CPR-nr");
+            System.out.println("Tast 5 - Adresse");
+            System.out.println("Tast 6 - Mobil nr");
+            System.out.println("Tast 7 - Uddannelse");
+            System.out.println("Tast 8 - Erfaring");
+            System.out.println("Tast 9 - Aftalte antal timer pr. måned");
+            System.out.println("Tast 10 - Pinkode");
             System.out.println("Tast 11 - Tilbage til menu");
             svar = scanner.nextInt();
 
             switch (svar) {
                 case 1:
+                    admÆndreHold();
+                    break;
+                case 2:
                     System.out.println("Indtast nyt navn: ");
                     scanner.nextLine();
                     String svarNavn = scanner.nextLine();
                     traenerToEdit.setNavn(svarNavn);
                     break;
-                case 2:
+                case 3:
                     System.out.println("Indtast din nye mail: ");
                     scanner.nextLine();
                     String svarMail = scanner.nextLine();
                     traenerToEdit.setMail(svarMail);
                     break;
-                case 3:
+                case 4:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
                     traenerToEdit.setCpr(svarCpr);
                     break;
-                case 4:
+                case 5:
                     System.out.println("Indtast din nye adresse: ");
                     scanner.nextLine();
                     String svarAdr = scanner.nextLine();
                     traenerToEdit.setAdresse(svarAdr);
                     break;
-                case 5:
+                case 6:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
                     traenerToEdit.setMobil(svarMobil);
                     break;
-                case 6:
+                case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     scanner.nextLine();
                     String svarUdd = scanner.nextLine();
                     traenerToEdit.setUdd(svarUdd);
                     break;
-                case 7:
+                case 8:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
                     traenerToEdit.setErfaring(svarErf);
                     break;
-                case 8:
+                case 9:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
                     traenerToEdit.setTimer(svarTimer);
                     break;
-                case 9:
+                case 10:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
                     traenerToEdit.setPinkode(svarPin);
                     break;
-                /*case 10:
-                    System.out.println("Vælg dit nye hold");
-                    ArrayList<Hold> svarHold = scanner.();
-                    nyTraener.setHold(svarHold);
-                    break;*/
                 case 11:
                     printMenu();
                 default:
@@ -216,6 +214,47 @@ public class AdmController {
 
             } scanner.nextLine();
         } while (svar != 11);
+    }
+
+    private void admÆndreHold()
+    {
+
+        System.out.print("\nVælg dit nye hold:\" \n");
+
+        int i = 1;
+        System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
+
+        for (Hold holdene : db.getHoldene())
+        {
+            System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
+            i++;
+        }
+
+        System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
+        int svarHold = scanner.nextInt()-1;
+        Hold holdDerFjernesFraBruger = traenerToEdit.getHoldene().get(0);
+
+        //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
+
+        traenerToEdit.getHoldene().set(0, db.getHoldene().get(svarHold));
+
+        db.getHoldene().get(svarHold).addTraener(traenerToEdit);
+
+        Hold holdAtFjernesFra = null;
+
+
+        //VÆR OPMÆRKSOM PÅ HVIS 2 HOLD HAR SAMME NAVN
+        for (Hold hold: db.getHoldene())
+        {
+            if (holdDerFjernesFraBruger.getHoldNavn().equals(hold.getHoldNavn()))
+            {
+                holdAtFjernesFra = hold;
+            }
+        }
+
+        holdAtFjernesFra.removeTraener(traenerToEdit);
+
+        System.out.print("Holdet er nu ændret");
     }
 
 

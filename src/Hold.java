@@ -28,4 +28,7 @@ public class Hold
     public void setTraenere(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
     public void addTraener(Traener traener) {traenere.add(traener);}
+
+    public void removeTraener(Traener traener) {traenere.remove(traener);
+    }
 }

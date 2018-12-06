@@ -8,15 +8,18 @@ public class Controller
     private Data db;
     private Scanner scanner;
     private Traener nuTraenere;
+    //private Traener traenerToEdit;
 
-    Traener nyTraener = new Traener();
+
     AdmController adm;
+    //Traener traenerToEdit;
 
     public Controller()
     {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
         adm = new AdmController(db);
+        //traenerToEdit = new Traener();
     }
 
     public void run()
@@ -314,50 +317,50 @@ public class Controller
                     System.out.println("Indtast dit nye navn: ");
                     scanner.nextLine();
                     String svarNavn = scanner.nextLine();
-                    nyTraener.setNavn(svarNavn);
+                    nuTraenere.setNavn(svarNavn);
                     break;
                 case 3:
                     System.out.println("Indtast din nye mail: ");
                     scanner.nextLine();
                     String svarMail = scanner.nextLine();
-                    nyTraener.setMail(svarMail);
+                    nuTraenere.setMail(svarMail);
                     break;
                 case 4:
                     System.out.println("Indtast dit nye CPR: ");
                     int svarCpr = scanner.nextInt();
-                    nyTraener.setCpr(svarCpr);
+                    nuTraenere.setCpr(svarCpr);
                     break;
                 case 5:
                     System.out.println("Indtast din nye adresse: ");
                     scanner.nextLine();
                     String svarAdr = scanner.nextLine();
-                    nyTraener.setAdresse(svarAdr);
+                    nuTraenere.setAdresse(svarAdr);
                     break;
                 case 6:
                     System.out.println("Indtast dit nye mobilnummer: ");
                     int svarMobil = scanner.nextInt();
-                    nyTraener.setMobil(svarMobil);
+                    nuTraenere.setMobil(svarMobil);
                     break;
                 case 7:
                     System.out.println("Indtast nye oplysninger om uddannelse: ");
                     scanner.nextLine();
                     String svarUdd = scanner.nextLine();
-                    nyTraener.setUdd(svarUdd);
+                    nuTraenere.setUdd(svarUdd);
                     break;
                 case 8:
                     System.out.println("Indtast ny erfaring i antal år: ");
                     int svarErf = scanner.nextInt();
-                    nyTraener.setErfaring(svarErf);
+                    nuTraenere.setErfaring(svarErf);
                     break;
                 case 9:
                     System.out.println("Indtast nye oplysninger om antal timer: ");
                     int svarTimer = scanner.nextInt();
-                    nyTraener.setTimer(svarTimer);
+                    nuTraenere.setTimer(svarTimer);
                     break;
                 case 10:
                     System.out.println("Indtast ny pinkode: ");
                     int svarPin = scanner.nextInt();
-                    nyTraener.setPinkode(svarPin);
+                    nuTraenere.setPinkode(svarPin);
                     break;
                 case 11:
                     System.out.println("Du har tastet 11");
@@ -372,25 +375,43 @@ public class Controller
     }
 
 
-    private void ændreHold() {
+    private void ændreHold()
+    {
 
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
         System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
 
-        for (Hold holdene : db.getHoldene()) {
+        for (Hold holdene : db.getHoldene())
+        {
             System.out.printf("%-10d %-40s %-40s\n", i, holdene.getHoldNavn(), holdene.getKortBeskrivelse());
             i++;
         }
 
         System.out.print("\n\nIndtast nummeret på det nye hold du skal være træner på: ");
-        int svarHold = scanner.nextInt();
-
+        int svarHold = scanner.nextInt()-1;
+        Hold holdDerFjernesFraBruger = nuTraenere.getHoldene().get(0);
 
         //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
-        nuTraenere.getHoldene().set(0, db.getHoldene().get(--svarHold));
 
+        nuTraenere.getHoldene().set(0, db.getHoldene().get(svarHold));
+
+        db.getHoldene().get(svarHold).addTraener(nuTraenere);
+
+        Hold holdAtFjernesFra = null;
+
+
+        //VÆR OPMÆRKSOM PÅ HVIS 2 HOLD HAR SAMME NAVN
+        for (Hold hold: db.getHoldene())
+        {
+            if (holdDerFjernesFraBruger.getHoldNavn().equals(hold.getHoldNavn()))
+            {
+                holdAtFjernesFra = hold;
+            }
+        }
+
+        holdAtFjernesFra.removeTraener(nuTraenere);
 
         System.out.print("Holdet er nu ændret");
     }
