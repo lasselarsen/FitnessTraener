@@ -55,7 +55,7 @@ public class Controller
     public void addTraener()
     {
         System.out.print("\nIndtast dit fulde navn: ");
-        String fejlnavn = scanner.nextLine();
+        String fejlnavn = scanner.nextLine(); //Oprettet grundet systemfejl
         String navn = scanner.nextLine();
 
         System.out.print("\nIndtast din mail: ");
@@ -77,7 +77,8 @@ public class Controller
 
         int erfaring = -1;
         boolean format1;
-        do {
+        do //Her har vi oprettet try-catch for erfaring i år
+        {
             try
             {
                 System.out.print("\nIndtast din erfaring i hele år: ");
@@ -99,7 +100,7 @@ public class Controller
 
         boolean isApproved = false;
 
-        // printer holdmulighederne ud
+        //Printer holdmuligheder
         int traenereErOprettet = 0;
 
         do {
@@ -137,21 +138,19 @@ public class Controller
                     break;
                 default:
                     System.out.print("Ugyldigt valg - husk du skal taste 1, 2, 3 eller 4 ind- prøv igen");
-                    // traenereErOprettet = 0;
                     break;
             }
         } while (traenereErOprettet == 0);
     }
 
-    // Her oprettes de 4 forskellige hold
-
+    //Her oprettes de 4 forskellige hold
     private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
                               double timer, int pinkode, boolean isApproved)
     {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
-        //Tilfoejer traenere til hold Arrylisten
+        //Tilføjer traenere til hold Arrylisten
         db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og " +
@@ -164,7 +163,7 @@ public class Controller
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
 
-        //Tilfoejer traenere til hold Arrylisten
+        //Tilføjer traenere til hold Arrylisten
         db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi" +
@@ -177,7 +176,7 @@ public class Controller
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(2));
 
-        //Tilfoejer traenere til hold Arrylisten
+        //Tilføjer traenere til hold Arrylisten
         db.getHoldene().get(2).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Spinning og " +
@@ -190,7 +189,7 @@ public class Controller
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(3));
 
-        //Tilfoejer traenere til hold Arrylisten
+        //Tilføjer traenere til hold Arrylisten
         db.getHoldene().get(3).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Crossfit og " +
@@ -199,18 +198,15 @@ public class Controller
 
     public void login()
     {
-        //Henvisning til "AdmController class" hvor brugeren "TRÆNER" er enten er godkendt eller nægtet adgang
-        //Opret userApproved ved "if (userExists) statement
-
         System.out.println("---------------------------------------------------------------------");
         System.out.println("-------------------- VELKOMMEN TIL TRÆNER LOGIN --------------------");
         System.out.println("---------------------------------------------------------------------\n \n");
 
         int cpr = -1;
         boolean format;
-        do
+        do //Der er oprettet try-catch, så programmet ikke lukker hvis der tastet bogstaver istedet for tal
         {
-            try // inspiration fra: https://stackoverflow.com/questions/34077958/do-while-loop-with-try-catch
+            try //inspiration fra: https://stackoverflow.com/questions/34077958/do-while-loop-with-try-catch
             {
                 System.out.print("\nIndtast dit CPR NR: ");
                 cpr = scanner.nextInt();
@@ -236,7 +232,6 @@ public class Controller
             {
                 printMenu();
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
 
                 switch (choice)
                 {
@@ -253,12 +248,14 @@ public class Controller
                         System.out.println("Ugyldigt valg.");
                 }
             } while (nuTraenere != null);
-        } else {
-            System.out.println("Forkerte oplysninger eller du er ikke blevet godkendt!");
-        }
+        } else
+            {
+                System.out.println("Forkerte oplysninger eller du er ikke blevet godkendt!");
+            }
 
     }
 
+    //Her kontrolleres der om brugeren eksisterer
     private boolean userExists(int cpr, int pinkode)
     {
 
@@ -306,7 +303,8 @@ public class Controller
 
             svar = scanner.nextInt();
 
-            switch (svar) {
+            switch (svar)
+            {
 
                 case 1:
                     ændreHold();
@@ -375,7 +373,6 @@ public class Controller
 
     private void ændreHold()
     {
-
         System.out.print("\nVælg dit nye hold:\" \n");
 
         int i = 1;
@@ -392,7 +389,6 @@ public class Controller
         Hold holdDerFjernesFraBruger = nuTraenere.getHoldene().get(0);
 
         //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
-
         nuTraenere.getHoldene().set(0, db.getHoldene().get(svarHold));
 
         db.getHoldene().get(svarHold).addTraener(nuTraenere);
@@ -400,7 +396,7 @@ public class Controller
         Hold holdAtFjernesFra = null;
 
 
-        //VÆR OPMÆRKSOM PÅ HVIS 2 HOLD HAR SAMME NAVN
+        //Vær opmærksom på hvis to hold har samme navn, så virker denne metode ikke
         for (Hold hold: db.getHoldene())
         {
             if (holdDerFjernesFraBruger.getHoldNavn().equals(hold.getHoldNavn()))
@@ -414,6 +410,7 @@ public class Controller
         System.out.print("Holdet er nu ændret");
     }
 
+    //Printer en liste med vigtigste oplysninger over alle trænere
     private void visTraenere()
     {
         int i = 1;
