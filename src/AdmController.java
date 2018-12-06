@@ -264,7 +264,7 @@ public class AdmController {
         int traenerNr = scanner.nextInt();
         Traener traenertoApprove = db.getTraenere().get(traenerNr);
         traenertoApprove.setIsApproved(true);
-        System.out.println(traenertoApprove.getNavn() + " blev godtkendt!");
+        System.out.println(traenertoApprove.getNavn() + " blev godkendt!");
     }
 
     private void SletTraener() {
