@@ -1,11 +1,14 @@
 //Lavet af Lasse og Christian
 
+
+//Vi opretter en offentlig klasse, med attributter der tilhører administratoren.
 public class Adm
 {
     private int admID;
     private int admKode;
     private String admnavn;
 
+    //Her laver vi en offentlig constructor og sætter this. til vores attributter .
     public Adm(int admID, int admKode, String admnavn)
     {
         this.admID = admID;
