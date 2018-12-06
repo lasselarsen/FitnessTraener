@@ -77,7 +77,7 @@ public class Controller
 
         int erfaring = -1;
         boolean format1;
-        do //Her har vi oprettet try-catch for erfaring i år
+        do //Her har vi oprettet try-catch for erfaring i år: https://stackoverflow.com/questions/34077958/do-while-loop-with-try-catch
         {
             try
             {

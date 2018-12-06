@@ -1,6 +1,5 @@
 // Lavet af Nadia og Nikolaj
 
-
 import java.util.ArrayList;
 
 public class Traener
