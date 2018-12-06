@@ -30,7 +30,7 @@ public class Controller
             System.out.println("---------------------------------------------------------------------");
             System.out.println("---------------------- Velkommen til MotionCBS ----------------------");
             System.out.println("---------------------------------------------------------------------\n \n");
-            System.out.println("Tast 1 - Opret traener \nTast 2 - Log ind traener \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
+            System.out.println("Tast 1 - Opret træner \nTast 2 - Log ind træner \nTast 3 - Log ind administrator \nTast 4 - Afslut program");
             valg = scanner.nextInt();
 
 
@@ -106,7 +106,7 @@ public class Controller
         int traenereErOprettet = 0;
 
         do {
-            System.out.print("\nVælg det hold du skal vaere traener på: \n");
+            System.out.print("\nVælg det hold du skal være træner på: \n");
 
             int i = 1;
             System.out.printf("\n%-10s %-40s %-40s\n", "Nr", "Navn", "Beskrivelse\n");
@@ -117,7 +117,7 @@ public class Controller
                 i++;
             }
 
-            System.out.print("\n\nIntast nummeret på det hold du skal være træner på: ");
+            System.out.print("\n\nIndtast nummeret på det hold du skal være træner på: ");
             int svaret = scanner.nextInt();
 
             switch (svaret)
@@ -363,7 +363,7 @@ public class Controller
                     nuTraenere.setPinkode(svarPin);
                     break;
                 case 11:
-                    System.out.println("Du har tastet 11");
+                    System.out.println("Viderestiller til trænermenu");
                     keepChanging = false;
                     break;
                 default:
