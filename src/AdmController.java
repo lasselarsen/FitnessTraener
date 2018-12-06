@@ -220,7 +220,7 @@ public class AdmController
                     traenerAendre.setErfaring(svarErf);
                     break;
                 case 9:
-                    System.out.println("Indtast nye oplysninger om antal timer: ");
+                    System.out.println("Indtast nye oplysninger om antal timer pr. uge: ");
                     int svarTimer = scanner.nextInt();
                     traenerAendre.setTimer(svarTimer);
                     break;

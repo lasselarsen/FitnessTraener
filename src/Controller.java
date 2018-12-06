@@ -94,7 +94,7 @@ public class Controller
             }
         } while (!format1);
 
-        System.out.print("\nIndtast de aftale antal timer pr. måned: ");
+        System.out.print("\nIndtast de aftale antal timer pr. uge: ");
         double timer = scanner.nextDouble();
 
         System.out.print("\nIndtast pinkode: ");
@@ -351,7 +351,7 @@ public class Controller
                     nuvaerendeTraener.setErfaring(svarErf);
                     break;
                 case 9:
-                    System.out.println("Indtast nye oplysninger om antal timer: ");
+                    System.out.println("Indtast nye oplysninger om antal timer pr. uge: ");
                     int svarTimer = scanner.nextInt();
                     nuvaerendeTraener.setTimer(svarTimer);
                     break;
