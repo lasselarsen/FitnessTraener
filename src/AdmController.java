@@ -41,8 +41,7 @@ public class AdmController
                 {
                 printMenu();
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // consumes the new line left-over. An error in the Scanner object.
-
+                scanner.nextLine(); // fejl i Scanner Objekt.
                 switch (choice) 
                 {
                     case 1:
