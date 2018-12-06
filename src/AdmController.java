@@ -331,7 +331,7 @@ public class AdmController {
             j = 0;
 
             do {
-                System.out.printf("\t \t \t "+holdene.getTraenere().get(--j).getNavn() + "\n" + "\t \t");
+                System.out.printf("\t \t \t "+holdene.getTraenere().get(j).getNavn() + "\n" + "\t \t");
                 j++;
             } while (j < holdene.getTraenere().size());
 
