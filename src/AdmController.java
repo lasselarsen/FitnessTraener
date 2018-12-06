@@ -105,12 +105,12 @@ public class AdmController {
     }
 
     private void ikkegodkendtTraenerListe() {
-        int i = 1;
+
         System.out.printf("%-10s %-40s %-30s %-20s\n", "Nr.", "Navn:", "CPR:", "Status:");
         for (Traener traenere : db.getTraenere()) {
             if (traenere.getIsApproved() == false) {
-                System.out.printf("%-10s %-40s %-30s %-20s\n", i, traenere.getNavn(), traenere.getCpr(), traenere.getIsApproved());
-                i++;
+                System.out.printf("%-10s %-40s %-30s %-20s\n", db.getTraenere().indexOf(traenere), traenere.getNavn(), traenere.getCpr(), traenere.getIsApproved());
+
             }
         }
     }
@@ -260,19 +260,11 @@ public class AdmController {
 
     public void GodkendTraener() {
         ikkegodkendtTraenerListe();
-        System.out.println("\nIndtast nummeret på træneren: ");
+        System.out.println("\nIndtast nummeret på træneren som skal godkendes: ");
         int traenerNr = scanner.nextInt();
-        Traener traenertoApprove = db.getTraenere().get(--traenerNr);
-
-        System.out.println("Skal træneren godkendes? Svar med ( y / n)");
-        char svar = scanner.next().charAt(0);
-
-        if (svar == 'y') {
-            traenertoApprove.setIsApproved(true);
-            System.out.println("Træneren blev godkendt!");
-        } else if (svar == 'n') {
-            System.out.println("Træneren blev ikke godkendt!");
-        }
+        Traener traenertoApprove = db.getTraenere().get(traenerNr);
+        traenertoApprove.setIsApproved(true);
+        System.out.println(traenertoApprove.getNavn() + " blev godtkendt!");
     }
 
     private void SletTraener() {
