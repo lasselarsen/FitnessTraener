@@ -151,7 +151,7 @@ public class Controller
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
         //Tilføjer traenere til hold Arrylisten
-        db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
+        db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet Stram op og " +
                 "vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
@@ -164,7 +164,7 @@ public class Controller
         db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
 
         //Tilføjer traenere til hold Arrylisten
-        db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
+        db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
 
         System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi" +
                 " er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
