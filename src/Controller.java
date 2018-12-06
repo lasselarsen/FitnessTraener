@@ -46,7 +46,7 @@ public class Controller
                     adm.administratorMenu();
                     break;
                 case 4:
-                    keepRunning = false;
+                    System.exit(0);
                     break;
                 default:
                     System.out.print("Ugyldigt valg, prøv igen ");
