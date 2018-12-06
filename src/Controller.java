@@ -55,8 +55,8 @@ public class Controller
     public void addTraener()
     {
         System.out.print("\nIndtast dit fulde navn: ");
+        String fejlnavn = scanner.nextLine();
         String navn = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.print("\nIndtast din mail: ");
         String mail = scanner.nextLine();
@@ -65,15 +65,15 @@ public class Controller
         int cpr = scanner.nextInt();
 
         System.out.print("\nIndtast din adresse: ");
+        String fejladr = scanner.nextLine();
         String adr = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.print("\nIndtast dit mobil nr: ");
         int mobil = scanner.nextInt();
 
         System.out.print("\nIndtast din uddannelse: ");
+        String fejludd = scanner.nextLine();
         String udd = scanner.nextLine();
-        scanner.nextLine();
 
         int erfaring = -1;
         boolean format1;
@@ -144,24 +144,12 @@ public class Controller
     }
 
     // Her oprettes de 4 forskellige hold
-    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
-                          double timer, int pinkode, boolean isApproved)
-    {
-        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
-        db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
-
-        //Tilfoejer traenere til hold Arrylisten
-        db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
-
-        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi" +
-                " er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
-    }
 
     private void opretStramOp(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
                               double timer, int pinkode, boolean isApproved)
     {
         db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
-        db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
+        db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(0));
 
         //Tilfoejer traenere til hold Arrylisten
         db.getHoldene().get(1).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
@@ -170,6 +158,19 @@ public class Controller
                 "vi er glade for, at du vil være træner hos os!\n\nAfvent godkendelses kontrol, før du kan logge in");
     }
 
+    private void opretHit(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
+                          double timer, int pinkode, boolean isApproved)
+    {
+        db.getTraenere().add(new Traener(navn, mail, cpr, adr, mobil, udd, erfaring, timer, pinkode, isApproved));
+        db.getTraenere().get(db.getTraenere().size() - 1).addHold(db.getHoldene().get(1));
+
+        //Tilfoejer traenere til hold Arrylisten
+        db.getHoldene().get(0).addTraener(db.getTraenere().get(db.getTraenere().size() - 1));
+
+        System.out.print("\nStort tillyke med oprettelsen" + navn + "!" + "\nDu er blevet tildelt holdet H.I.T. og vi" +
+                " er glade for, at du vil være træner hos os! \n\nAfvent godkendelses kontrol, før du kan logge in");
+    }
+    
     private void opretSpinning(String navn, String mail, int cpr, String adr, int mobil, String udd, int erfaring,
                                double timer, int pinkode, boolean isApproved)
     {

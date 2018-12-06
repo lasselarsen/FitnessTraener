@@ -273,7 +273,7 @@ public class AdmController {
         int traenernr = scanner.nextInt();
         Traener traenerToDelete = db.getTraenere().get(--traenernr); // book number starts with 1, index starts with 0. We need the index of the book to sell, hence --bookNo as pre-decrement returns bookNo-1.
         db.getTraenere().remove(traenerToDelete);
-        System.out.println("Traeneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
+        System.out.println("Træneren '" + traenerToDelete.getNavn() + "' er nu slettet fra systemet. Vender tilbage til hovedmenuen...");
     }
 
     private void bestemtTraener() {
