@@ -128,7 +128,8 @@ public class AdmController
         {
             if (traenere.getIsApproved() == false) 
             {
-                System.out.printf("%-10s %-40s %-30s %-20s\n", db.getTraenere().indexOf(traenere), traenere.getNavn(), traenere.getCpr(), traenere.getIsApproved());
+                System.out.printf("%-10s %-40s %-30s %-20s\n", db.getTraenere().indexOf(traenere), traenere.getNavn(),
+                        traenere.getCpr(), traenere.getIsApproved());
             }
         }
     }
