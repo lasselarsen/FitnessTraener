@@ -389,6 +389,7 @@ public class Controller
         Hold holdDerFjernesFraBruger = nuvaerendeTraener.getHoldene().get(0);
 
         //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
+        //https://docs.oracle.com/javase/8/docs/api/java/util/List.html#set-int-E-
         nuvaerendeTraener.getHoldene().set(0, db.getHoldene().get(svarHold));
 
         db.getHoldene().get(svarHold).addTraener(nuvaerendeTraener);
