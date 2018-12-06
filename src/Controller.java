@@ -10,12 +10,13 @@ public class Controller
     private Traener nuTraenere;
 
     Traener nyTraener = new Traener();
-    AdmController adm = new AdmController();
+    AdmController adm;
 
     public Controller()
     {
         this.db = new Data();
         this.scanner = new Scanner(System.in);
+        adm = new AdmController(db);
     }
 
     public void run()

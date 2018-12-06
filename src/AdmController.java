@@ -10,8 +10,8 @@ public class AdmController {
     private Adm nuAdm;
     Traener traenerToEdit = new Traener();
 
-    public AdmController() {
-        this.db = new Data();
+    public AdmController(Data data) {
+        this.db = data;
         this.scanner = new Scanner(System.in);
     }
 
