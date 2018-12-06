@@ -16,9 +16,6 @@ public class Hold
         this.traenere = new ArrayList<>();
     }
 
-
-    //public Hold() {}
-
     public String getHoldNavn() {return holdNavn;}
     public void setHoldNavn(String holdNavn) {this.holdNavn = holdNavn;}
 

@@ -33,7 +33,7 @@ public class Traener
         this.isApproved = isApproved;
     }
 
-
+    //Der oprettes en default constructor
     public Traener(){}
 
     //Der oprettes get og set metoder
