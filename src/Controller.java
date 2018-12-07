@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Controller
 {
-
     private Data db;
     private Scanner scanner;
     private Traener nuvaerendeTraener;
@@ -254,7 +253,6 @@ public class Controller
             {
                 System.out.println("Forkerte oplysninger eller du er ikke blevet godkendt!");
             }
-
     }
 
     //Her kontrolleres der om brugeren eksisterer
@@ -278,7 +276,6 @@ public class Controller
         System.out.println("1) Ændre dine oplysninger");
         System.out.println("2) Vis trænere kategoriseret efter holdtype");
         System.out.println("3) Log ud");
-
     }
 
     private void AendreOplysninger()
@@ -372,7 +369,6 @@ public class Controller
         } while (svar != 11);
     }
 
-
     private void ændreHold()
     {
         System.out.print("\nVælg dit nye hold:\" \n");
@@ -393,11 +389,9 @@ public class Controller
         //Fjerner det tidligere hold ud fra indeks nul og tilføjer det nye
         //https://docs.oracle.com/javase/8/docs/api/java/util/List.html#set-int-E-
         nuvaerendeTraener.getHoldene().set(0, db.getHoldene().get(svarHold));
-
         db.getHoldene().get(svarHold).addTraener(nuvaerendeTraener);
 
         Hold holdAtFjernesFra = null;
-
 
         //Vær opmærksom på hvis to hold har samme navn, så virker denne metode ikke
         for (Hold hold: db.getHoldene())
@@ -432,8 +426,3 @@ public class Controller
         System.out.println("\nDu er nu logget ud... Viderestiller til startsiden");
     }
 }
-
-
-
-
-
