@@ -53,7 +53,7 @@ public class Data
         Adm administrator = new Adm(1111, 2222, "administrator");
 
         // Tilføj administrator til Arraylisten
-        administratore.add(administrator);
+        administratorer.add(administrator);
 
         //Oprettelse af de 4 hold
         Hold stramOp = new Hold("Stram op","Dette hold er for dig, der elsker at løfte vægte");
@@ -61,13 +61,13 @@ public class Data
         Hold spinning = new Hold("Spinning", "Dette hold er for dig, der elsker at cykle");
         Hold crossfit = new Hold("Crossfit", "Dette hold er for dig, der elsker motion ");
 
-        //Hold bliver tilføjet Arrylisten
+        //Hold bliver tilføjet Arraylisten
         holdene.add(stramOp);
         holdene.add(hit);
         holdene.add(spinning);
         holdene.add(crossfit);
 
-        //Traenerne faar tildelt et hold
+        //Traenerne får tildelt et hold
         hen.addHold(stramOp);
         anet.addHold(stramOp);
         brian.addHold(hit);
@@ -77,7 +77,7 @@ public class Data
         chris.addHold(crossfit);
         nadia.addHold(crossfit);
 
-        //Holdene faar tildelt traenere
+        //Holdene får tildelt traenere
         stramOp.addTraener(hen);
         stramOp.addTraener(anet);
         hit.addTraener(brian);
