@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class Data
 {
     private ArrayList<Traener> traenere;
-    private ArrayList<Adm> administratore;
+    private ArrayList<Adm> administratorer;
     private ArrayList<Hold> holdene;
 
     // Her oprettes en konstruktor
     public Data()
     {
         this.traenere = new ArrayList<>();
-        this.administratore = new ArrayList<>();
+        this.administratorer = new ArrayList<>();
         this.holdene = new ArrayList<>();
         generateData();
     }
@@ -94,8 +94,8 @@ public class Data
     public ArrayList<Traener> getTraenere() {return traenere;}
     public void setTraenere(ArrayList<Traener> traenere) {this.traenere = traenere;}
 
-    public ArrayList<Adm> getAdministratore() {return administratore;}
-    public void setAdministratore(ArrayList<Adm> administratore) {this.administratore = administratore;}
+    public ArrayList<Adm> getAdministratore() {return administratorer;}
+    public void setAdministratore(ArrayList<Adm> administratore) {this.administratorer = administratore;}
 
     public ArrayList<Hold> getHoldene() {return holdene;}
     public void setHoldene(ArrayList<Hold> holdene) {this.holdene = holdene;}
